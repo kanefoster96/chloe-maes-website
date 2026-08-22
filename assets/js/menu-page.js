@@ -44,15 +44,13 @@
     return row;
   }
 
-  function itemNode(item, section) {
+  function itemNode(item, src) {
     const li = el('li', 'mitem');
 
-    /* A picture of the dish, so people can see it before they read it. */
-    const src = item.img || section.img;
     if (src) {
       const thumb = el('div', 'mitem__thumb shot');
       thumb.dataset.photo = src;
-      thumb.dataset.art = section.art || 'art-pancakes';
+      thumb.dataset.art = 'art-pancakes';
       li.append(thumb);   /* hydrateShots paints it — artwork only if the photo fails */
     }
 
@@ -77,12 +75,29 @@
     return li;
   }
 
+  /* Each section alternates between two photographs, so a list never runs the
+     same thumbnail down its whole length. A dish with a picture of its own
+     keeps it — unless that would repeat the one directly above, in which case
+     variety wins; this is a preview, not a catalogue. */
+  function pictureRun(section) {
+    const a = section.img;
+    const b = section.img2 || a;
+    let prev = null;
+    return section.items.map((item, i) => {
+      let src = item.img || (i % 2 ? b : a);
+      if (src === prev) src = src === a ? b : a;
+      prev = src;
+      return src;
+    });
+  }
+
   function sectionNode(section) {
     const box = el('section', 'msection');
     box.append(el('h3', null, section.title));
     if (section.note) box.append(el('p', 'msection__note', section.note));
     const list = el('ul', 'mitems');
-    section.items.forEach((item) => list.append(itemNode(item, section)));
+    const pictures = pictureRun(section);
+    section.items.forEach((item, i) => list.append(itemNode(item, pictures[i])));
     box.append(list);
     return box;
   }

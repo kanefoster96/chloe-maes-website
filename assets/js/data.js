@@ -69,6 +69,7 @@ window.CHLOE = (function () {
         {
           title: 'The Ultimate American Pancakes',
           img: 'assets/img/photo-pancakes.jpg',
+          img2: 'assets/img/photo-room.jpg',
           note: 'Stacks of three, made to order. Add a fourth for £2.',
           items: [
             { name: 'Biscoff Dream', desc: 'Warm Biscoff spread, crushed biscuit, salted caramel, whipped cream', price: '9.50', tags: ['V'], star: true },
@@ -82,6 +83,7 @@ window.CHLOE = (function () {
         {
           title: 'Big Plates',
           img: 'assets/img/photo-fullbreakfast.jpg',
+          img2: 'assets/img/photo-breakfast.jpg',
           items: [
             { name: "Chloe's Full Breakfast", desc: 'Bacon, Cumberland sausage, black pudding, hash brown, mushrooms, beans, tomato, two eggs, toast', price: '12.95', star: true },
             { name: 'The Vegan Full', desc: 'Vegan sausage, smashed avocado, hash brown, mushrooms, beans, tomato, spinach, sourdough', price: '11.95', tags: ['VE'] },
@@ -93,6 +95,7 @@ window.CHLOE = (function () {
         {
           title: 'Lighter & On Toast',
           img: 'assets/img/photo-benedict.jpg',
+          img2: 'assets/img/photo-flatbreads.jpg',
           items: [
             { name: 'Eggs Benedict', img: 'assets/img/photo-benedict.jpg', desc: 'Toasted muffin, dry-cured ham, poached eggs, hollandaise', price: '10.50' },
             { name: 'Eggs Royale', img: 'assets/img/photo-benedict.jpg', desc: 'Toasted muffin, smoked salmon, poached eggs, hollandaise', price: '11.50' },
@@ -123,6 +126,7 @@ window.CHLOE = (function () {
         {
           title: 'To Start & To Share',
           img: 'assets/img/photo-fries.jpg',
+          img2: 'assets/img/photo-bowls.jpg',
           items: [
             { name: 'Korean Chicken Tenders', img: 'assets/img/photo-fries.jpg', desc: 'Buttermilk tenders, gochujang glaze, sesame, spring onion, kimchi mayo', price: '8.95', star: true },
             { name: 'Salt & Chilli Halloumi Fries', desc: 'Crisp halloumi, chilli, peppers, sriracha yoghurt', price: '7.95', tags: ['V'] },
@@ -133,6 +137,7 @@ window.CHLOE = (function () {
         {
           title: 'Burgers, Buns & Sandwiches',
           img: 'assets/img/photo-burger.jpg',
+          img2: 'assets/img/photo-chickenburger.jpg',
           note: 'All served with skin-on fries and slaw.',
           items: [
             { name: 'The Chloe Mae Burger', img: 'assets/img/photo-burger.jpg', desc: 'Double smash patty, burger sauce, American cheese, pickles, brioche', price: '14.50', star: true },
@@ -146,6 +151,7 @@ window.CHLOE = (function () {
         {
           title: 'Plates & Bowls',
           img: 'assets/img/photo-bowls.jpg',
+          img2: 'assets/img/photo-fries.jpg',
           items: [
             { name: 'Cullercoats Fish & Chips', desc: 'Beer-battered haddock, triple-cooked chips, crushed peas, tartare', price: '16.50', star: true },
             { name: 'Chicken Caesar', img: 'assets/img/photo-bowls.jpg', desc: 'Grilled chicken, baby gem, focaccia croutons, parmesan, anchovy dressing', price: '13.50' },
@@ -157,6 +163,7 @@ window.CHLOE = (function () {
         {
           title: 'Sides',
           img: 'assets/img/photo-fries.jpg',
+          img2: 'assets/img/photo-burger.jpg',
           items: [
             { name: 'Skin-on Fries', price: '4.00', tags: ['VE'] },
             { name: 'Truffle & Parmesan Fries', price: '5.50', tags: ['V'] },
@@ -186,6 +193,7 @@ window.CHLOE = (function () {
         {
           title: 'Small Plates',
           img: 'assets/img/photo-fries.jpg',
+          img2: 'assets/img/photo-flatbreads.jpg',
           note: 'Three between two is about right.',
           items: [
             { name: 'Lindisfarne Oysters', desc: 'Three, shallot vinegar, lemon', price: '9.50', tags: ['GF'] },
@@ -198,6 +206,7 @@ window.CHLOE = (function () {
         {
           title: 'Mains',
           img: 'assets/img/photo-bowls.jpg',
+          img2: 'assets/img/photo-chickenburger.jpg',
           items: [
             { name: 'North Sea Cod', desc: 'Roast cod loin, brown shrimp butter, crushed new potatoes, samphire', price: '21.50', tags: ['GF'], star: true },
             { name: 'Sirloin Steak', desc: '8oz sirloin, triple-cooked chips, roast tomato, peppercorn sauce', price: '26.00', tags: ['GFA'] },
@@ -209,6 +218,7 @@ window.CHLOE = (function () {
         {
           title: 'Puddings',
           img: 'assets/img/photo-pancakes.jpg',
+          img2: 'assets/img/photo-room.jpg',
           items: [
             { name: 'Sticky Toffee Pudding', desc: 'Salted caramel, clotted cream', price: '8.50', tags: ['V'], star: true },
             { name: 'Biscoff Cheesecake', desc: 'Baked, caramelised biscuit crumb', price: '8.50', tags: ['V'] },
@@ -238,6 +248,7 @@ window.CHLOE = (function () {
         {
           title: 'Coffee',
           img: 'assets/img/photo-coffee.jpg',
+          img2: 'assets/img/photo-matcha.jpg',
           note: 'House espresso roasted on Tyneside. Oat, soya and coconut milk at no extra charge.',
           items: [
             { name: 'Espresso / Macchiato', price: '2.60' },
@@ -251,6 +262,7 @@ window.CHLOE = (function () {
         {
           title: 'Tea & Other Warmers',
           img: 'assets/img/photo-matcha.jpg',
+          img2: 'assets/img/photo-coffee.jpg',
           items: [
             { name: 'Pot of Breakfast Tea', price: '2.80', tags: ['V'] },
             { name: 'Loose Leaf Infusions', desc: 'Peppermint, camomile, red berry, green', price: '3.10', tags: ['VE'] },
@@ -261,6 +273,7 @@ window.CHLOE = (function () {
         {
           title: 'Cold & Sweet',
           img: 'assets/img/photo-pancakes.jpg',
+          img2: 'assets/img/photo-drinks.jpg',
           items: [
             { name: 'Milkshakes', img: 'assets/img/photo-drinks.jpg', desc: 'Biscoff, Oreo, strawberry, salted caramel', price: '5.50', tags: ['V'] },
             { name: 'Fresh Orange Juice', price: '3.20', tags: ['VE', 'GF'] },
@@ -272,6 +285,7 @@ window.CHLOE = (function () {
         {
           title: 'Something Stronger',
           img: 'assets/img/photo-drinks.jpg',
+          img2: 'assets/img/photo-coffee.jpg',
           note: 'Available from 12pm. Full wine and cocktail list on the table.',
           items: [
             { name: 'House Wine', desc: '175ml / 250ml / bottle', price: '6.00', priceNote: '/ 8.00 / 23.00' },

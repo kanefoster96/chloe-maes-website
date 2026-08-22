@@ -110,15 +110,16 @@ change.
 | `photo-map.png` | The map with the pin |
 
 **Adding more.** Drop a JPEG into `assets/img/` and point at it from
-`data.js`. Each menu section has an `img` — the default picture for every dish
-in it — and any single dish can override that with its own `img`:
+`data.js`. Each menu section has a pair — `img` and `img2` — which it
+alternates down its list so no two dishes in a row share a thumbnail. Any
+single dish can override both with its own:
 
 ```js
 { name: 'Breakfast Burger', img: 'assets/img/photo-burger.jpg', ... }
 ```
 
-The more dishes that carry their own picture, the less the thumbnails repeat
-down a section.
+An override is dropped only where it would repeat the picture directly above
+it. The more dishes that carry their own, the less the pair shows through.
 
 Anything from a phone camera is big enough. The hero is three 4:5 portraits,
 the dish cards are 4:5, and the menu thumbnails are square — every slot crops
@@ -146,7 +147,6 @@ to again, whichever suits.
 - Replace the placeholder dishes and prices in `data.js` with the real menu.
 - Swap the paraphrased review quotes in `REVIEWS` for verbatim ones, or link
   straight through to the Google listing.
-- Remove the demo sentence from the footer (`id="demo-line"`, in both pages).
 - Update the `https://chloemaes.co.uk/` URLs in the `<link rel="canonical">`,
   Open Graph tags, `sitemap.xml`, `robots.txt` and the JSON-LD block at the
   bottom of `index.html` to the real domain.
