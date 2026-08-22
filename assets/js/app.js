@@ -110,36 +110,53 @@
   /* Each belt holds the same run of items twice, so translating the track by
      half its width loops seamlessly. */
   /* A belt holds the same run of items twice, so translating the track by half
-     its width loops seamlessly. With only a few short items one run is narrower
-     than the screen, so the run is repeated until it is wide enough first —
-     otherwise the belt shows a gap on every pass. */
-  function marquee(track, build, items) {
-    if (!track || !items.length) return;
+     its width loops seamlessly, and the run is repeated until it is at least as
+     wide as the screen — otherwise a gap scrolls past on every pass.
 
-    const fill = () => {
+     `staticFrom` is a width at and above which the belt stops moving and simply
+     centres one run. A short list scrolling on a wide screen has to repeat to
+     fill it, which reads as the same items printed three times; holding still
+     and spacing them out says the same thing more calmly. */
+  function marquee(track, build, items, opts) {
+    if (!track || !items.length) return;
+    const staticFrom = (opts && opts.staticFrom) || 0;
+    const belt = track.closest('.marquee');
+
+    const render = () => {
+      track.textContent = '';
+
       const group = el('div', 'marquee__group');
       items.forEach((item) => group.append(build(item)));
-      return group;
+      track.append(group);
+
+      const held = staticFrom && window.innerWidth >= staticFrom;
+      if (belt) belt.classList.toggle('is-static', !!held);
+      if (held) return;                   // one run, centred, going nowhere
+
+      const container = (track.parentElement && track.parentElement.offsetWidth) || window.innerWidth;
+      let guard = 24;                     // never loop forever on a zero-width group
+      while (group.offsetWidth && group.offsetWidth < container && guard--) {
+        items.forEach((item) => group.append(build(item)));
+      }
+
+      const twin = group.cloneNode(true);
+      twin.setAttribute('aria-hidden', 'true');
+      track.append(twin);
+
+      /* Same perceived speed whatever is on it: about 45 pixels a second. */
+      if (belt && group.offsetWidth) {
+        belt.style.setProperty('--speed', Math.max(18, Math.round(group.offsetWidth / 45)) + 's');
+      }
     };
 
-    const first = fill();
-    track.append(first);
+    render();
 
-    const needed = () => track.parentElement.offsetWidth || window.innerWidth;
-    let guard = 24;                       // never loop forever on a zero-width group
-    while (first.offsetWidth && first.offsetWidth < needed() && guard--) {
-      items.forEach((item) => first.append(build(item)));
-    }
-
-    const twin = first.cloneNode(true);
-    twin.setAttribute('aria-hidden', 'true');
-    track.append(twin);
-
-    /* Same perceived speed whatever is on it: about 45 pixels a second. */
-    const belt = track.closest('.marquee');
-    if (belt && first.offsetWidth) {
-      belt.style.setProperty('--speed', Math.max(18, Math.round(first.offsetWidth / 45)) + 's');
-    }
+    /* Which side of the breakpoint we are on can change, so rebuild on resize. */
+    let pending;
+    window.addEventListener('resize', () => {
+      clearTimeout(pending);
+      pending = setTimeout(render, 200);
+    });
   }
 
   function starRow(count) {
@@ -158,7 +175,7 @@
       pill.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#${f.icon}"/></svg>`);
       pill.append(f.label);
       return pill;
-    }, DATA.FEATURES);
+    }, DATA.FEATURES, { staticFrom: 720 });
   }
 
   /* ------------------------------------------------- 4b. The hero pictures */

@@ -169,13 +169,15 @@ to again, whichever suits.
   in the order listed in the `data-photos` attribute on `#hero-shot`. It opens
   on the first of them, pauses when the tab is not visible, skips any file that
   fails to load, and holds still for anyone with reduced motion turned on.
-- Three facts drift past under the hero buttons — very dog friendly, vegan and
-  veggie, takeaway — so the things people ring up to ask are answered before
-  any scrolling. Edit them in `FEATURES` in `data.js`.
-- Both marquees repeat their run until it is wider than the screen before
-  looping, so a short list does not leave a gap on every pass, and both run at
-  roughly the same speed whatever is on them. They pause on hover or keyboard
-  focus, and become plain horizontal scrollers under reduced motion.
+- A banner under the header carries the three things people ring up to ask —
+  very dog friendly, vegan and veggie, takeaway. On a phone the three will not
+  fit across, so it drifts; from 720px it holds still and spaces them out.
+  Edit them in `FEATURES` in `data.js`; the breakpoint is `staticFrom` where
+  `featureStrip` calls `marquee`.
+- Belts repeat their run until it is wider than the screen before looping, so a
+  short list does not scroll a gap past on every pass, and they run at roughly
+  the same speed whatever is on them. They pause on hover or keyboard focus,
+  and become plain horizontal scrollers under reduced motion.
 - On phones a pink call button sits beside the menu toggle in the header, so
   booking is one tap from anywhere on the site.
 - Structured data (`CafeOrCoffeeShop`) is included so Google can read the
