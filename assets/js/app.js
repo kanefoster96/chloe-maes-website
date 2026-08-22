@@ -123,7 +123,7 @@
   function featureStrip() {
     marquee($('#pill-track'), (f) => {
       const pill = el('span', 'pill' + (f.green ? ' pill--green' : ''));
-      pill.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#i-${f.icon}"/></svg>`);
+      pill.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#${f.icon}"/></svg>`);
       pill.append(f.label);
       return pill;
     }, DATA.FEATURES);

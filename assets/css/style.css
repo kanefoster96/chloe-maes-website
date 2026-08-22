@@ -172,7 +172,24 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 
 
-.btn--sm { padding: .62rem 1.15rem; min-height: 2.5rem; font-size: .85rem; }
+.btn--sm { padding: .55rem 1.05rem; min-height: 2.35rem; font-size: .82rem; }
+
+/* Frosted glass — used by the pinned bar, so the page shows through it. */
+.btn--glass {
+  background: rgba(28, 22, 23, .55);
+  border-color: rgba(240, 196, 207, .28);
+  color: var(--text);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: 0 2px 10px rgba(0,0,0,.35);
+}
+.btn--glass:hover {
+  background: rgba(240, 196, 207, .16);
+  border-color: var(--blush);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+}
+.btn--glass .ic { color: var(--blush); }
 .btn--block { width: 100%; }
 .btn .ic { width: 1.05em; height: 1.05em; flex: none; }
 
@@ -514,15 +531,15 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 /* Thumb-reach shortcuts, phones only. */
 .tabbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
-  display: none; gap: .6rem; padding: .6rem var(--gutter) calc(.6rem + env(safe-area-inset-bottom));
-  background: rgba(13,11,11,.94);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-top: 1px solid var(--line-soft);
+  display: none; gap: .5rem; justify-content: center;
+  padding: .5rem var(--gutter) calc(.55rem + env(safe-area-inset-bottom));
+  background: none; border: 0;
+  pointer-events: none;   /* only the buttons themselves catch taps */
 }
-.tabbar .btn { flex: 1; }
+.tabbar .btn { pointer-events: auto; flex: 0 1 auto; }
 @media (max-width: 760px) {
   .tabbar { display: flex; }
-  body { padding-bottom: 4.75rem; }
+  body { padding-bottom: 4.25rem; }
 }
 
 /* -------------------------------------------------- 17. Reveal on scroll */

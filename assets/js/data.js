@@ -59,7 +59,7 @@ window.CHLOE = (function () {
       days: [0, 1, 2, 3, 4, 5, 6],
       shots: [
         { art: 'art-pancakes',     photo: 'assets/img/photo-pancakes.jpg',      alt: 'A loaded pancake stack' },
-        { art: 'art-fullbreakfast', photo: 'assets/img/photo-fullbreakfast.jpg', alt: 'The full breakfast' },
+        { art: 'art-fullbreakfast', photo: 'assets/img/photo-breakfast.jpg', alt: 'The full breakfast' },
         { art: 'art-flatbreads',    photo: 'assets/img/photo-flatbreads.jpg',    alt: 'Chorizo and egg flatbreads' }
       ],
       blurb:
@@ -109,8 +109,8 @@ window.CHLOE = (function () {
       days: [0, 1, 2, 3, 4, 5, 6],
       shots: [
         { art: 'art-bowls',      photo: 'assets/img/photo-bowls.jpg',      alt: 'The halloumi and chicken bowls' },
-        { art: 'art-flatbreads', photo: 'assets/img/photo-main.jpg',       alt: 'A lunch plate' },
-        { art: 'art-room',       photo: 'assets/img/photo-room.jpg',       alt: 'The dining room' }
+        { art: 'art-flatbreads', photo: 'assets/img/photo-flatbreads.jpg', alt: 'Chorizo and egg flatbreads' },
+        { art: 'art-room',       photo: 'assets/img/photo-breakfast.jpg', alt: 'Breakfast in the dining room' }
       ],
       blurb:
         'Lunch by the bay. Sandwiches on proper bread, buttermilk chicken worth the walk, and a specials board that changes with whatever the week brings in.',
@@ -167,8 +167,8 @@ window.CHLOE = (function () {
       to: '20:30',
       days: [4, 5, 6],
       shots: [
-        { art: 'art-evening', photo: 'assets/img/photo-evening.jpg', alt: 'The room after dark' },
-        { art: 'art-bowls',   photo: 'assets/img/photo-bowls.jpg',   alt: 'An evening plate' }
+        { art: 'art-evening', photo: 'assets/img/photo-bowls.jpg', alt: 'An evening plate' },
+        { art: 'art-bowls',   photo: 'assets/img/photo-breakfast.jpg', alt: 'The room in the evening' }
       ],
       blurb:
         'Three nights a week the lights go low, the candles come out and the kitchen cooks a little differently. Booking is wise.',
@@ -215,7 +215,7 @@ window.CHLOE = (function () {
       days: [0, 1, 2, 3, 4, 5, 6],
       shots: [
         { art: 'art-drinks',   photo: 'assets/img/photo-drinks.jpg', alt: 'Iced matcha to take away' },
-        { art: 'art-pancakes', photo: 'assets/img/photo-cake.jpg',   alt: 'Cake from the counter' }
+        { art: 'art-pancakes', photo: 'assets/img/photo-pancakes.jpg', alt: 'A pancake stack and an iced coffee' }
       ],
       alwaysOn: true,
       blurb:
@@ -278,7 +278,7 @@ window.CHLOE = (function () {
 
   /* -- The strip that drifts past under the hero --------------------------- */
   const FEATURES = [
-    { icon: 'i-dog',   label: 'Dog friendly, all day' },
+    { icon: 'i-paw',   label: 'Dog friendly, all day' },
     { icon: 'i-leaf',  label: 'Vegan & veggie plates', green: true },
     { icon: 'i-bag',   label: 'Takeaway & delivery' },
     { icon: 'i-metro', label: '4 min from Cullercoats Metro' },

@@ -87,28 +87,24 @@ photograph that should replace it. Drop the file in at the path below and it
 fades in over the artwork automatically — nothing to wire up, no markup to
 change.
 
-| Save the file as | Where it appears | Suggested photo |
+| Save the file as | What it should be | Where it appears |
 | --- | --- | --- |
-| `assets/img/photo-room.jpg` | Hero band + story column | The room: flower wall, marble tables, blush chairs |
-| `assets/img/photo-pancakes.jpg` | Live panel + first dish card | The loaded pancake stack |
-| `assets/img/photo-flatbreads.jpg` | Second dish card + story | Chorizo and fried egg flatbreads |
-| `assets/img/photo-fullbreakfast.jpg` | Third dish card | The full breakfast with hash browns |
-| `assets/img/photo-bowls.jpg` | Fourth dish card | The halloumi and chicken bowls |
-| `assets/img/photo-dog.jpg` | Story column | The golden retriever with the iced drink |
-| `assets/img/photo-map.png` | Find us | Map screenshot with the pin |
-| `assets/img/photo-main.jpg` | Main menu pictures | A lunch plate, landscape |
-| `assets/img/photo-evening.jpg` | Evening menu pictures | The room after dark, landscape |
-| `assets/img/photo-drinks.jpg` | Drinks menu pictures | Iced matcha, or the coffee counter |
-| `assets/img/photo-cake.jpg` | Drinks menu pictures | Something from the cake fridge |
+| `assets/img/photo-breakfast.jpg` | The two full breakfasts on the marble, room behind | Hero band, the Full Breakfast card, three menus |
+| `assets/img/photo-pancakes.jpg` | The pancake stack and iced coffee in the room | Live panel, the Pancake Stack card, our-place column, drinks menu |
+| `assets/img/photo-flatbreads.jpg` | Chorizo and egg flatbreads on the black plate | Flatbreads card, our-place column, breakfast and main menus |
+| `assets/img/photo-bowls.jpg` | The chicken and halloumi bowls | The Bowls card, main and evening menus |
+| `assets/img/photo-dog.jpg` | The retriever with the iced drink | Our-place column |
+| `assets/img/photo-drinks.jpg` | The two iced matcha on lilac | Drinks menu |
+| `assets/img/photo-map.png` | The map screenshot with the pin | Find us |
 
-The same photograph can be used in more than one slot — the breakfast, lunch and
-evening menus each show two or three pictures above their items, and they reuse
-the dish photographs above. Which pictures appear on which menu is the `shots`
-array on each service in `data.js`.
+Seven files, reused across every slot on the site — nothing needs its own
+photograph. Which picture appears on which menu is the `shots` array on each
+service in `data.js`, and the rest are `data-photo` attributes in `index.html`.
 
-The banners are cropped wide (about 21:8), so give them landscape photographs
-around 1600px across. The dish cards are square on phones and 4:5 on desktop,
-so a 1200×1500 portrait crop suits them best.
+Anything from a phone camera is big enough. The hero band is cropped wide, the
+dish cards are 4:5 portrait on desktop and square on phones, and the menu
+pictures are 4:3 — every slot crops from the centre, so leave a little room
+around the subject.
 `assets/img/og.png` is the image that shows when the site is shared on social
 media or in a message — worth replacing with a real photograph of the shopfront.
 
