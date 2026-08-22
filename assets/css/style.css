@@ -190,6 +190,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .btn--glass .ic { color: var(--blush); }
 .btn--block { width: 100%; }
 .btn .ic { width: 1.05em; height: 1.05em; flex: none; }
+.emoji { font-size: 1.05em; line-height: 1; letter-spacing: 0; }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: .75rem; }
 .btn-row--center { justify-content: center; }
@@ -529,13 +530,13 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 /* --------------------------------------------- 16. Call button, phones only */
 .callbtn {
   display: none; margin-left: auto;
-  width: 2.9rem; height: 2.9rem; border-radius: var(--r-pill);
-  background: var(--blush); color: #14100f;
+  width: 2.75rem; height: 2.75rem;      /* an easy tap target, nothing drawn */
+  color: var(--blush);
   align-items: center; justify-content: center;
-  transition: background .2s var(--ease);
+  transition: color .2s var(--ease);
 }
-.callbtn svg { width: 1.15rem; height: 1.15rem; }
-.callbtn:hover { background: #f7d8df; }
+.callbtn svg { width: 1.35rem; height: 1.35rem; }
+.callbtn:hover { color: var(--blush-soft); }
 @media (max-width: 900px) {
   .callbtn { display: inline-flex; }
   .navtoggle { margin-left: .5rem; }
@@ -672,8 +673,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   .grid--4 .dish { gap: .65rem; }
 
   .story__art { gap: .6rem; }
-  .hero .btn-row { flex-direction: column; align-items: stretch; }
-  .hero .btn { width: 100%; }
+  .hero .btn-row { gap: .5rem; }
+  .hero .btn { padding-inline: 1.05rem; font-size: .88rem; gap: .4rem; }
   .rcard { padding: 1.15rem 1.2rem; }
   .live__foot .btn { width: 100%; }
   .infolist > div { grid-template-columns: 1.4rem 1fr; gap: .75rem; }
