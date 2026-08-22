@@ -7,10 +7,10 @@
 /* --------------------------------------------------------------- 1. Tokens */
 :root {
   /* Ink — the room after dark: the counter, the pendants, the banquette */
-  --ink:        #0d0b0b;   /* the page itself */
-  --panel:      #161213;   /* raised surfaces */
-  --panel-2:    #1e1819;   /* cards on top of those */
-  --panel-3:    #2a2223;   /* hover states, wells */
+  --ink:        #0a0909;   /* the page itself */
+  --panel:      #1c1920;   /* cards and panels — clearly lifted off the page */
+  --panel-2:    #0f0e11;   /* bands, barely off black */
+  --panel-3:    #262230;   /* hover states, wells */
 
   --text:       #e9e0dd;
   --muted:      #a4958f;
@@ -35,9 +35,9 @@
   --green:      #8fc79f;
   --sage:       #7d9a80;
 
-  --line:       rgba(240, 196, 207, .13);
-  --line-soft:  rgba(240, 196, 207, .07);
-  --line-blush: rgba(240, 196, 207, .26);
+  --line:       rgba(255, 255, 255, .13);
+  --line-soft:  rgba(255, 255, 255, .07);
+  --line-blush: rgba(240, 196, 207, .32);
 
   /* Type */
   --display: 'Fraunces', 'Georgia', 'Times New Roman', serif;
@@ -53,8 +53,8 @@
   --r-lg: 26px;
   --r-pill: 999px;
 
-  --shadow:      0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.85);
-  --shadow-lift: 0 2px 6px rgba(0,0,0,.55), 0 30px 66px -28px rgba(0,0,0,.95);
+  --shadow:      none;
+  --shadow-lift: none;
 
   --ease: cubic-bezier(.22,.61,.36,1);
   --header-h: 4.4rem;
@@ -126,7 +126,7 @@ p:last-child { margin-bottom: 0; }
 section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .band { padding-block: clamp(3.25rem, 8vw, 6.5rem); }
 .band--tight { padding-block: clamp(2.25rem, 5vw, 3.5rem); }
-.band--paper { background: var(--panel); }
+.band--paper { background: var(--panel-2); }
 
 /* A slightly raised room, for the sections that want their own weight */
 .band--dark { background: var(--panel-2); }
@@ -158,11 +158,11 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   border: 1px solid var(--blush); border-radius: var(--r-pill);
   font-size: .92rem; font-weight: 600; letter-spacing: .01em;
   cursor: pointer; white-space: nowrap;
-  transition: transform .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease), color .18s var(--ease);
-  box-shadow: 0 10px 26px -14px rgba(240,196,207,.55);
+  transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+  box-shadow: none;
 }
-.btn:hover { transform: translateY(-2px); background: #f7d8df; border-color: #f7d8df; box-shadow: 0 16px 34px -16px rgba(240,196,207,.7); }
-.btn:active { transform: translateY(0); }
+.btn:hover { background: #f7d8df; border-color: #f7d8df; }
+
 
 .btn--blush { background: var(--blush); border-color: var(--blush); color: #14100f; }
 .btn--blush:hover { background: #f7d8df; }
@@ -176,18 +176,16 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 /* Frosted glass — used by the pinned bar, so the page shows through it. */
 .btn--glass {
-  background: rgba(28, 22, 23, .55);
+  background: rgba(24, 21, 25, .62);
   border-color: rgba(240, 196, 207, .28);
   color: var(--text);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
-  box-shadow: 0 2px 10px rgba(0,0,0,.35);
 }
 .btn--glass:hover {
   background: rgba(240, 196, 207, .16);
   border-color: var(--blush);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(0,0,0,.4);
 }
 .btn--glass .ic { color: var(--blush); }
 .btn--block { width: 100%; }
@@ -290,13 +288,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 @media (min-width: 901px) { .drawer { display: none !important; } }
 
 /* ------------------------------------------------------------------ 7. Hero */
-.hero { text-align: center; padding-block: clamp(2.5rem, 7vw, 5rem) clamp(2rem, 5vw, 3.5rem); position: relative; }
-.hero::before {
-  content: ''; position: absolute; inset: 0 0 40% 0; z-index: -1;
-  background:
-    radial-gradient(42rem 24rem at 50% -4%, rgba(240,196,207,.13), transparent 70%),
-    radial-gradient(32rem 22rem at 88% 12%, rgba(125,154,128,.09), transparent 70%);
-}
+.hero { text-align: center; padding-block: clamp(2.75rem, 7vw, 5rem) clamp(2rem, 5vw, 3.5rem); }
 .hero__inner { max-width: 46rem; margin-inline: auto; }
 .hero__script {
   font-family: var(--script); font-size: clamp(3.4rem, 13vw, 6.2rem);
@@ -311,19 +303,14 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .hero__note { margin-top: 1.15rem; font-size: .84rem; color: var(--faint); }
 .hero__note strong { color: var(--text); font-weight: 600; }
 
-/* The photographs are portrait, so the hero is three of them rather than
-   one wide band that would crop each to a sliver. */
+/* One photograph, centred. The shopfront one — it is the only shot with the
+   sign in it, so it says where you are before a word is read. */
 .hero__shots {
-  margin-top: clamp(1.75rem, 4.5vw, 3rem);
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 1.6vw, 1rem);
+  margin-top: clamp(2rem, 5vw, 3.25rem);
+  max-width: 38rem; margin-inline: auto;
 }
-.hero__shots .shot { aspect-ratio: 4 / 5; border-radius: var(--r); box-shadow: var(--shadow-lift); }
-.hero__shots .shot:nth-child(2) { aspect-ratio: 4 / 5; transform: translateY(-1.25rem); }
-@media (max-width: 760px) {
-  .hero__shots { grid-template-columns: 1fr 1fr; gap: .5rem; }
-  .hero__shots .shot:nth-child(2) { transform: none; }
-  .hero__shots .shot:nth-child(3) { display: none; }
-}
+.hero__shots .shot { aspect-ratio: 4 / 5; border-radius: var(--r); }
+@media (max-width: 560px) { .hero__shots { max-width: none; } }
 
 /* ------------------------------------------------------------- 8. Marquees */
 .marquee {
@@ -359,12 +346,12 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .marquee--reviews .marquee__group { gap: 1.15rem; padding-right: 1.15rem; }
 .rcard {
   width: min(21rem, 78vw); flex: none;
-  background: var(--panel); border: 1px solid var(--line-soft);
+  background: var(--panel); border: 1px solid var(--line);
   border-radius: var(--r); padding: 1.4rem 1.45rem;
   display: flex; flex-direction: column; gap: .8rem;
   box-shadow: var(--shadow);
 }
-.band--dark .rcard { background: var(--ink); }
+.band--dark .rcard { background: var(--panel); }
 .rcard__quote { font-family: var(--display); font-size: 1.02rem; line-height: 1.5; color: var(--text); margin: 0; }
 .rcard__by { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); margin-top: auto; }
 
@@ -375,8 +362,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 /* Each slot carries artwork until a real photograph is dropped in. */
 .shot {
   position: relative; overflow: hidden;
-  border-radius: var(--r); border: 1px solid var(--line-soft);
-  background: var(--panel-2) center/cover no-repeat;
+  border-radius: var(--r); border: 1px solid var(--line);
+  background: var(--panel) center/cover no-repeat;
   isolation: isolate;
 }
 .shot img {
@@ -389,20 +376,16 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .shot--sq   { aspect-ratio: 1 / 1; }
 .shot__cap {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
-  padding: 2.5rem 1.1rem .95rem;
-  background: linear-gradient(180deg, transparent, rgba(22,17,15,.75));
-  color: #fff; font-size: .8rem; display: flex; align-items: center; gap: .45rem;
+  padding: .7rem 1rem;
+  background: rgba(10, 9, 9, .82);
+  color: #fff; font-size: .78rem; display: flex; align-items: center; gap: .45rem;
 }
 
 /* --------------------------------------------------------- 10. The live bar */
 .live {
   background: var(--panel); color: var(--text);
+  border: 1px solid var(--line);
   border-radius: var(--r-lg); padding: clamp(1.35rem, 3.5vw, 2rem);
-  position: relative; overflow: hidden;
-}
-.live::before {
-  content: ''; position: absolute; inset: 0 0 auto; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--blush), transparent);
 }
 .live__top { display: flex; align-items: center; gap: .55rem; margin-bottom: 1rem; }
 .live__label { font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: var(--blush); font-weight: 600; }
@@ -412,7 +395,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 .live__bar { margin-top: 1.3rem; }
 .live__track { height: 3px; border-radius: 3px; background: rgba(255,255,255,.14); overflow: hidden; }
-.live__fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--rose), var(--blush)); border-radius: 3px; transition: width .8s var(--ease); }
+.live__fill { height: 100%; width: 0; background: var(--blush); border-radius: 3px; transition: width .8s var(--ease); }
 .live__ticks { display: flex; justify-content: space-between; margin-top: .5rem; font-size: .67rem; color: #9c8d87; letter-spacing: .08em; text-transform: uppercase; }
 
 .live__notice {
@@ -448,8 +431,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 @media (max-width: 560px) { .grid--4, .grid--3, .grid--2 { grid-template-columns: 1fr; } }
 
 .dish { display: flex; flex-direction: column; gap: .9rem; }
-.dish .shot { transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
-.dish:hover .shot { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.dish .shot { transition: border-color .3s var(--ease); }
+.dish:hover .shot { border-color: var(--line-blush); }
 .dish__name { font-family: var(--display); font-size: 1.1rem; color: var(--text); margin: 0 0 .25rem; }
 .dish__desc { font-size: .87rem; color: var(--muted); margin: 0; }
 .dish__meta { margin-top: .5rem; font-size: .78rem; color: var(--faint); }
@@ -459,7 +442,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .story { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.75rem, 5vw, 4rem); align-items: center; }
 @media (max-width: 860px) { .story { grid-template-columns: 1fr; } }
 .story__art { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
-.story__art .shot:first-child { grid-row: span 2; }
+/* The tall one fills the height of the two beside it, so the block squares off. */
+.story__art .shot:first-child { grid-row: span 2; aspect-ratio: auto; }
 .pullquote {
   font-family: var(--display); font-size: clamp(1.15rem, 3vw, 1.5rem);
   color: var(--text); line-height: 1.4; border-left: 2px solid var(--blush);
@@ -479,7 +463,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .infolist dd a { color: var(--blush); font-weight: 500; }
 .infolist dd a:hover { text-decoration: underline; }
 
-.hours { border: 1px solid var(--line-soft); border-radius: var(--r); background: var(--panel); padding: 1.35rem 1.4rem; box-shadow: var(--shadow); }
+.hours { border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); padding: 1.35rem 1.4rem; }
 .hours h3 { font-size: 1.1rem; margin-bottom: .9rem; }
 .hours table { width: 100%; border-collapse: collapse; font-size: .89rem; }
 .hours th, .hours td { text-align: left; padding: .5rem 0; border-bottom: 1px solid var(--line-soft); font-weight: 400; }
@@ -525,7 +509,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid var(--line);
   display: grid; place-items: center; transition: border-color .2s, color .2s, transform .2s;
 }
-.socials a:hover { border-color: var(--blush); color: var(--blush); transform: translateY(-2px); }
+.socials a:hover { border-color: var(--blush); color: var(--blush); }
 .socials svg { width: 1rem; height: 1rem; }
 .colophon {
   margin-top: 2.5rem; padding-top: 1.35rem; border-top: 1px solid var(--line-soft);
@@ -645,7 +629,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .diet-key b { color: var(--muted); font-weight: 600; }
 
 .allergen {
-  border: 1px solid var(--line-soft); border-radius: var(--r);
+  border: 1px solid var(--line); border-radius: var(--r);
   background: var(--panel); padding: 1.15rem 1.3rem;
   font-size: .84rem; color: var(--muted); display: flex; gap: .8rem;
 }

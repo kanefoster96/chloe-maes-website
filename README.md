@@ -140,11 +140,14 @@ media or in a message — worth replacing with a real photograph of the shopfron
 
 ## Notes
 
-- **Colours**: a warm near-black page with blush pink accents, taken from the
-  sign above the door and the velvet chairs. Notices are deliberately quiet —
-  a soft green for what is being served now, a soft amber for the heads-up
-  about the next menu. Nothing on the site is red; a menu changing over is not
-  an error. The photographs and artwork supply the colour.
+- **Colours**: a near-black page with blush pink accents, taken from the sign
+  above the door and the velvet chairs. Three flat greys and nothing else —
+  the page, a barely-off-black band, and a lighter fill for cards and panels,
+  each separated by a hairline border rather than a shadow or a gradient.
+  There are no gradients and no drop shadows anywhere in the stylesheet.
+  Notices are deliberately quiet: soft green for what is being served now,
+  soft amber for the heads-up about the next menu. Nothing on the site is red;
+  a menu changing over is not an error. The photographs supply the colour.
 - Type is Fraunces, Inter and Parisienne, loaded from Google Fonts, with system
   fallbacks if they fail.
 - The feature strip and the review wall are continuous marquees. They pause on
