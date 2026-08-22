@@ -314,6 +314,10 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   max-width: 38rem; margin-inline: auto;
 }
 .hero__shots .shot { aspect-ratio: 4 / 5; border-radius: var(--r); }
+.hero__shots .shot img {
+  opacity: 0; transition: opacity 1s var(--ease);
+}
+.hero__shots .shot img.is-on { opacity: 1; }
 @media (max-width: 560px) { .hero__shots { max-width: none; } }
 
 /* ------------------------------------------------------------- 8. Marquees */
@@ -334,8 +338,14 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   .marquee__track { animation: none; }
 }
 
-/* Little feature pills that drift past */
-.marquee--pills { background: var(--panel); }
+/* The three things worth knowing before you read anything else. */
+.facts {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 420px) { .facts { gap: .4rem; } .facts .pill { font-size: .8rem; padding: .5rem .85rem; } }
+
 .pill {
   display: inline-flex; align-items: center; gap: .55rem;
   padding: .55rem 1.1rem; border-radius: var(--r-pill);
@@ -523,19 +533,19 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 }
 .colophon .statusbar__spacer { flex: 1; }
 
-/* ------------------------------------------------- 16. Mobile action bar */
-/* Thumb-reach shortcuts, phones only. */
-.tabbar {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
-  display: none; gap: .5rem; justify-content: center;
-  padding: .5rem var(--gutter) calc(.55rem + env(safe-area-inset-bottom));
-  background: none; border: 0;
-  pointer-events: none;   /* only the buttons themselves catch taps */
+/* --------------------------------------------- 16. Call button, phones only */
+.callbtn {
+  display: none; margin-left: auto;
+  width: 2.9rem; height: 2.9rem; border-radius: var(--r-pill);
+  background: var(--blush); color: #14100f;
+  align-items: center; justify-content: center;
+  transition: background .2s var(--ease);
 }
-.tabbar .btn { pointer-events: auto; flex: 0 1 auto; }
-@media (max-width: 760px) {
-  .tabbar { display: flex; }
-  body { padding-bottom: 4.25rem; }
+.callbtn svg { width: 1.15rem; height: 1.15rem; }
+.callbtn:hover { background: #f7d8df; }
+@media (max-width: 900px) {
+  .callbtn { display: inline-flex; }
+  .navtoggle { margin-left: .5rem; }
 }
 
 /* -------------------------------------------------- 17. Reveal on scroll */
@@ -644,7 +654,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 /* --------------------------------------------------------------- 19. Print */
 @media print {
   body { background: #fff; color: #241c1a; padding-bottom: 0; }
-  .statusbar, .site-header, .svc-nav, .site-footer, .tabbar, .btn,
+  .statusbar, .site-header, .svc-nav, .site-footer, .callbtn, .btn,
   .live, .svc-shot, .drawer, .marquee { display: none !important; }
   .svc-panel[hidden] { display: block !important; }
   .mgrid { grid-template-columns: repeat(2, 1fr); }

@@ -56,6 +56,9 @@
       <a class="btn btn--sm header-cta" href="tel:+441912523442">
         <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Book a table
       </a>
+      <a class="callbtn" href="tel:+441912523442" aria-label="Call to book a table">
+        <svg aria-hidden="true"><use href="#i-phone"/></svg>
+      </a>
       <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="drawer" aria-label="Menu"><span></span></button>
     </div>
     <div class="drawer" id="drawer">
@@ -90,19 +93,23 @@
         </div>
 
         <p class="hero__note" id="hero-note">Open seven days &middot; 0191 252 3442</p>
+
+        <ul class="facts" id="facts" aria-label="Good to know"></ul>
       </div>
 
       <div class="wrap">
         <div class="hero__shots">
-          <div class="shot" data-art="art-room" data-photo="assets/img/photo-coffee.jpg"
-               data-alt="An iced coffee outside the shopfront on St George&rsquo;s Road"></div>
+          <div class="shot" id="hero-shot" data-art="art-room"
+               data-photos="assets/img/photo-coffee.jpg,
+                            assets/img/photo-room.jpg,
+                            assets/img/photo-breakfast.jpg,
+                            assets/img/photo-chickenburger.jpg,
+                            assets/img/photo-pancakes.jpg"
+               data-alt="Inside and outside Chloe Mae&rsquo;s"></div>
         </div>
       </div>
     </section>
 
-    <div class="marquee marquee--pills" aria-label="What to expect">
-      <div class="marquee__track" id="pill-track"></div>
-    </div>
 
     <section class="band band--tight" id="live" aria-label="What we are serving right now">
       <div class="wrap livewrap">
@@ -382,11 +389,6 @@
       </div>
     </div>
   </footer>
-
-  <div class="tabbar">
-    <a class="btn btn--glass btn--sm" href="menu.html"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg> View menu</a>
-    <a class="btn btn--glass btn--sm" href="tel:+441912523442"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Book a table</a>
-  </div>
 
   <script type="application/ld+json">
 {

@@ -27,6 +27,8 @@
         if (art) shot.style.backgroundImage = `url("assets/img/${art}.svg")`;
       };
 
+      if (shot.dataset.photos) return;   /* the hero rotation handles its own */
+
       /* No photograph for this slot: the drawing is the picture. */
       if (!photo) { paintArt(); return; }
 
@@ -131,12 +133,67 @@
   }
 
   function featureStrip() {
-    marquee($('#pill-track'), (f) => {
-      const pill = el('span', 'pill' + (f.green ? ' pill--green' : ''));
-      pill.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#${f.icon}"/></svg>`);
-      pill.append(f.label);
-      return pill;
-    }, DATA.FEATURES);
+    const host = $('#facts');
+    if (!host) return;
+    DATA.FEATURES.forEach((f) => {
+      const li = el('li', 'pill' + (f.green ? ' pill--green' : ''));
+      li.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#${f.icon}"/></svg>`);
+      li.append(f.label);
+      host.append(li);
+    });
+  }
+
+  /* ------------------------------------------------- 4b. The hero pictures */
+  /* Crossfades through a handful of photographs, in the order they are listed
+     — the layers are created up front so a fast-loading file cannot jump the
+     queue. Any that fail to load are simply skipped. */
+  function heroCycle() {
+    const shot = $('#hero-shot');
+    if (!shot) return;
+
+    const list = (shot.dataset.photos || '').split(',').map((x) => x.trim()).filter(Boolean);
+    if (!list.length) return;
+
+    const layers = list.map((src, i) => {
+      const img = el('img');
+      img.alt = i === 0 ? (shot.dataset.alt || '') : '';
+      img.decoding = 'async';
+      img.dataset.ok = 'false';
+      shot.append(img);
+      img.addEventListener('load', () => { img.dataset.ok = 'true'; });
+      img.src = src;
+      return img;
+    });
+
+    /* Open on the first photograph in the list. Only if that one never
+       arrives do we fall back to the earliest that did. */
+    let opened = false;
+    const open = () => {
+      const first = layers.find((l) => l.dataset.ok === 'true');
+      if (opened || !first) return;
+      opened = true;
+      shot.style.backgroundImage = 'none';
+      shot.classList.add('has-photo');
+      requestAnimationFrame(() => first.classList.add('is-on'));
+    };
+    if (layers[0].complete && layers[0].naturalWidth) { layers[0].dataset.ok = 'true'; open(); }
+    layers[0].addEventListener('load', open);
+    layers[0].addEventListener('error', () => setTimeout(open, 400));
+    setTimeout(open, 2500);   // never leave the slot empty
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let at = 0;
+    setInterval(() => {
+      if (document.hidden) return;              // no point cycling out of sight
+      const ready = layers.filter((l) => l.dataset.ok === 'true');
+      if (ready.length < 2) return;
+
+      const current = shot.querySelector('img.is-on');
+      at = (ready.indexOf(current) + 1) % ready.length;
+      if (current) current.classList.remove('is-on');
+      ready[at].classList.add('is-on');
+    }, 4000);
   }
 
   function reviewBelt() {
@@ -260,6 +317,7 @@
   /* ------------------------------------------------------------- 8. Start */
   function init() {
     hydrateShots();
+    heroCycle();
     header();
     featureStrip();
     reviewBelt();

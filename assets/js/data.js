@@ -292,16 +292,12 @@ window.CHLOE = (function () {
 
   /* -- The strip that drifts past under the hero --------------------------- */
   const FEATURES = [
-    { icon: 'i-paw',   label: 'Dog friendly, all day' },
-    { icon: 'i-leaf',  label: 'Vegan & veggie plates', green: true },
-    { icon: 'i-bag',   label: 'Takeaway & delivery' },
-    { icon: 'i-metro', label: '4 min from Cullercoats Metro' },
-    { icon: 'i-star',  label: 'Famous pancake stacks' },
-    { icon: 'i-pram',  label: 'Highchairs & room for prams' },
-    { icon: 'i-clock', label: 'Open seven days from 8am' },
-    { icon: 'i-leaf',  label: 'Flower wall & marble tables', green: true },
-    { icon: 'i-phone', label: 'Walk-ins welcome' }
+    { icon: 'i-paw',  label: 'Very dog friendly' },
+    { icon: 'i-leaf', label: 'Vegan & veggie', green: true },
+    { icon: 'i-bag',  label: 'Takeaway available' }
   ];
+
+
 
   /* -- What people say ----------------------------------------------------
      Sentiment and phrasing drawn from public reviews on Google, Tripadvisor

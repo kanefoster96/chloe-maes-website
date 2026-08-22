@@ -150,11 +150,17 @@ media or in a message — worth replacing with a real photograph of the shopfron
   a menu changing over is not an error. The photographs supply the colour.
 - Type is Fraunces, Inter and Parisienne, loaded from Google Fonts, with system
   fallbacks if they fail.
-- The feature strip and the review wall are continuous marquees. They pause on
-  hover or keyboard focus, and become plain horizontal scrollers for anyone with
-  reduced motion turned on.
-- On phones a fixed bar sits at the bottom of the screen with the live menu and
-  a tap-to-call booking button, so both are always within thumb reach.
+- The hero photograph crossfades through five pictures on a four-second cycle,
+  in the order listed in the `data-photos` attribute on `#hero-shot`. It opens
+  on the first of them, pauses when the tab is not visible, skips any file that
+  fails to load, and holds still for anyone with reduced motion turned on.
+- Three facts sit directly under the hero buttons — dog friendly, vegan and
+  veggie, takeaway — so the things people ring up to ask are answered before
+  any scrolling. Edit them in `FEATURES` in `data.js`.
+- The review wall is a continuous marquee. It pauses on hover or keyboard
+  focus, and becomes a plain horizontal scroller under reduced motion.
+- On phones a pink call button sits beside the menu toggle in the header, so
+  booking is one tap from anywhere on the site.
 - Structured data (`CafeOrCoffeeShop`) is included so Google can read the
   address, phone and opening hours directly.
 - The menu page still prints cleanly (browser print), laying all four menus out
