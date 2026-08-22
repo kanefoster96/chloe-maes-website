@@ -57,8 +57,11 @@ window.CHLOE = (function () {
       from: '08:00',
       to: '12:00',
       days: [0, 1, 2, 3, 4, 5, 6],
-      art: 'art-pancakes',
-      photo: 'assets/img/photo-breakfast.jpg',
+      shots: [
+        { art: 'art-pancakes',     photo: 'assets/img/photo-pancakes.jpg',      alt: 'A loaded pancake stack' },
+        { art: 'art-fullbreakfast', photo: 'assets/img/photo-fullbreakfast.jpg', alt: 'The full breakfast' },
+        { art: 'art-flatbreads',    photo: 'assets/img/photo-flatbreads.jpg',    alt: 'Chorizo and egg flatbreads' }
+      ],
       blurb:
         'The reason half of Cullercoats sets an alarm. Pancake stacks built to order, proper Northumbrian bacon and eggs any way you like them.',
       sections: [
@@ -104,8 +107,11 @@ window.CHLOE = (function () {
       from: '12:00',
       to: '16:30',
       days: [0, 1, 2, 3, 4, 5, 6],
-      art: 'art-burger',
-      photo: 'assets/img/photo-main.jpg',
+      shots: [
+        { art: 'art-bowls',      photo: 'assets/img/photo-bowls.jpg',      alt: 'The halloumi and chicken bowls' },
+        { art: 'art-flatbreads', photo: 'assets/img/photo-main.jpg',       alt: 'A lunch plate' },
+        { art: 'art-room',       photo: 'assets/img/photo-room.jpg',       alt: 'The dining room' }
+      ],
       blurb:
         'Lunch by the bay. Sandwiches on proper bread, buttermilk chicken worth the walk, and a specials board that changes with whatever the week brings in.',
       sections: [
@@ -160,8 +166,10 @@ window.CHLOE = (function () {
       from: '17:00',
       to: '20:30',
       days: [4, 5, 6],
-      art: 'art-evening',
-      photo: 'assets/img/photo-evening.jpg',
+      shots: [
+        { art: 'art-evening', photo: 'assets/img/photo-evening.jpg', alt: 'The room after dark' },
+        { art: 'art-bowls',   photo: 'assets/img/photo-bowls.jpg',   alt: 'An evening plate' }
+      ],
       blurb:
         'Three nights a week the lights go low, the candles come out and the kitchen cooks a little differently. Booking is wise.',
       sections: [
@@ -205,8 +213,10 @@ window.CHLOE = (function () {
       from: '08:00',
       to: '20:45',
       days: [0, 1, 2, 3, 4, 5, 6],
-      art: 'art-cake',
-      photo: 'assets/img/photo-drinks.jpg',
+      shots: [
+        { art: 'art-drinks',   photo: 'assets/img/photo-drinks.jpg', alt: 'Iced matcha to take away' },
+        { art: 'art-pancakes', photo: 'assets/img/photo-cake.jpg',   alt: 'Cake from the counter' }
+      ],
       alwaysOn: true,
       blurb:
         'The counter never closes. Speciality coffee, loose leaf tea, and a cake fridge restocked most mornings.',

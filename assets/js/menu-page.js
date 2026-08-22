@@ -89,13 +89,19 @@
     head.append(el('p', null, service.blurb));
     panel.append(head);
 
-    /* A photograph of the service, when there is one to show. */
-    if (service.art) {
-      const shot = el('div', 'shot svc-shot');
-      shot.dataset.art = service.art;
-      if (service.photo) shot.dataset.photo = service.photo;
-      shot.style.backgroundImage = `url("assets/img/${service.art}.svg")`;
-      panel.append(shot);
+    /* Pictures first — people want to see the food before they read it. */
+    if (service.shots && service.shots.length) {
+      const row = el('div', 'svc-shots');
+      row.dataset.count = String(service.shots.length);
+      service.shots.forEach((s) => {
+        const shot = el('div', 'shot');
+        shot.dataset.art = s.art;
+        if (s.photo) shot.dataset.photo = s.photo;
+        if (s.alt) shot.dataset.alt = s.alt;
+        shot.style.backgroundImage = `url("assets/img/${s.art}.svg")`;
+        row.append(shot);
+      });
+      panel.append(row);
     }
 
     /* Two balanced columns so a long menu still reads like a menu. The split
@@ -217,9 +223,9 @@
         when.classList.toggle('is-live', isLive);
         const label = when.lastChild;
         const text = isLive
-          ? `Being served right now — until ${LIVE.pretty(state.changeAt)}`
+          ? `Being served right now, until ${LIVE.pretty(state.changeAt)}`
           : soon
-            ? `Starts at ${LIVE.pretty(service.from)}, in ${LIVE.duration(state.minutesToChange)}`
+            ? `Starts at ${LIVE.pretty(service.from)}`
             : service.kicker;
         if (label && label.nodeType === 3) label.nodeValue = text;
       }

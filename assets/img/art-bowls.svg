@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fbf7fa"/><stop offset="100%" stop-color="#f2ecf1"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="5"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <rect x="0" y="560" width="1000" height="440" fill="#ffffff"/><g stroke="#e4dcd6" stroke-width="3" fill="none" opacity=".8"><path d="M-20 630q160 40 300 6t420 22 320-30"/><path d="M-20 740q220-40 380 10t400-6 260 26"/><path d="M120 560q40 90 -10 180"/><path d="M760 580q60 80 20 170"/></g>
+  <!-- pink bowl, back -->
+  <ellipse cx="330" cy="470" rx="196" ry="70" fill="#edc3cb"/>
+  <path d="M134 470c0 92 88 156 196 156s196-64 196-156z" fill="#d98fa0" opacity=".55"/>
+  <ellipse cx="330" cy="470" rx="168" ry="56" fill="#f7dfe4"/>
+  <g>
+    <path d="M240 452c46-20 92-16 122 10-32 22-90 22-122-10z" fill="#f0dcc0"/>
+    <path d="M262 436c40-16 78-12 104 8-28 18-76 18-104-8z" fill="#f8ecd8"/>
+    <circle cx="404" cy="462" r="34" fill="#4e7a4a"/>
+    <circle cx="436" cy="444" r="26" fill="#5d8f56"/>
+    <circle cx="386" cy="436" r="22" fill="#5d8f56"/>
+    <rect x="290" cy="0" y="480" width="42" height="34" rx="8" fill="#d8712f" transform="rotate(-12 290 480)"/>
+    <rect x="336" y="490" width="40" height="32" rx="8" fill="#e08a45" transform="rotate(14 336 490)"/>
+    <circle cx="470" cy="486" r="26" fill="#241c1a"/>
+    <circle cx="470" cy="486" r="17" fill="#c94f4a"/>
+  </g>
+  <!-- dark bowl, front -->
+  <ellipse cx="620" cy="700" rx="232" ry="82" fill="#3a2f2c"/>
+  <path d="M388 700c0 108 104 184 232 184s232-76 232-184z" fill="#241c1a"/>
+  <ellipse cx="620" cy="700" rx="198" ry="66" fill="#4a3d39"/>
+  <!-- halloumi, slaw, flatbread -->
+  <g fill="#d9963c">
+    <rect x="520" y="644" width="52" height="44" rx="10" transform="rotate(-10 520 644)"/>
+    <rect x="580" y="632" width="52" height="44" rx="10" transform="rotate(8 580 632)"/>
+    <rect x="548" y="690" width="52" height="44" rx="10" transform="rotate(16 548 690)"/>
+    <rect x="622" y="682" width="50" height="42" rx="10" transform="rotate(-6 622 682)"/>
+  </g>
+  <g fill="#f0e2c8" opacity=".55">
+    <rect x="528" y="652" width="30" height="14" rx="6" transform="rotate(-10 528 652)"/>
+    <rect x="588" y="640" width="30" height="14" rx="6" transform="rotate(8 588 640)"/>
+  </g>
+  <path d="M430 700c22-38 66-52 108-40-16 42-64 60-108 40z" fill="#cfe0c3"/>
+  <path d="M446 730c30-26 72-28 106-8-28 30-76 34-106 8z" fill="#b9d2ab"/>
+  <g fill="#d98fa0" opacity=".8"><path d="M452 690c26-16 52-14 70 4-24 14-52 12-70-4z"/></g>
+  <path d="M700 630c66-8 116 22 122 74 6 54-38 96-104 98-14-58-16-118-18-172z" fill="#e8c48a"/>
+  <path d="M718 656c44-4 78 16 82 50 4 34-24 60-66 62-8-38-12-76-16-112z" fill="#f5e2c2"/>
+  <g fill="#c94f4a"><circle cx="592" cy="676" r="13"/><circle cx="546" cy="712" r="11"/></g>
+  <g fill="#4e7a4a"><rect x="606" y="642" width="46" height="9" rx="4" transform="rotate(-24 606 642)"/><rect x="636" y="666" width="40" height="9" rx="4" transform="rotate(12 636 666)"/></g>
+  <!-- the plant, top right -->
+  <g fill="#4e7a4a" opacity=".9">
+    <ellipse cx="880" cy="330" rx="18" ry="52" transform="rotate(-24 880 330)"/>
+    <ellipse cx="926" cy="316" rx="18" ry="56" transform="rotate(10 926 316)"/>
+    <ellipse cx="906" cy="296" rx="16" ry="60"/>
+    <ellipse cx="948" cy="352" rx="16" ry="46" transform="rotate(32 948 352)"/>
+  </g>
+  <path d="M872 400h96l-14 96h-68z" fill="#edc3cb"/>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
+</svg>

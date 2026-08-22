@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0e6f6"/><stop offset="100%" stop-color="#e5d8ef"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="5"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <rect width="1000" height="1000" fill="#e7dcf0"/>
+  <ellipse cx="500" cy="880" rx="330" ry="60" fill="#d6c6e4" opacity=".7" filter="url(#soft)"/>
+  <!-- carrier tray -->
+  <path d="M250 720h500l-40 120H290z" fill="#cbbb9a"/>
+  <path d="M250 720h500l-14 42H264z" fill="#ddcfb2"/>
+  <!-- two matcha cups -->
+  <g>
+    <path d="M318 330h190l-26 400H344z" fill="#8cc152" opacity=".92"/>
+    <path d="M318 330h190l-8 122H326z" fill="#a8d46a"/>
+    <rect x="306" y="304" width="214" height="34" rx="10" fill="#e8f2dc" opacity=".75"/>
+    <rect x="396" y="120" width="16" height="200" rx="8" fill="#241c1a"/>
+    <g fill="#fff" opacity=".28"><rect x="342" y="380" width="30" height="70" rx="12"/><rect x="452" y="420" width="26" height="58" rx="12"/></g>
+  </g>
+  <g>
+    <path d="M520 380h186l-26 350H546z" fill="#8cc152" opacity=".92"/>
+    <path d="M520 380h186l-8 116H528z" fill="#a8d46a"/>
+    <rect x="508" y="354" width="210" height="34" rx="10" fill="#e8f2dc" opacity=".75"/>
+    <rect x="632" y="160" width="16" height="212" rx="8" fill="#241c1a"/>
+    <g fill="#fff" opacity=".28"><rect x="546" y="430" width="28" height="64" rx="12"/></g>
+  </g>
+  <!-- sunglasses resting on top -->
+  <g fill="#5a3a2e">
+    <path d="M596 292c0 34-26 58-58 58s-58-24-58-58z" opacity=".9"/>
+    <path d="M742 300c0 34-26 58-58 58s-58-24-58-58z" opacity=".9"/>
+    <rect x="592" y="286" width="42" height="12" rx="6"/>
+    <rect x="736" y="272" width="130" height="12" rx="6" transform="rotate(-8 736 272)"/>
+  </g>
+  <!-- the script mark, bottom left -->
+  <g fill="none" stroke="#b05467" stroke-width="10" stroke-linecap="round" opacity=".85">
+    <path d="M96 906c-20-28-58-26-68 4-8 28 20 48 42 34"/>
+    <path d="M154 862c-5 44-2 66 5 74 9 9 19-3 22-22 2-16 0-30 5-30s7 19 5 34"/>
+    <path d="M222 888c-11 23-9 44 5 44 13 0 22-16 22-29"/>
+  </g>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
+</svg>

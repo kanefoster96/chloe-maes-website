@@ -13,7 +13,7 @@ window.CHLOE_LIVE = (function (DATA) {
   'use strict';
 
   const TZ = DATA.INFO.timezone;
-  const NOTICE_MINUTES = 60;            // how much warning before a changeover
+  const NOTICE_MINUTES = 30;            // a quiet heads-up, not a countdown
   const TICK_MS = 15000;                // how often the clock is re-read
 
   const DAY_INDEX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
@@ -151,8 +151,8 @@ window.CHLOE_LIVE = (function (DATA) {
         state.minutesToChange = open - t.minutes;
         state.noticeActive = state.minutesToChange <= NOTICE_MINUTES;
         if (state.noticeActive) {
-          state.headline = `Opening in ${duration(state.minutesToChange)}`;
-          state.detail = `The doors go back at ${pretty(opensAt)}${first ? ` — ${first.name.toLowerCase()} first.` : '.'}`;
+          state.headline = 'Opening shortly';
+          state.detail = `The doors go back at ${pretty(opensAt)}${first ? `, ${first.name.toLowerCase()} first.` : '.'}`;
         }
       }
       return state;
@@ -172,22 +172,15 @@ window.CHLOE_LIVE = (function (DATA) {
       state.noticeActive = state.minutesToChange <= NOTICE_MINUTES;
 
       state.headline = `Now serving ${current.name}`;
+      state.detail = `Served until ${pretty(current.to)}. Coffee, cake and drinks all day.`;
 
+      /* Inside the last half hour, mention what is coming — gently, and
+         phrased around what starts next rather than what is running out. */
       if (state.noticeActive) {
         state.status = 'changeover-soon';
-        state.headline = `${current.name} ends in ${duration(state.minutesToChange)}`;
-        if (follows) {
-          const gap = toMinutes(follows.from) - endsAt;
-          state.detail = gap > 0
-            ? `Last orders at ${pretty(current.to)}. ${follows.name} opens at ${pretty(follows.from)} — coffee and cake in between.`
-            : `Last orders at ${pretty(current.to)}, then the ${follows.name.toLowerCase()} takes over.`;
-        } else {
-          state.detail = `Last kitchen orders at ${pretty(current.to)}. The counter stays open for coffee and cake until ${pretty(today.close)}.`;
-        }
-      } else {
         state.detail = follows
-          ? `On until ${pretty(current.to)}, then ${follows.name.toLowerCase()} from ${pretty(follows.from)}.`
-          : `On until ${pretty(current.to)}. Coffee, cake and drinks all day.`;
+          ? `Served until ${pretty(current.to)}, then the ${follows.name.toLowerCase()} starts.`
+          : `Served until ${pretty(current.to)}. The counter stays open for coffee and cake until ${pretty(today.close)}.`;
       }
       return state;
     }
@@ -200,8 +193,7 @@ window.CHLOE_LIVE = (function (DATA) {
       state.changeAt = upcoming.from;
       state.changeTo = upcoming;
       state.noticeActive = state.minutesToChange <= NOTICE_MINUTES;
-      state.detail = `The kitchen is between services. ${upcoming.name} starts at ${pretty(upcoming.from)}` +
-        (state.noticeActive ? ` — ${duration(state.minutesToChange)} away.` : '.');
+      state.detail = `The kitchen is between services — the ${upcoming.name.toLowerCase()} starts at ${pretty(upcoming.from)}.`;
     } else {
       state.minutesToChange = close - t.minutes;
       state.changeAt = today.close;

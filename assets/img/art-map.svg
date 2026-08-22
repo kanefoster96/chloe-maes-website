@@ -1,63 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="32%" r="80%">
-      <stop offset="0%" stop-color="#fffdfb"/>
-      <stop offset="60%" stop-color="#f8f1ec"/>
-      <stop offset="100%" stop-color="#f0e5dd"/>
-    </radialGradient>
-    <radialGradient id="glow" cx="26%" cy="20%" r="60%">
-      <stop offset="0%" stop-color="#edc3cb" stop-opacity=".55"/>
-      <stop offset="100%" stop-color="#edc3cb" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="leaf" cx="82%" cy="84%" r="55%">
-      <stop offset="0%" stop-color="#8fa887" stop-opacity=".40"/>
-      <stop offset="100%" stop-color="#8fa887" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity=".2"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3efe9"/><stop offset="100%" stop-color="#e9e3db"/>
     </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="5"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.045"/></feComponentTransfer>
-    </filter>
-    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="16"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
     </filter>
   </defs>
   <rect width="1000" height="1000" fill="url(#bg)"/>
-  <rect width="1000" height="1000" fill="url(#glow)"/>
-  <rect width="1000" height="1000" fill="url(#leaf)"/>
-  <g stroke="#b05467" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- sea -->
-    <path d="M660 0c-40 120-30 250 20 360 46 100 60 220 30 340 -20 82-16 190 20 300h270V0z" fill="#e8eef1" fill-opacity=".55" stroke="none"/>
-    <g stroke-opacity=".22" stroke-width="4">
-      <path d="M700 180c40 20 60 60 40 100M760 420c40 20 60 60 40 100M720 700c40 20 60 60 40 100"/>
-    </g>
-    <!-- coastline -->
-    <path d="M660 0c-40 120-30 250 20 360 46 100 60 220 30 340-20 82-16 190 20 300" stroke-opacity=".55" stroke-width="6"/>
-    <!-- roads -->
-    <g stroke-opacity=".2" stroke-width="14">
-      <path d="M0 480h700M300 0v1000M0 760h660M120 0v1000M520 0v1000M0 200h640"/>
-    </g>
-    <g stroke-opacity=".08" stroke-width="4" stroke-dasharray="14 16">
-      <path d="M0 480h700M300 0v1000M0 760h660"/>
-    </g>
-    <!-- blocks -->
-    <g stroke-opacity=".12" stroke-width="3" fill="#b05467" fill-opacity=".025">
-      <rect x="150" y="240" width="120" height="200"/>
-      <rect x="340" y="240" width="150" height="200"/>
-      <rect x="150" y="520" width="120" height="200"/>
-      <rect x="340" y="520" width="150" height="200"/>
-    </g>
-    <!-- the pin -->
-    <g stroke="none">
-      <ellipse cx="520" cy="520" rx="90" ry="30" fill="#b05467" opacity=".12" filter="url(#soft)"/>
-    </g>
-    <path d="M520 400c-46 0-84 38-84 84 0 58 84 136 84 136s84-78 84-136c0-46-38-84-84-84z"
-          fill="#b05467" fill-opacity=".9" stroke="none"/>
-    <circle cx="520" cy="484" r="30" fill="#fffdfb" stroke="none"/>
+  <rect width="1000" height="1000" fill="#f1ede7"/>
+  <!-- the sea -->
+  <path d="M760 0c-30 140-20 300 30 430 40 108 40 240 10 350-18 66-14 150 10 220h190V0z" fill="#cfe0e8"/>
+  <!-- parks -->
+  <rect x="60" y="620" width="230" height="180" rx="10" fill="#dae7d2"/>
+  <rect x="330" y="120" width="180" height="140" rx="10" fill="#dae7d2"/>
+  <!-- blocks -->
+  <g fill="#e6e0d8">
+    <rect x="80" y="300" width="200" height="220"/><rect x="330" y="300" width="220" height="220"/>
+    <rect x="600" y="300" width="120" height="220"/><rect x="330" y="600" width="220" height="200"/>
+    <rect x="600" y="600" width="120" height="200"/><rect x="80" y="100" width="200" height="140"/>
   </g>
+  <!-- roads -->
+  <g stroke="#fff" stroke-width="34" stroke-linecap="square">
+    <path d="M0 270h740M0 560h740M0 840h740M310 0v1000M580 0v1000M50 0v1000"/>
+  </g>
+  <g stroke="#f2c9a0" stroke-width="18"><path d="M0 560h740"/></g>
+  <!-- the metro line -->
+  <g stroke="#8b8f96" stroke-width="7" stroke-dasharray="20 16"><path d="M660 0v1000"/></g>
+  <!-- the pin -->
+  <ellipse cx="580" cy="600" rx="86" ry="26" fill="#000" opacity=".14" filter="url(#soft)"/>
+  <path d="M580 428c-58 0-105 47-105 105 0 74 105 172 105 172s105-98 105-172c0-58-47-105-105-105z" fill="#b05467"/>
+  <circle cx="580" cy="533" r="38" fill="#fff"/>
   <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
 </svg>

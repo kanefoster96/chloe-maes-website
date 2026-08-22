@@ -537,7 +537,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 /*  18. The live menu page                                                */
 /* ====================================================================== */
 
-.menu-hero { padding-block: clamp(2rem, 5vw, 3.25rem) 1.25rem; }
+.menu-hero { padding-block: clamp(1.4rem, 4vw, 2.5rem) 1.1rem; }
 .menu-hero__grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0, 25rem); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
 @media (max-width: 900px) { .menu-hero__grid { grid-template-columns: 1fr; } }
 
@@ -655,3 +655,42 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   .live__foot .btn { width: 100%; }
   .infolist > div { grid-template-columns: 1.4rem 1fr; gap: .75rem; }
 }
+
+/* ------------------------------------------- 21. A quieter live indicator */
+/* No stopwatch: what is being served, and what starts next. */
+.nowline {
+  display: flex; align-items: flex-start; gap: .6rem; margin: .5rem 0 0;
+  font-size: .95rem; color: var(--muted);
+}
+.nowline strong { color: var(--ink); font-weight: 600; }
+.nowline .dot { margin-top: .55rem; }
+.nowline__text { min-width: 0; }
+
+.heads-up {
+  display: none; align-items: flex-start; gap: .6rem;
+  margin: .9rem 0 0; padding: .8rem 1rem;
+  border-radius: var(--r-sm);
+  background: var(--blush-soft); border: 1px solid var(--line-blush);
+  color: var(--berry); font-size: .87rem;
+}
+.heads-up svg { width: 1.05rem; height: 1.05rem; flex: none; margin-top: .1rem; }
+.heads-up strong { color: var(--berry); }
+[data-notice="true"] + .heads-up { display: flex; }
+
+.menu-hero__in { max-width: 46rem; }
+
+/* Pictures at the top of each menu */
+/* One wide picture, then the rest side by side underneath. */
+.svc-shots {
+  display: grid; gap: .7rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+.svc-shots .shot { aspect-ratio: 3 / 2; border-radius: var(--r); }
+.svc-shots[data-count="3"] .shot:first-child { grid-column: 1 / -1; aspect-ratio: 21 / 9; }
+.svc-shots[data-count="2"] .shot:first-child { aspect-ratio: 3 / 2; }
+@media (max-width: 640px) {
+  .svc-shots { gap: .5rem; }
+  .svc-shots[data-count="3"] .shot:first-child { aspect-ratio: 16 / 9; }
+}
+@media print { .svc-shots, .nowline, .heads-up { display: none !important; } }

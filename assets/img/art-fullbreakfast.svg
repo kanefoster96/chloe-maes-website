@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf8f2"/><stop offset="100%" stop-color="#f4ebe2"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="5"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <rect x="0" y="660" width="1000" height="340" fill="#ffffff"/><g stroke="#e4dcd6" stroke-width="3" fill="none" opacity=".8"><path d="M-20 730q160 40 300 6t420 22 320-30"/><path d="M-20 840q220-40 380 10t400-6 260 26"/><path d="M120 660q40 90 -10 180"/><path d="M760 680q60 80 20 170"/></g>
+  <ellipse cx="500" cy="674" rx="348" ry="128" fill="#000" opacity=".10" filter="url(#soft)"/><ellipse cx="500" cy="660" rx="340" ry="122" fill="#241c1a"/><ellipse cx="500" cy="660" rx="279" ry="95" fill="#fff" opacity=".06"/>
+  <!-- hash browns, the pile -->
+  <g fill="#d9963c">
+    <ellipse cx="560" cy="640" rx="46" ry="36"/><ellipse cx="640" cy="664" rx="44" ry="34"/>
+    <ellipse cx="596" cy="704" rx="48" ry="36"/><ellipse cx="678" cy="620" rx="42" ry="32"/>
+    <ellipse cx="676" cy="712" rx="44" ry="33"/><ellipse cx="520" cy="700" rx="42" ry="32"/>
+  </g>
+  <g fill="#e0a94e" opacity=".75">
+    <ellipse cx="552" cy="630" rx="26" ry="18"/><ellipse cx="632" cy="654" rx="24" ry="16"/>
+    <ellipse cx="588" cy="694" rx="26" ry="17"/><ellipse cx="670" cy="610" rx="22" ry="15"/>
+  </g>
+  <!-- scrambled egg -->
+  <g fill="#fffdf8">
+    <ellipse cx="316" cy="686" rx="52" ry="40"/><ellipse cx="372" cy="712" rx="46" ry="34"/>
+    <ellipse cx="286" cy="726" rx="44" ry="32"/><ellipse cx="352" cy="656" rx="40" ry="30"/>
+  </g>
+  <g fill="#f4b73f" opacity=".45">
+    <ellipse cx="322" cy="678" rx="26" ry="16"/><ellipse cx="366" cy="716" rx="22" ry="14"/>
+  </g>
+  <!-- beans -->
+  <path d="M262 610c58-26 118-22 150 10 22 22 10 50-28 60-56 14-128-6-146-34-10-16-2-28 24-36z" fill="#d8712f"/>
+  <g fill="#e89154">
+    <ellipse cx="300" cy="618" rx="17" ry="12" transform="rotate(-18 300 618)"/>
+    <ellipse cx="346" cy="632" rx="17" ry="12" transform="rotate(12 346 632)"/>
+    <ellipse cx="272" cy="648" rx="16" ry="11" transform="rotate(24 272 648)"/>
+    <ellipse cx="330" cy="660" rx="16" ry="11" transform="rotate(-8 330 660)"/>
+  </g>
+  <!-- bacon + sausage -->
+  <path d="M430 588c56-16 96-8 120 22-30 24-78 30-124 16-16-6-14-32 4-38z" fill="#c96b5c"/>
+  <path d="M448 596c40-10 70-6 88 12-24 14-58 18-92 8z" fill="#f0d6cf"/>
+  <rect x="540" y="560" width="150" height="46" rx="23" fill="#c8873a"/>
+  <rect x="556" y="570" width="118" height="16" rx="8" fill="#dda05f" opacity=".7"/>
+  <!-- grilled tomato -->
+  <circle cx="742" cy="566" r="52" fill="#c94f4a"/>
+  <circle cx="742" cy="566" r="38" fill="#e0665c"/>
+  <g fill="#f0928a"><ellipse cx="742" cy="552" rx="12" ry="18"/><ellipse cx="724" cy="580" rx="11" ry="16" transform="rotate(40 724 580)"/><ellipse cx="762" cy="580" rx="11" ry="16" transform="rotate(-40 762 580)"/></g>
+  <!-- toast triangles with butter -->
+  <path d="M180 520l150 40-158 46z" fill="#e8c48a"/>
+  <path d="M196 536l104 28-110 32z" fill="#fbedd2"/>
+  <g><rect x="212" y="512" width="54" height="30" rx="4" fill="#fffdf8" transform="rotate(-8 212 512)"/>
+     <rect x="216" y="516" width="46" height="22" rx="3" fill="#4e7a4a" transform="rotate(-8 216 516)"/></g>
+  <!-- mushrooms -->
+  <g fill="#c8873a" opacity=".9">
+    <ellipse cx="404" cy="720" rx="34" ry="20"/><ellipse cx="448" cy="742" rx="28" ry="17"/>
+  </g>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
+</svg>

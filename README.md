@@ -22,15 +22,19 @@ customer in Sydney sees the same answer as someone standing on the doorstep.
 | Evening menu | 5pm – 8:30pm, Thursday to Saturday |
 | Coffee, cake & drinks | Open to close, every day |
 
-**An hour's notice before every changeover.** From sixty minutes out, the status
-bar, the home page panel and the menu page all switch to a warning:
+**No countdown, just a heads-up.** Most of the time the site simply says what is
+being cooked and until when:
 
-> Breakfast ends in 25 min · Main Menu from 12pm
+> Now serving Breakfast — served until 12pm
 
-with a countdown that keeps ticking, a progress bar through the current service,
-and an amber note explaining exactly what to order before the swap. The same
-mechanism covers last kitchen orders, the gap between lunch and dinner, and the
-hour before the doors open in the morning.
+Inside the last half hour it adds one friendly line about what starts next,
+phrased around the new menu rather than the one running out:
+
+> The main menu starts at 12pm — still time to order breakfast before then.
+
+Nothing ticks down. The same half-hour notice covers the gap between lunch and
+dinner, the end of evening service, and the half hour before the doors open.
+Change `NOTICE_MINUTES` at the top of `assets/js/live.js` to widen or narrow it.
 
 **Everything else a customer rings up to ask** — address, phone, opening hours
 with today highlighted, parking and Metro, dogs, bookings, takeaway and
@@ -92,10 +96,15 @@ change.
 | `assets/img/photo-bowls.jpg` | Fourth dish card | The halloumi and chicken bowls |
 | `assets/img/photo-dog.jpg` | Story column | The golden retriever with the iced drink |
 | `assets/img/photo-map.png` | Find us | Map screenshot with the pin |
-| `assets/img/photo-breakfast.jpg` | Breakfast menu banner | Anything landscape from the breakfast menu |
-| `assets/img/photo-main.jpg` | Main menu banner | A lunch plate, landscape |
-| `assets/img/photo-evening.jpg` | Evening menu banner | The room after dark, landscape |
-| `assets/img/photo-drinks.jpg` | Drinks menu banner | Coffee or the cake counter, landscape |
+| `assets/img/photo-main.jpg` | Main menu pictures | A lunch plate, landscape |
+| `assets/img/photo-evening.jpg` | Evening menu pictures | The room after dark, landscape |
+| `assets/img/photo-drinks.jpg` | Drinks menu pictures | Iced matcha, or the coffee counter |
+| `assets/img/photo-cake.jpg` | Drinks menu pictures | Something from the cake fridge |
+
+The same photograph can be used in more than one slot — the breakfast, lunch and
+evening menus each show two or three pictures above their items, and they reuse
+the dish photographs above. Which pictures appear on which menu is the `shots`
+array on each service in `data.js`.
 
 The banners are cropped wide (about 21:8), so give them landscape photographs
 around 1600px across. The dish cards are square on phones and 4:5 on desktop,
@@ -130,8 +139,8 @@ media or in a message — worth replacing with a real photograph of the shopfron
   a tap-to-call booking button, so both are always within thumb reach.
 - Structured data (`CafeOrCoffeeShop`) is included so Google can read the
   address, phone and opening hours directly.
-- The menu page prints cleanly — the "Print this menu" button lays all four
-  menus out in black on white with the navigation and images stripped out.
+- The menu page still prints cleanly (browser print), laying all four menus out
+  in black on white with navigation and pictures stripped out.
 - Works without JavaScript for the essentials: address, phone and opening hours
   are in the HTML. Only the live switching needs it.
 - Accessible tabs, visible focus rings, a skip link, and it respects

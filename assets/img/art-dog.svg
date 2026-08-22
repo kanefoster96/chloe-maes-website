@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfe4f5"/><stop offset="100%" stop-color="#eaf1f7"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="5"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <rect width="1000" height="520" fill="#bcd9f0"/>
+  <g fill="#fff" opacity=".85">
+    <ellipse cx="220" cy="150" rx="110" ry="46"/><ellipse cx="310" cy="126" rx="80" ry="40"/>
+    <ellipse cx="760" cy="110" rx="120" ry="44"/><ellipse cx="660" cy="132" rx="76" ry="36"/>
+  </g>
+  <!-- terraces across the road -->
+  <g fill="#c4715a">
+    <rect x="0" y="300" width="180" height="220"/><rect x="200" y="286" width="170" height="234"/>
+    <rect x="640" y="292" width="160" height="228"/><rect x="820" y="304" width="180" height="216"/>
+  </g>
+  <g fill="#f2ede8"><rect x="390" y="270" width="230" height="250"/></g>
+  <g fill="#241c1a" opacity=".55">
+    <rect x="40" y="350" width="52" height="66"/><rect x="240" y="336" width="52" height="66"/>
+    <rect x="440" y="320" width="60" height="76"/><rect x="530" y="320" width="60" height="76"/>
+    <rect x="680" y="342" width="52" height="66"/><rect x="880" y="354" width="52" height="66"/>
+  </g>
+  <!-- road + pavement -->
+  <rect y="520" width="1000" height="200" fill="#8d8d8f"/>
+  <rect y="700" width="1000" height="80" fill="#c9c5bf"/>
+  <g stroke="#f0f0ee" stroke-width="8" stroke-dasharray="52 44"><path d="M0 610h1000"/></g>
+  <!-- the pink bench, foreground -->
+  <rect y="890" width="1000" height="110" fill="#edc3cb"/>
+  <g stroke="#e0aeb8" stroke-width="6"><path d="M320 890v110M640 890v110"/></g>
+  <!-- the golden retriever -->
+  <g fill="#d9a45c">
+    <ellipse cx="330" cy="800" rx="240" ry="130"/>
+    <ellipse cx="560" cy="690" rx="150" ry="128"/>
+    <path d="M448 636c-30-52-16-104 26-112 26 44 20 88-26 112z"/>
+    <path d="M672 636c30-52 16-104-26-112-26 44-20 88 26 112z"/>
+  </g>
+  <g fill="#e8bd7c">
+    <ellipse cx="560" cy="742" rx="96" ry="72"/>
+    <ellipse cx="330" cy="846" rx="180" ry="76"/>
+  </g>
+  <ellipse cx="596" cy="716" rx="34" ry="26" fill="#241c1a"/>
+  <ellipse cx="512" cy="672" rx="15" ry="18" fill="#3a2f2c"/>
+  <path d="M556 764c22 10 44 6 60-12-6 40-18 66-36 78-16-20-24-42-24-66z" fill="#d98fa0"/>
+  <g stroke="#241c1a" stroke-width="10" fill="none"><path d="M120 760c-40 26-56 62-48 108"/></g>
+  <!-- the iced drink -->
+  <path d="M770 500h150l-20 250H790z" fill="#8cc152"/>
+  <path d="M790 560h112l-14 190h-84z" fill="#a8d46a" opacity=".7"/>
+  <ellipse cx="845" cy="500" rx="76" ry="26" fill="#fbe3ea"/>
+  <path d="M772 480c0-40 34-64 74-64s74 24 74 64z" fill="#f6cdd8" opacity=".9"/>
+  <rect x="838" y="330" width="15" height="180" rx="7" fill="#241c1a"/>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
+</svg>

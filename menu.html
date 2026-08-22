@@ -82,37 +82,19 @@
   </header>
 
   <main>
-    <section class="menu-hero">
-      <div class="wrap menu-hero__grid">
-        <div>
-          <p class="eyebrow">The menu, right now</p>
-          <h1 style="font-size:clamp(2.1rem,6vw,3.3rem)">What&rsquo;s on today</h1>
-          <p class="lede">Four menus, one kitchen, and a clock that decides which is which. This page follows along on its own &mdash; and tells you a full hour before anything changes over.</p>
-          <div class="btn-row" style="margin-top:1.5rem">
-            <a class="btn" href="tel:+441912523442"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Book or order</a>
-            <button class="btn btn--ghost" type="button" id="print-menu"><svg class="ic" aria-hidden="true"><use href="#i-print"/></svg> Print this menu</button>
-          </div>
-        </div>
+    <section class="menu-hero" id="top">
+      <div class="wrap menu-hero__in">
+        <p class="eyebrow">The menu, right now</p>
+        <h1 style="font-size:clamp(1.9rem,5.5vw,2.9rem);margin-bottom:.25em">What&rsquo;s on today</h1>
 
-        <div class="live" id="live-card" data-status="closed" data-notice="false">
-          <div class="live__top">
-            <span class="dot" id="live-dot"></span>
-            <span class="live__label">Live now</span>
-            <span class="live__clock" id="live-clock"></span>
-          </div>
-          <h2 class="live__headline" id="live-headline" style="font-size:1.4rem">Checking&hellip;</h2>
-          <p class="live__detail" id="live-detail">One moment.</p>
-          <div class="live__bar" id="live-bar" hidden>
-            <div class="live__track"><div class="live__fill" id="live-fill"></div></div>
-            <div class="live__ticks">
-              <span id="tick-from">&nbsp;</span><span id="tick-left">&nbsp;</span><span id="tick-to">&nbsp;</span>
-            </div>
-          </div>
-          <div class="live__notice" id="live-notice">
-            <svg aria-hidden="true"><use href="#i-alert"/></svg>
-            <span id="live-notice-text"></span>
-          </div>
-        </div>
+        <p class="nowline" id="live-card" data-status="closed" data-notice="false">
+          <span class="dot" id="live-dot"></span>
+          <span class="nowline__text"><strong id="live-headline">Checking&hellip;</strong> <span id="live-detail"></span></span>
+        </p>
+        <p class="heads-up" id="live-notice">
+          <svg aria-hidden="true"><use href="#i-info"/></svg>
+          <span id="live-notice-text"></span>
+        </p>
       </div>
     </section>
 

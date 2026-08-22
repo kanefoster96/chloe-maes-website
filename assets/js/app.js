@@ -159,11 +159,6 @@
     const tail = (text) => `<span class="statusbar__tail"> &middot; ${text}</span>`;
 
     if (!state.isOpen) return `<strong>Closed</strong>${tail(state.detail)}`;
-    if (state.status === 'changeover-soon') {
-      return `<strong>${state.headline}</strong>` + tail(state.changeTo
-        ? `${state.changeTo.name} from ${LIVE.pretty(state.changeAt)}`
-        : `kitchen closes at ${LIVE.pretty(state.changeAt)}`);
-    }
     if (state.status === 'between') return `<strong>Open</strong>${tail(state.headline.toLowerCase())}`;
     return `<strong>Open now</strong>` +
       tail(`serving ${state.current.name.toLowerCase()} until ${LIVE.pretty(state.changeAt)}`);
@@ -192,34 +187,23 @@
 
     card.dataset.status = state.status;
     card.dataset.notice = String(state.noticeActive);
-    $('#live-dot').className = 'dot ' + (DOT_CLASS[state.status] || 'dot--closed');
-    $('#live-clock').textContent = `Cullercoats, ${state.clock}`;
+    const dot = $('#live-dot');
+    if (dot) dot.className = 'dot ' + (DOT_CLASS[state.status] || 'dot--closed');
+    const clock = $('#live-clock');
+    if (clock) clock.textContent = `Cullercoats, ${state.clock}`;
     $('#live-headline').textContent = state.headline;
     $('#live-detail').textContent = state.detail;
 
-    /* Progress through the current service */
-    const bar = $('#live-bar');
-    if (state.current && state.isOpen) {
-      bar.hidden = false;
-      $('#live-fill').style.width = Math.round(state.progress * 100) + '%';
-      $('#tick-from').textContent = LIVE.pretty(state.current.from);
-      $('#tick-left').textContent = `${LIVE.duration(state.minutesToChange)} left`;
-      $('#tick-to').textContent = LIVE.pretty(state.current.to);
-    } else {
-      bar.hidden = true;
-    }
-
-    /* The hour's warning */
+    /* What is coming next, mentioned only inside the last half hour. */
     if (state.noticeActive) {
       const t = $('#live-notice-text');
       if (state.status === 'closed') {
-        t.textContent = `Nearly time — the doors open at ${LIVE.pretty(state.changeAt)}, in ${LIVE.duration(state.minutesToChange)}.`;
-      } else if (state.changeTo && state.current) {
-        t.innerHTML = `Menu changeover in <strong>${LIVE.duration(state.minutesToChange)}</strong>. Order from the ${state.current.name.toLowerCase()} before ${LIVE.pretty(state.changeAt)} — the ${state.changeTo.name.toLowerCase()} starts at ${LIVE.pretty(state.changeTo.from)}.`;
+        t.innerHTML = `We open at <strong>${LIVE.pretty(state.changeAt)}</strong> this morning.`;
       } else if (state.changeTo) {
-        t.innerHTML = `The ${state.changeTo.name.toLowerCase()} opens in <strong>${LIVE.duration(state.minutesToChange)}</strong>, at ${LIVE.pretty(state.changeTo.from)}. Until then it is coffee, cake and drinks from the counter.`;
+        t.innerHTML = `The ${state.changeTo.name.toLowerCase()} starts at <strong>${LIVE.pretty(state.changeTo.from)}</strong>` +
+          (state.current ? ` — still time to order ${state.current.name.toLowerCase()} before then.` : '.');
       } else {
-        t.innerHTML = `Last kitchen orders in <strong>${LIVE.duration(state.minutesToChange)}</strong>, at ${LIVE.pretty(state.changeAt)}. Coffee, cake and drinks carry on until we close.`;
+        t.innerHTML = `The kitchen finishes at <strong>${LIVE.pretty(state.changeAt)}</strong>. Coffee, cake and drinks carry on until we close.`;
       }
     }
 
