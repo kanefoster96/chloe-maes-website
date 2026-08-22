@@ -223,9 +223,7 @@
     const picks = picksBox ? pickThree(showFor) : [];
     if (picksBox && picks.length) {
       picksBox.hidden = false;
-      $('#picks-title').textContent = state.current
-        ? `Worth ordering from the ${showFor.name.toLowerCase()}`
-        : `Coming up on the ${showFor.name.toLowerCase()}`;
+      $('#picks-title').textContent = 'Some of our favourites';
       const list = $('#picks-list');
       list.textContent = '';
       picks.forEach((item) => {
