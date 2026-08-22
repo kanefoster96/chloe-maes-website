@@ -185,9 +185,19 @@
 
   /* --------------------------------------------------- 3. Keep it in step */
 
+  /* Anything you can actually order right now. While the doors are open that
+     is the kitchen's current menu *and* the counter — the counter runs all
+     day, so greying it out reads as "not available", which is wrong. */
+  function isServingNow(service, state) {
+    if (!state.isOpen) return false;
+    if (service.alwaysOn) return true;
+    return !!state.current && service.id === state.current.id;
+  }
+
+  /* The one the page opens on: the kitchen's, or the counter between services. */
   function whichIsLive(state) {
     if (state.current) return state.current.id;
-    if (state.isOpen) return (state.alwaysOn[0] || {}).id || null;   // between services: the counter
+    if (state.isOpen) return (state.alwaysOn[0] || {}).id || null;
     return null;
   }
 
@@ -220,7 +230,7 @@
       const tab = $('#tab-' + service.id);
       const dot = $('.dot', tab);
       const when = $('#when-' + service.id);
-      const isLive = service.id === liveId;
+      const isLive = isServingNow(service, state);
       const soon = state.changeTo && state.changeTo.id === service.id && state.noticeActive;
 
       dot.className = 'dot ' + (isLive ? 'dot--open' : soon ? 'dot--soon' : 'dot--closed');

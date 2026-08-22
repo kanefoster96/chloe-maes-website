@@ -257,11 +257,13 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 @media (max-width: 560px) { .brand__addr { display: none; } }
 
 .nav { display: flex; align-items: center; gap: .2rem; margin-left: auto; }
-.nav a {
+.nav a, .nav .nav__soon {
   padding: .5rem .85rem; border-radius: var(--r-pill);
   font-size: .875rem; font-weight: 500; color: var(--muted);
   transition: color .2s, background .2s;
 }
+/* Placeholders for pages that do not exist yet — present, but not links. */
+.nav .nav__soon { color: var(--faint); cursor: default; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--text); background: rgba(240,196,207,.10); }
 .header-cta { margin-left: .6rem; }
 @media (max-width: 900px) { .nav, .header-cta { display: none; } }
@@ -285,10 +287,12 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .drawer { display: none; border-top: 1px solid var(--line-soft); background: var(--ink); }
 .drawer.is-open { display: block; }
 .drawer nav { display: grid; padding-block: .5rem 1.4rem; }
-.drawer nav a {
+.drawer nav a, .drawer nav .nav__soon {
+  display: block;
   padding: 1rem .25rem; font-size: 1.1rem; font-family: var(--display);
   color: var(--text); border-bottom: 1px solid var(--line-soft);
 }
+.drawer nav .nav__soon { color: var(--faint); cursor: default; }
 .drawer .btn { margin-top: 1.2rem; }
 @media (min-width: 901px) { .drawer { display: none !important; } }
 

@@ -127,6 +127,20 @@ resized to 1400px and saved at quality 82 before being committed.
 `assets/img/og.png` is the image that shows when the site is shared on social
 media or in a message — worth replacing with a real photograph of the shopfront.
 
+## Turning the nav items into pages
+
+"Our place", "Find us" and "Questions" are in the nav as plain `<span
+class="nav__soon">` rather than links, ready to become their own pages. When
+one exists, swap the span for a link:
+
+```html
+<a href="our-place.html">Our place</a>
+```
+
+The sections they used to jump to are still on the home page with their ids
+(`#story`, `#visit`, `#faq`), so they can be lifted out into pages, or linked
+to again, whichever suits.
+
 ## Before it goes live
 
 - Replace the placeholder dishes and prices in `data.js` with the real menu.
