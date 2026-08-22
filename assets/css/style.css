@@ -310,13 +310,19 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .hero__note { margin-top: 1.15rem; font-size: .84rem; color: var(--faint); }
 .hero__note strong { color: var(--text); font-weight: 600; }
 
-.hero__shot {
-  margin-top: clamp(2rem, 5vw, 3.25rem);
-  border-radius: var(--r-lg);
-  aspect-ratio: 21 / 9;
-  box-shadow: var(--shadow-lift);
+/* The photographs are portrait, so the hero is three of them rather than
+   one wide band that would crop each to a sliver. */
+.hero__shots {
+  margin-top: clamp(1.75rem, 4.5vw, 3rem);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 1.6vw, 1rem);
 }
-@media (max-width: 700px) { .hero__shot { aspect-ratio: 4 / 3; border-radius: var(--r); } }
+.hero__shots .shot { aspect-ratio: 4 / 5; border-radius: var(--r); box-shadow: var(--shadow-lift); }
+.hero__shots .shot:nth-child(2) { aspect-ratio: 4 / 5; transform: translateY(-1.25rem); }
+@media (max-width: 760px) {
+  .hero__shots { grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .hero__shots .shot:nth-child(2) { transform: none; }
+  .hero__shots .shot:nth-child(3) { display: none; }
+}
 
 /* ------------------------------------------------------------- 8. Marquees */
 .marquee {
@@ -429,7 +435,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 /* Live section wrapper: dark card floating on the light page */
 .livewrap { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.85fr); gap: clamp(1.5rem, 4vw, 2.5rem); align-items: center; }
-.livewrap .shot { aspect-ratio: 4 / 3; border-radius: var(--r-lg); }
+.livewrap .shot { aspect-ratio: 4 / 5; border-radius: var(--r-lg); }
 @media (max-width: 860px) { .livewrap { grid-template-columns: 1fr; } .livewrap .shot { display: none; } }
 
 /* --------------------------------------------------------- 11. Dish cards */
@@ -484,7 +490,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .hours__kitchen span { color: var(--text); font-weight: 600; }
 
 .mapcard { margin-top: 1.2rem; display: block; }
-.mapcard.shot { aspect-ratio: 16 / 10; }
+.mapcard.shot { aspect-ratio: 2 / 1; }
 
 /* ---------------------------------------------------------------- 14. FAQ */
 .faq { display: grid; }
@@ -593,11 +599,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .svc-head { display: grid; gap: .85rem; margin-bottom: clamp(1.5rem, 3vw, 2.25rem); max-width: 60ch; }
 .svc-head h2 { margin: 0; }
 .svc-head__when {
-  display: inline-flex; align-items: center; gap: .5rem; align-self: start;
-  padding: .38rem .9rem; border-radius: var(--r-pill);
-  border: 1px solid var(--line); font-size: .78rem; color: var(--muted); background: var(--panel);
+  font-size: .78rem; letter-spacing: .02em; color: var(--faint);
 }
-.svc-head__when.is-live { border-color: var(--go-line); color: var(--go); background: var(--go-bg); font-weight: 600; }
 .svc-head p { color: var(--muted); margin: 0; }
 
 .svc-shot { aspect-ratio: 21 / 8; margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem); border-radius: var(--r-lg); }
@@ -605,7 +608,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 .mgrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1.75rem, 4vw, 3.25rem); align-items: start; }
 @media (max-width: 820px) { .mgrid { grid-template-columns: 1fr; } }
-.mcol { display: grid; gap: clamp(2rem, 4vw, 3rem); align-content: start; }
+.mcol { display: grid; gap: clamp(2rem, 4vw, 2.75rem); align-content: start; }
 
 .msection > h3 {
   font-family: var(--body); font-size: .72rem; font-weight: 700;
@@ -614,7 +617,14 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 }
 .msection__note { font-size: .8rem; color: var(--faint); margin: -.6rem 0 1.2rem; font-style: italic; }
 
-.mitems { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2rem; }
+.mitems { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+.mitem { display: grid; grid-template-columns: 4.25rem 1fr; gap: .9rem; align-items: start; }
+.mitem__thumb {
+  aspect-ratio: 1; border-radius: 10px;
+  border: 1px solid var(--line-soft);
+  background-size: cover; background-position: center;
+}
+.mitem__body { min-width: 0; }
 .mitem__top { display: flex; align-items: baseline; gap: .55rem; }
 .mitem__name { font-family: var(--display); font-size: 1.03rem; color: var(--text); }
 .mitem__lead { flex: 1 1 auto; border-bottom: 1px dotted var(--line); transform: translateY(-.25em); min-width: 1.2rem; }
@@ -660,6 +670,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 /* ------------------------------------------------- 20. Phones, specifically */
 @media (max-width: 560px) {
+  .mitem { grid-template-columns: 3.5rem 1fr; gap: .75rem; }
   /* Two dishes across still reads well and halves the scrolling. */
   .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem .7rem; }
   .grid--4 .shot { aspect-ratio: 1 / 1; }
@@ -696,19 +707,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .heads-up strong { color: var(--heads); font-weight: 600; }
 [data-notice="true"] + .heads-up { display: flex; }
 
-.menu-hero__in { max-width: 46rem; }
+
 
 /* Pictures at the top of each menu */
-/* A row of pictures above each menu — even sizes, so nothing is over-cropped. */
-.svc-shots {
-  display: grid; gap: .7rem;
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
-}
-.svc-shots[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
-.svc-shots .shot { aspect-ratio: 4 / 3; border-radius: var(--r); }
-@media (max-width: 560px) {
-  .svc-shots { gap: .5rem; grid-template-columns: repeat(2, 1fr); }
-  .svc-shots[data-count="3"] .shot:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
-}
-@media print { .svc-shots, .nowline, .heads-up { display: none !important; } }
+@media print { .nowline, .mitem__thumb { display: none !important; } }
+@media print { .mitem { grid-template-columns: 1fr; } }

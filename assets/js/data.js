@@ -58,15 +58,16 @@ window.CHLOE = (function () {
       to: '12:00',
       days: [0, 1, 2, 3, 4, 5, 6],
       shots: [
-        { art: 'art-pancakes',     photo: 'assets/img/photo-pancakes.jpg',      alt: 'A loaded pancake stack' },
-        { art: 'art-fullbreakfast', photo: 'assets/img/photo-breakfast.jpg', alt: 'The full breakfast' },
-        { art: 'art-flatbreads',    photo: 'assets/img/photo-flatbreads.jpg',    alt: 'Chorizo and egg flatbreads' }
+        { art: 'art-pancakes',      photo: 'assets/img/photo-pancakes.jpg',      alt: 'A pancake stack under chocolate and mini eggs' },
+        { art: 'art-fullbreakfast', photo: 'assets/img/photo-fullbreakfast.jpg', alt: 'The full breakfast' },
+        { art: 'art-room',          photo: 'assets/img/photo-breakfast.jpg',     alt: 'Breakfast on the marble tables' }
       ],
       blurb:
         'The reason half of Cullercoats sets an alarm. Pancake stacks built to order, proper Northumbrian bacon and eggs any way you like them.',
       sections: [
         {
           title: 'The Ultimate American Pancakes',
+          img: 'assets/img/photo-pancakes.jpg',
           note: 'Stacks of three, made to order. Add a fourth for £2.',
           items: [
             { name: 'Biscoff Dream', desc: 'Warm Biscoff spread, crushed biscuit, salted caramel, whipped cream', price: '9.50', tags: ['V'], star: true },
@@ -79,21 +80,23 @@ window.CHLOE = (function () {
         },
         {
           title: 'Big Plates',
+          img: 'assets/img/photo-fullbreakfast.jpg',
           items: [
             { name: "Chloe's Full Breakfast", desc: 'Bacon, Cumberland sausage, black pudding, hash brown, mushrooms, beans, tomato, two eggs, toast', price: '12.95', star: true },
             { name: 'The Vegan Full', desc: 'Vegan sausage, smashed avocado, hash brown, mushrooms, beans, tomato, spinach, sourdough', price: '11.95', tags: ['VE'] },
-            { name: 'Breakfast Burger', desc: 'Sausage patty, streaky bacon, fried egg, cheese, hash brown, brioche bun, house brown sauce', price: '11.50', star: true },
-            { name: 'Breakfast Burrito', desc: 'Scrambled egg, chorizo, peppers, cheese, chipotle mayo, warm tortilla, skin-on fries', price: '12.50' },
+            { name: 'Breakfast Burger', img: 'assets/img/photo-breakfast.jpg', desc: 'Sausage patty, streaky bacon, fried egg, cheese, hash brown, brioche bun, house brown sauce', price: '11.50', star: true },
+            { name: 'Breakfast Burrito', img: 'assets/img/photo-breakfast.jpg', desc: 'Scrambled egg, chorizo, peppers, cheese, chipotle mayo, warm tortilla, skin-on fries', price: '12.50' },
             { name: 'Broccoli Steak Omelette', desc: 'Three-egg omelette, charred tenderstem, mature cheddar, dressed leaves', price: '11.50', tags: ['V', 'GF'], star: true }
           ]
         },
         {
           title: 'Lighter & On Toast',
+          img: 'assets/img/photo-flatbreads.jpg',
           items: [
             { name: 'Eggs Benedict', desc: 'Toasted muffin, dry-cured ham, poached eggs, hollandaise', price: '10.50' },
             { name: 'Eggs Royale', desc: 'Toasted muffin, smoked salmon, poached eggs, hollandaise', price: '11.50' },
             { name: 'Smashed Avocado', desc: 'Sourdough, chilli, lime, feta, poached egg', price: '9.95', tags: ['V', 'GFA'] },
-            { name: 'Bacon or Sausage Stottie', desc: 'Warm stottie, your choice of filling, brown or red', price: '6.50' },
+            { name: 'Bacon or Sausage Stottie', img: 'assets/img/photo-breakfast.jpg', desc: 'Warm stottie, your choice of filling, brown or red', price: '6.50' },
             { name: 'Porridge & Poached Fruit', desc: 'Creamy oats, poached seasonal fruit, toasted almonds, honey', price: '6.95', tags: ['V'] }
           ]
         }
@@ -108,17 +111,18 @@ window.CHLOE = (function () {
       to: '16:30',
       days: [0, 1, 2, 3, 4, 5, 6],
       shots: [
-        { art: 'art-bowls',      photo: 'assets/img/photo-bowls.jpg',      alt: 'The halloumi and chicken bowls' },
-        { art: 'art-flatbreads', photo: 'assets/img/photo-flatbreads.jpg', alt: 'Chorizo and egg flatbreads' },
-        { art: 'art-room',       photo: 'assets/img/photo-breakfast.jpg', alt: 'Breakfast in the dining room' }
+        { art: 'art-bowls',      photo: 'assets/img/photo-bowls.jpg',      alt: 'The chicken and halloumi bowls' },
+        { art: 'art-fullbreakfast', photo: 'assets/img/photo-fries.jpg',   alt: 'Loaded fries with chilli and spring onion' },
+        { art: 'art-flatbreads', photo: 'assets/img/photo-flatbreads.jpg', alt: 'Chorizo and egg flatbreads' }
       ],
       blurb:
         'Lunch by the bay. Sandwiches on proper bread, buttermilk chicken worth the walk, and a specials board that changes with whatever the week brings in.',
       sections: [
         {
           title: 'To Start & To Share',
+          img: 'assets/img/photo-fries.jpg',
           items: [
-            { name: 'Korean Chicken Tenders', desc: 'Buttermilk tenders, gochujang glaze, sesame, spring onion, kimchi mayo', price: '8.95', star: true },
+            { name: 'Korean Chicken Tenders', img: 'assets/img/photo-fries.jpg', desc: 'Buttermilk tenders, gochujang glaze, sesame, spring onion, kimchi mayo', price: '8.95', star: true },
             { name: 'Salt & Chilli Halloumi Fries', desc: 'Crisp halloumi, chilli, peppers, sriracha yoghurt', price: '7.95', tags: ['V'] },
             { name: 'Whitby Scampi', desc: 'Wholetail scampi, tartare, lemon', price: '7.50' },
             { name: 'Warm Focaccia', desc: 'Rosemary focaccia, whipped garlic butter, olives', price: '6.50', tags: ['V'] }
@@ -126,28 +130,31 @@ window.CHLOE = (function () {
         },
         {
           title: 'Burgers, Buns & Sandwiches',
+          img: 'assets/img/photo-flatbreads.jpg',
           note: 'All served with skin-on fries and slaw.',
           items: [
             { name: 'The Chloe Mae Burger', desc: 'Double smash patty, burger sauce, American cheese, pickles, brioche', price: '14.50', star: true },
             { name: 'Buttermilk Chicken Burger', desc: 'Fried chicken thigh, chipotle mayo, slaw, baby gem', price: '14.00' },
             { name: 'Korean Chicken Burger', desc: 'Gochujang glazed tenders, kimchi mayo, cucumber, sesame bun', price: '14.50' },
-            { name: 'Halloumi & Roast Pepper Burger', desc: 'Grilled halloumi, roast peppers, harissa mayo, rocket', price: '13.50', tags: ['V'] },
+            { name: 'Halloumi & Roast Pepper Burger', img: 'assets/img/photo-bowls.jpg', desc: 'Grilled halloumi, roast peppers, harissa mayo, rocket', price: '13.50', tags: ['V'] },
             { name: 'Steak Sandwich', desc: 'Minute steak, caramelised onion, rocket, peppercorn mayo, ciabatta', price: '14.95' },
             { name: 'Club Sandwich', desc: 'Chicken, bacon, egg, tomato, baby gem, toasted bloomer', price: '12.50' }
           ]
         },
         {
           title: 'Plates & Bowls',
+          img: 'assets/img/photo-bowls.jpg',
           items: [
             { name: 'Cullercoats Fish & Chips', desc: 'Beer-battered haddock, triple-cooked chips, crushed peas, tartare', price: '16.50', star: true },
-            { name: 'Chicken Caesar', desc: 'Grilled chicken, baby gem, focaccia croutons, parmesan, anchovy dressing', price: '13.50' },
-            { name: 'Roast Squash & Feta Salad', desc: 'Honey-roast squash, feta, pomegranate, toasted seeds, herb dressing', price: '12.50', tags: ['V', 'GF'] },
+            { name: 'Chicken Caesar', img: 'assets/img/photo-bowls.jpg', desc: 'Grilled chicken, baby gem, focaccia croutons, parmesan, anchovy dressing', price: '13.50' },
+            { name: 'Roast Squash & Feta Salad', img: 'assets/img/photo-bowls.jpg', desc: 'Honey-roast squash, feta, pomegranate, toasted seeds, herb dressing', price: '12.50', tags: ['V', 'GF'] },
             { name: 'Katsu Chicken Curry', desc: 'Panko chicken, katsu sauce, sticky rice, pickled slaw', price: '14.50' },
             { name: 'Soup of the Day', desc: 'Made this morning, served with warm sourdough', price: '7.50', tags: ['V', 'VEA'] }
           ]
         },
         {
           title: 'Sides',
+          img: 'assets/img/photo-fries.jpg',
           items: [
             { name: 'Skin-on Fries', price: '4.00', tags: ['VE'] },
             { name: 'Truffle & Parmesan Fries', price: '5.50', tags: ['V'] },
@@ -167,18 +174,19 @@ window.CHLOE = (function () {
       to: '20:30',
       days: [4, 5, 6],
       shots: [
-        { art: 'art-evening', photo: 'assets/img/photo-bowls.jpg', alt: 'An evening plate' },
-        { art: 'art-bowls',   photo: 'assets/img/photo-breakfast.jpg', alt: 'The room in the evening' }
+        { art: 'art-evening', photo: 'assets/img/photo-fries.jpg', alt: 'Loaded fries to share' },
+        { art: 'art-bowls',   photo: 'assets/img/photo-bowls.jpg', alt: 'An evening plate' }
       ],
       blurb:
         'Three nights a week the lights go low, the candles come out and the kitchen cooks a little differently. Booking is wise.',
       sections: [
         {
           title: 'Small Plates',
+          img: 'assets/img/photo-fries.jpg',
           note: 'Three between two is about right.',
           items: [
             { name: 'Lindisfarne Oysters', desc: 'Three, shallot vinegar, lemon', price: '9.50', tags: ['GF'] },
-            { name: 'Korean Chicken Tenders', desc: 'Gochujang glaze, sesame, kimchi mayo', price: '8.95', star: true },
+            { name: 'Korean Chicken Tenders', img: 'assets/img/photo-fries.jpg', desc: 'Gochujang glaze, sesame, kimchi mayo', price: '8.95', star: true },
             { name: 'Chorizo & Butter Beans', desc: 'Slow-cooked, smoked paprika, gremolata, sourdough', price: '8.50' },
             { name: 'Burrata & Heritage Tomato', desc: 'Basil oil, aged balsamic, focaccia', price: '9.50', tags: ['V'] },
             { name: 'Crispy Squid', desc: 'Lime aioli, chilli, coriander', price: '8.95' }
@@ -186,6 +194,7 @@ window.CHLOE = (function () {
         },
         {
           title: 'Mains',
+          img: 'assets/img/photo-bowls.jpg',
           items: [
             { name: 'North Sea Cod', desc: 'Roast cod loin, brown shrimp butter, crushed new potatoes, samphire', price: '21.50', tags: ['GF'], star: true },
             { name: 'Sirloin Steak', desc: '8oz sirloin, triple-cooked chips, roast tomato, peppercorn sauce', price: '26.00', tags: ['GFA'] },
@@ -196,6 +205,7 @@ window.CHLOE = (function () {
         },
         {
           title: 'Puddings',
+          img: 'assets/img/photo-pancakes.jpg',
           items: [
             { name: 'Sticky Toffee Pudding', desc: 'Salted caramel, clotted cream', price: '8.50', tags: ['V'], star: true },
             { name: 'Biscoff Cheesecake', desc: 'Baked, caramelised biscuit crumb', price: '8.50', tags: ['V'] },
@@ -214,8 +224,8 @@ window.CHLOE = (function () {
       to: '20:45',
       days: [0, 1, 2, 3, 4, 5, 6],
       shots: [
-        { art: 'art-drinks',   photo: 'assets/img/photo-drinks.jpg', alt: 'Iced matcha to take away' },
-        { art: 'art-pancakes', photo: 'assets/img/photo-pancakes.jpg', alt: 'A pancake stack and an iced coffee' }
+        { art: 'art-drinks',   photo: 'assets/img/photo-drinks.jpg', alt: 'Two iced matcha in a carrier' },
+        { art: 'art-pancakes', photo: 'assets/img/photo-matcha.jpg', alt: 'Iced matcha to take away' }
       ],
       alwaysOn: true,
       blurb:
@@ -223,18 +233,20 @@ window.CHLOE = (function () {
       sections: [
         {
           title: 'Coffee',
+          img: 'assets/img/photo-drinks.jpg',
           note: 'House espresso roasted on Tyneside. Oat, soya and coconut milk at no extra charge.',
           items: [
             { name: 'Espresso / Macchiato', price: '2.60' },
             { name: 'Flat White', price: '3.40', star: true },
             { name: 'Latte / Cappuccino', price: '3.60' },
             { name: 'Mocha', price: '3.90' },
-            { name: 'Iced Latte / Iced Filter', price: '3.80' },
+            { name: 'Iced Latte / Iced Filter', img: 'assets/img/photo-matcha.jpg', price: '3.80' },
             { name: 'Biscoff or Salted Caramel Latte', price: '4.20' }
           ]
         },
         {
           title: 'Tea & Other Warmers',
+          img: 'assets/img/photo-matcha.jpg',
           items: [
             { name: 'Pot of Breakfast Tea', price: '2.80', tags: ['V'] },
             { name: 'Loose Leaf Infusions', desc: 'Peppermint, camomile, red berry, green', price: '3.10', tags: ['VE'] },
@@ -244,8 +256,9 @@ window.CHLOE = (function () {
         },
         {
           title: 'Cold & Sweet',
+          img: 'assets/img/photo-pancakes.jpg',
           items: [
-            { name: 'Milkshakes', desc: 'Biscoff, Oreo, strawberry, salted caramel', price: '5.50', tags: ['V'] },
+            { name: 'Milkshakes', img: 'assets/img/photo-drinks.jpg', desc: 'Biscoff, Oreo, strawberry, salted caramel', price: '5.50', tags: ['V'] },
             { name: 'Fresh Orange Juice', price: '3.20', tags: ['VE', 'GF'] },
             { name: 'Cake of the Day', desc: 'Ask at the counter — it changes daily', price: '4.50', tags: ['V'], star: true },
             { name: 'Warm Scone', desc: 'Clotted cream and jam', price: '4.20', tags: ['V'] },
@@ -254,6 +267,7 @@ window.CHLOE = (function () {
         },
         {
           title: 'Something Stronger',
+          img: 'assets/img/photo-drinks.jpg',
           note: 'Available from 12pm. Full wine and cocktail list on the table.',
           items: [
             { name: 'House Wine', desc: '175ml / 250ml / bottle', price: '6.00', priceNote: '/ 8.00 / 23.00' },

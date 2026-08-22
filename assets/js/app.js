@@ -195,8 +195,8 @@
     $('#live-detail').textContent = state.detail;
 
     /* What is coming next, mentioned only inside the last half hour. */
-    if (state.noticeActive) {
-      const t = $('#live-notice-text');
+    const t = $('#live-notice-text');
+    if (state.noticeActive && t) {
       if (state.status === 'closed') {
         t.innerHTML = `We open at <strong>${LIVE.pretty(state.changeAt)}</strong> this morning.`;
       } else if (state.changeTo) {

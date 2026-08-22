@@ -39,9 +39,20 @@
     return row;
   }
 
-  function itemNode(item) {
+  function itemNode(item, section) {
     const li = el('li', 'mitem');
 
+    /* A picture of the dish, so people can see it before they read it. */
+    const src = item.img || section.img;
+    if (src) {
+      const thumb = el('div', 'mitem__thumb shot');
+      thumb.dataset.photo = src;
+      thumb.dataset.art = section.art || 'art-pancakes';
+      thumb.style.backgroundImage = `url("assets/img/${thumb.dataset.art}.svg")`;
+      li.append(thumb);
+    }
+
+    const body = el('div', 'mitem__body');
     const top = el('div', 'mitem__top');
     const name = el('span', 'mitem__name');
     name.append(item.name);
@@ -56,9 +67,9 @@
     if (item.priceNote) price.append(' ', el('small', null, item.priceNote));
 
     top.append(name, el('span', 'mitem__lead'), price);
-    li.append(top);
-
-    if (item.desc) li.append(el('p', 'mitem__desc', item.desc));
+    body.append(top);
+    if (item.desc) body.append(el('p', 'mitem__desc', item.desc));
+    li.append(body);
     return li;
   }
 
@@ -67,7 +78,7 @@
     box.append(el('h3', null, section.title));
     if (section.note) box.append(el('p', 'msection__note', section.note));
     const list = el('ul', 'mitems');
-    section.items.forEach((item) => list.append(itemNode(item)));
+    section.items.forEach((item) => list.append(itemNode(item, section)));
     box.append(list);
     return box;
   }
@@ -84,25 +95,10 @@
     head.append(el('h2', null, service.name));
     const when = el('span', 'svc-head__when');
     when.id = 'when-' + service.id;
-    when.append(el('span', 'dot'), service.kicker);
+    when.append(service.kicker);
     head.append(when);
     head.append(el('p', null, service.blurb));
     panel.append(head);
-
-    /* Pictures first — people want to see the food before they read it. */
-    if (service.shots && service.shots.length) {
-      const row = el('div', 'svc-shots');
-      row.dataset.count = String(service.shots.length);
-      service.shots.forEach((s) => {
-        const shot = el('div', 'shot');
-        shot.dataset.art = s.art;
-        if (s.photo) shot.dataset.photo = s.photo;
-        if (s.alt) shot.dataset.alt = s.alt;
-        shot.style.backgroundImage = `url("assets/img/${s.art}.svg")`;
-        row.append(shot);
-      });
-      panel.append(row);
-    }
 
     /* Two balanced columns so a long menu still reads like a menu. The split
        is whichever break leaves the two sides closest in length. */
@@ -219,16 +215,7 @@
         else badge.textContent = isLive ? 'Now' : 'Next';
       }
 
-      if (when) {
-        when.classList.toggle('is-live', isLive);
-        const label = when.lastChild;
-        const text = isLive
-          ? `Being served right now, until ${LIVE.pretty(state.changeAt)}`
-          : soon
-            ? `Starts at ${LIVE.pretty(service.from)}`
-            : service.kicker;
-        if (label && label.nodeType === 3) label.nodeValue = text;
-      }
+      if (when) when.textContent = service.kicker;
     });
 
     /* Follow the kitchen, unless the visitor has taken the wheel. */

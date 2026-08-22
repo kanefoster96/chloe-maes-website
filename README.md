@@ -87,24 +87,35 @@ photograph that should replace it. Drop the file in at the path below and it
 fades in over the artwork automatically — nothing to wire up, no markup to
 change.
 
-| Save the file as | What it should be | Where it appears |
-| --- | --- | --- |
-| `assets/img/photo-breakfast.jpg` | The two full breakfasts on the marble, room behind | Hero band, the Full Breakfast card, three menus |
-| `assets/img/photo-pancakes.jpg` | The pancake stack and iced coffee in the room | Live panel, the Pancake Stack card, our-place column, drinks menu |
-| `assets/img/photo-flatbreads.jpg` | Chorizo and egg flatbreads on the black plate | Flatbreads card, our-place column, breakfast and main menus |
-| `assets/img/photo-bowls.jpg` | The chicken and halloumi bowls | The Bowls card, main and evening menus |
-| `assets/img/photo-dog.jpg` | The retriever with the iced drink | Our-place column |
-| `assets/img/photo-drinks.jpg` | The two iced matcha on lilac | Drinks menu |
-| `assets/img/photo-map.png` | The map screenshot with the pin | Find us |
+| File | What it is |
+| --- | --- |
+| `photo-room.jpg` | Inside, someone holding a pancake stack |
+| `photo-breakfast.jpg` | Two full breakfasts on the marble, room behind |
+| `photo-fullbreakfast.jpg` | The full breakfast, close up |
+| `photo-pancakes.jpg` | The pancake stack under chocolate |
+| `photo-flatbreads.jpg` | Chorizo and egg flatbreads |
+| `photo-bowls.jpg` | The chicken and halloumi bowls |
+| `photo-fries.jpg` | Loaded fries |
+| `photo-dog.jpg` | The retriever with the iced drink |
+| `photo-drinks.jpg` | Two iced matcha on lilac |
+| `photo-matcha.jpg` | Iced matcha, second crop |
+| `photo-map.png` | The map with the pin |
 
-Seven files, reused across every slot on the site — nothing needs its own
-photograph. Which picture appears on which menu is the `shots` array on each
-service in `data.js`, and the rest are `data-photo` attributes in `index.html`.
+**Adding more.** Drop a JPEG into `assets/img/` and point at it from
+`data.js`. Each menu section has an `img` — the default picture for every dish
+in it — and any single dish can override that with its own `img`:
 
-Anything from a phone camera is big enough. The hero band is cropped wide, the
-dish cards are 4:5 portrait on desktop and square on phones, and the menu
-pictures are 4:3 — every slot crops from the centre, so leave a little room
-around the subject.
+```js
+{ name: 'Breakfast Burger', img: 'assets/img/photo-burger.jpg', ... }
+```
+
+The more dishes that carry their own picture, the less the thumbnails repeat
+down a section.
+
+Anything from a phone camera is big enough. The hero is three 4:5 portraits,
+the dish cards are 4:5, and the menu thumbnails are square — every slot crops
+from the centre, so leave a little room around the subject. Photographs are
+resized to 1400px and saved at quality 82 before being committed.
 `assets/img/og.png` is the image that shows when the site is shared on social
 media or in a message — worth replacing with a real photograph of the shopfront.
 
