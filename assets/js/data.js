@@ -177,7 +177,7 @@ window.CHLOE = (function () {
 
     {
       id: 'evening',
-      emoji: '🕯️',
+      emoji: '🍽️',
       name: 'Evening Menu',
       kicker: 'Thursday to Saturday, 5pm – 8:30pm',
       from: '17:00',
