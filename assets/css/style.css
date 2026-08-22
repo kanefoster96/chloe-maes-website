@@ -337,13 +337,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   .marquee__track { animation: none; }
 }
 
-/* The three things worth knowing before you read anything else. */
-.facts {
-  list-style: none; margin: 0; padding: 0;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem;
-  margin-top: 1.5rem;
-}
-@media (max-width: 420px) { .facts { gap: .4rem; } .facts .pill { font-size: .8rem; padding: .5rem .85rem; } }
+/* The three things worth knowing, drifting past under the hero. */
+.marquee--pills { margin-top: clamp(1.6rem, 3vw, 2.25rem); }
+@media (max-width: 420px) { .marquee--pills .pill { font-size: .8rem; padding: .52rem .9rem; } }
 
 .pill {
   display: inline-flex; align-items: center; gap: .55rem;

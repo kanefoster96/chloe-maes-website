@@ -292,10 +292,12 @@ window.CHLOE = (function () {
 
   /* -- The strip that drifts past under the hero --------------------------- */
   const FEATURES = [
-    { icon: 'i-paw',  label: 'Very dog friendly' },
-    { icon: 'i-leaf', label: 'Vegan & veggie', green: true },
+    { icon: 'i-paw',  label: 'VERY dog friendly' },
+    { icon: 'i-leaf', label: 'Vegan and veggie options', green: true },
     { icon: 'i-bag',  label: 'Takeaway available' }
   ];
+
+
 
 
 

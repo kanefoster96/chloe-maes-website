@@ -109,17 +109,37 @@
   /* ----------------------------------------------------------- 4. Marquees */
   /* Each belt holds the same run of items twice, so translating the track by
      half its width loops seamlessly. */
+  /* A belt holds the same run of items twice, so translating the track by half
+     its width loops seamlessly. With only a few short items one run is narrower
+     than the screen, so the run is repeated until it is wide enough first —
+     otherwise the belt shows a gap on every pass. */
   function marquee(track, build, items) {
-    if (!track) return;
-    for (let copy = 0; copy < 2; copy++) {
+    if (!track || !items.length) return;
+
+    const fill = () => {
       const group = el('div', 'marquee__group');
-      if (copy === 1) group.setAttribute('aria-hidden', 'true');
       items.forEach((item) => group.append(build(item)));
-      track.append(group);
+      return group;
+    };
+
+    const first = fill();
+    track.append(first);
+
+    const needed = () => track.parentElement.offsetWidth || window.innerWidth;
+    let guard = 24;                       // never loop forever on a zero-width group
+    while (first.offsetWidth && first.offsetWidth < needed() && guard--) {
+      items.forEach((item) => first.append(build(item)));
     }
-    /* Slow the belt down when there is a lot on it, so it reads at a walk. */
+
+    const twin = first.cloneNode(true);
+    twin.setAttribute('aria-hidden', 'true');
+    track.append(twin);
+
+    /* Same perceived speed whatever is on it: about 45 pixels a second. */
     const belt = track.closest('.marquee');
-    if (belt) belt.style.setProperty('--speed', Math.max(30, items.length * 7) + 's');
+    if (belt && first.offsetWidth) {
+      belt.style.setProperty('--speed', Math.max(18, Math.round(first.offsetWidth / 45)) + 's');
+    }
   }
 
   function starRow(count) {
@@ -133,14 +153,12 @@
   }
 
   function featureStrip() {
-    const host = $('#facts');
-    if (!host) return;
-    DATA.FEATURES.forEach((f) => {
-      const li = el('li', 'pill' + (f.green ? ' pill--green' : ''));
-      li.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#${f.icon}"/></svg>`);
-      li.append(f.label);
-      host.append(li);
-    });
+    marquee($('#pill-track'), (f) => {
+      const pill = el('span', 'pill' + (f.green ? ' pill--green' : ''));
+      pill.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#${f.icon}"/></svg>`);
+      pill.append(f.label);
+      return pill;
+    }, DATA.FEATURES);
   }
 
   /* ------------------------------------------------- 4b. The hero pictures */
