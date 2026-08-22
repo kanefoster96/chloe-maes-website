@@ -39,22 +39,14 @@
     <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></symbol>
     <symbol id="i-metro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14M8 20l-2 2M16 20l2 2"/><circle cx="8.5" cy="13" r=".6" fill="currentColor"/><circle cx="15.5" cy="13" r=".6" fill="currentColor"/></symbol>
     <symbol id="i-paw" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.4" cy="9.4" rx="2.1" ry="2.6"/><ellipse cx="10.6" cy="6.6" rx="2.1" ry="2.8"/><ellipse cx="15.4" cy="6.6" rx="2.1" ry="2.8"/><ellipse cx="19" cy="10.2" rx="2" ry="2.5"/><path d="M12.6 12.2c2.3 0 4.4 1.5 5.2 3.5.9 2.2-.5 4.4-2.9 4.4-1 0-1.7-.3-2.5-.3s-1.5.3-2.5.3c-2.4 0-3.8-2.2-2.9-4.4.8-2 2.9-3.5 5.2-3.5z"/></symbol>
+    <symbol id="i-flower" viewBox="0 0 24 24"><g fill="currentColor"><ellipse cx="12" cy="5.4" rx="3.1" ry="4.3"/><ellipse cx="18.3" cy="9.9" rx="3.1" ry="4.3" transform="rotate(72 18.3 9.9)"/><ellipse cx="15.9" cy="17.5" rx="3.1" ry="4.3" transform="rotate(144 15.9 17.5)"/><ellipse cx="8.1" cy="17.5" rx="3.1" ry="4.3" transform="rotate(216 8.1 17.5)"/><ellipse cx="5.7" cy="9.9" rx="3.1" ry="4.3" transform="rotate(288 5.7 9.9)"/></g><circle cx="12" cy="12" r="2.6" fill="#14100f"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></symbol>
   </defs>
 </svg>
-  <div class="statusbar" id="statusbar">
-    <div class="wrap statusbar__in">
-      <p class="statusbar__msg" id="status-msg">
-        <span class="dot" id="status-dot"></span>
-        <span id="status-text">Checking today&rsquo;s service&hellip;</span>
-      </p>
-      <span class="statusbar__spacer"></span>
-      <a class="statusbar__call" href="tel:+441912523442">0191 252 3442</a>
-    </div>
-  </div>
   <header class="site-header" id="site-header">
     <div class="wrap site-header__in">
       <a class="brand" href="index.html" aria-label="Chloe Mae's, 2 St George's Road, home">
+        <svg class="brand__flower" aria-hidden="true"><use href="#i-flower"/></svg>
         <span class="brand__script">Chloe Mae&rsquo;s</span>
         <span class="brand__addr">2 St George&rsquo;s Rd</span>
       </a>
@@ -88,8 +80,6 @@
       <div class="wrap hero__inner">
         <p class="hero__sub">Cullercoats &middot; Tyne &amp; Wear</p>
         <h1 class="hero__script">Chloe Mae&rsquo;s</h1>
-        <p class="lede">A warm little room full of flowers on the corner of St George&rsquo;s Road &mdash; pancake stacks, proper coffee and the best breakfast within walking distance of the bay.</p>
-
         <div class="btn-row btn-row--center">
           <a class="btn" href="menu.html">
             <svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
@@ -191,12 +181,12 @@
           </article>
 
           <article class="dish rise">
-            <div class="shot shot--tall" data-art="art-bowls" data-photo="assets/img/photo-bowls.jpg"
-                 data-alt="Halloumi bowl and grilled chicken bowl"></div>
+            <div class="shot shot--tall" data-art="art-bowls" data-photo="assets/img/photo-chickenburger.jpg"
+                 data-alt="Buttermilk chicken burger with slaw and barbecue sauce"></div>
             <div>
-              <h3 class="dish__name">The Bowls</h3>
-              <p class="dish__desc">Halloumi or grilled chicken, slaw, greens and a warm flatbread. Lunch, sorted.</p>
-              <p class="dish__meta"><span class="price">from &pound;12.50</span> &middot; Main menu</p>
+              <h3 class="dish__name">Buttermilk Chicken Burger</h3>
+              <p class="dish__desc">Fried chicken, slaw, barbecue sauce and a toasted brioche bun. Worth the walk.</p>
+              <p class="dish__meta"><span class="price">&pound;14.00</span> &middot; Main menu</p>
             </div>
           </article>
         </div>
@@ -214,8 +204,8 @@
                data-alt="Inside Chloe Mae's"></div>
           <div class="shot shot--sq rise" data-art="art-drinks" data-photo="assets/img/photo-dog.jpg"
                data-alt="A golden retriever outside with an iced drink"></div>
-          <div class="shot shot--sq rise" data-art="art-drinks" data-photo="assets/img/photo-drinks.jpg"
-               data-alt="Two iced matcha to take away"></div>
+          <div class="shot shot--sq rise" data-art="art-drinks" data-photo="assets/img/photo-coffee.jpg"
+               data-alt="An iced coffee outside the shopfront on St George's Road"></div>
         </div>
         <div>
           <p class="eyebrow">Our place</p>

@@ -192,8 +192,30 @@
     return null;
   }
 
+  /* Menus sort themselves: what is being served now, then what is coming,
+     then whatever has already finished for the day. */
+  function rankFor(service, state) {
+    if (!state.isOpen) return 0;   // closed: fall back to the natural order
+    if (state.current && service.id === state.current.id) return 0;
+    if (service.alwaysOn) return 1;
+    if (!service.days.includes(state.day)) return 3;
+    return LIVE.toMinutes(service.from) > LIVE.toMinutes(state.clock) ? 2 : 3;
+  }
+
+  function reorderTabs(state) {
+    const order = DATA.SERVICES
+      .map((service, i) => ({ service, i, rank: rankFor(service, state) }))
+      .sort((a, b) => a.rank - b.rank || a.i - b.i);
+
+    const ids = order.map((o) => o.service.id).join(',');
+    if (ids === reorderTabs.last) return;   // nothing moved
+    reorderTabs.last = ids;
+    order.forEach((o) => tabsHost.append($('#tab-' + o.service.id)));
+  }
+
   function markLive(state) {
     const liveId = whichIsLive(state);
+    reorderTabs(state);
 
     DATA.SERVICES.forEach((service) => {
       const tab = $('#tab-' + service.id);

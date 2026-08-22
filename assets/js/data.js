@@ -84,18 +84,18 @@ window.CHLOE = (function () {
           items: [
             { name: "Chloe's Full Breakfast", desc: 'Bacon, Cumberland sausage, black pudding, hash brown, mushrooms, beans, tomato, two eggs, toast', price: '12.95', star: true },
             { name: 'The Vegan Full', desc: 'Vegan sausage, smashed avocado, hash brown, mushrooms, beans, tomato, spinach, sourdough', price: '11.95', tags: ['VE'] },
-            { name: 'Breakfast Burger', img: 'assets/img/photo-breakfast.jpg', desc: 'Sausage patty, streaky bacon, fried egg, cheese, hash brown, brioche bun, house brown sauce', price: '11.50', star: true },
+            { name: 'Breakfast Burger', img: 'assets/img/photo-burger.jpg', desc: 'Sausage patty, streaky bacon, fried egg, cheese, hash brown, brioche bun, house brown sauce', price: '11.50', star: true },
             { name: 'Breakfast Burrito', img: 'assets/img/photo-breakfast.jpg', desc: 'Scrambled egg, chorizo, peppers, cheese, chipotle mayo, warm tortilla, skin-on fries', price: '12.50' },
             { name: 'Broccoli Steak Omelette', desc: 'Three-egg omelette, charred tenderstem, mature cheddar, dressed leaves', price: '11.50', tags: ['V', 'GF'], star: true }
           ]
         },
         {
           title: 'Lighter & On Toast',
-          img: 'assets/img/photo-flatbreads.jpg',
+          img: 'assets/img/photo-benedict.jpg',
           items: [
-            { name: 'Eggs Benedict', desc: 'Toasted muffin, dry-cured ham, poached eggs, hollandaise', price: '10.50' },
-            { name: 'Eggs Royale', desc: 'Toasted muffin, smoked salmon, poached eggs, hollandaise', price: '11.50' },
-            { name: 'Smashed Avocado', desc: 'Sourdough, chilli, lime, feta, poached egg', price: '9.95', tags: ['V', 'GFA'] },
+            { name: 'Eggs Benedict', img: 'assets/img/photo-benedict.jpg', desc: 'Toasted muffin, dry-cured ham, poached eggs, hollandaise', price: '10.50' },
+            { name: 'Eggs Royale', img: 'assets/img/photo-benedict.jpg', desc: 'Toasted muffin, smoked salmon, poached eggs, hollandaise', price: '11.50' },
+            { name: 'Smashed Avocado', img: 'assets/img/photo-benedict.jpg', desc: 'Sourdough, chilli, lime, feta, poached egg', price: '9.95', tags: ['V', 'GFA'] },
             { name: 'Bacon or Sausage Stottie', img: 'assets/img/photo-breakfast.jpg', desc: 'Warm stottie, your choice of filling, brown or red', price: '6.50' },
             { name: 'Porridge & Poached Fruit', desc: 'Creamy oats, poached seasonal fruit, toasted almonds, honey', price: '6.95', tags: ['V'] }
           ]
@@ -111,7 +111,7 @@ window.CHLOE = (function () {
       to: '16:30',
       days: [0, 1, 2, 3, 4, 5, 6],
       shots: [
-        { art: 'art-bowls',      photo: 'assets/img/photo-bowls.jpg',      alt: 'The chicken and halloumi bowls' },
+        { art: 'art-bowls',      photo: 'assets/img/photo-chickenburger.jpg', alt: 'The buttermilk chicken burger' },
         { art: 'art-fullbreakfast', photo: 'assets/img/photo-fries.jpg',   alt: 'Loaded fries with chilli and spring onion' },
         { art: 'art-flatbreads', photo: 'assets/img/photo-flatbreads.jpg', alt: 'Chorizo and egg flatbreads' }
       ],
@@ -130,12 +130,12 @@ window.CHLOE = (function () {
         },
         {
           title: 'Burgers, Buns & Sandwiches',
-          img: 'assets/img/photo-flatbreads.jpg',
+          img: 'assets/img/photo-burger.jpg',
           note: 'All served with skin-on fries and slaw.',
           items: [
-            { name: 'The Chloe Mae Burger', desc: 'Double smash patty, burger sauce, American cheese, pickles, brioche', price: '14.50', star: true },
-            { name: 'Buttermilk Chicken Burger', desc: 'Fried chicken thigh, chipotle mayo, slaw, baby gem', price: '14.00' },
-            { name: 'Korean Chicken Burger', desc: 'Gochujang glazed tenders, kimchi mayo, cucumber, sesame bun', price: '14.50' },
+            { name: 'The Chloe Mae Burger', img: 'assets/img/photo-burger.jpg', desc: 'Double smash patty, burger sauce, American cheese, pickles, brioche', price: '14.50', star: true },
+            { name: 'Buttermilk Chicken Burger', img: 'assets/img/photo-chickenburger.jpg', desc: 'Fried chicken thigh, chipotle mayo, slaw, baby gem', price: '14.00' },
+            { name: 'Korean Chicken Burger', img: 'assets/img/photo-chickenburger.jpg', desc: 'Gochujang glazed tenders, kimchi mayo, cucumber, sesame bun', price: '14.50' },
             { name: 'Halloumi & Roast Pepper Burger', img: 'assets/img/photo-bowls.jpg', desc: 'Grilled halloumi, roast peppers, harissa mayo, rocket', price: '13.50', tags: ['V'] },
             { name: 'Steak Sandwich', desc: 'Minute steak, caramelised onion, rocket, peppercorn mayo, ciabatta', price: '14.95' },
             { name: 'Club Sandwich', desc: 'Chicken, bacon, egg, tomato, baby gem, toasted bloomer', price: '12.50' }
@@ -200,7 +200,7 @@ window.CHLOE = (function () {
             { name: 'Sirloin Steak', desc: '8oz sirloin, triple-cooked chips, roast tomato, peppercorn sauce', price: '26.00', tags: ['GFA'] },
             { name: 'Half Roast Chicken', desc: 'Lemon and thyme, garlic butter, fries, dressed leaves', price: '19.50', tags: ['GF'] },
             { name: 'Wild Mushroom Orzo', desc: 'Roast garlic, spinach, parmesan, truffle oil', price: '17.50', tags: ['V'] },
-            { name: 'The Chloe Mae Burger', desc: 'Double smash patty, burger sauce, cheese, pickles, fries', price: '15.50' }
+            { name: 'The Chloe Mae Burger', img: 'assets/img/photo-burger.jpg', desc: 'Double smash patty, burger sauce, cheese, pickles, fries', price: '15.50' }
           ]
         },
         {
@@ -224,8 +224,8 @@ window.CHLOE = (function () {
       to: '20:45',
       days: [0, 1, 2, 3, 4, 5, 6],
       shots: [
-        { art: 'art-drinks',   photo: 'assets/img/photo-drinks.jpg', alt: 'Two iced matcha in a carrier' },
-        { art: 'art-pancakes', photo: 'assets/img/photo-matcha.jpg', alt: 'Iced matcha to take away' }
+        { art: 'art-drinks',   photo: 'assets/img/photo-coffee.jpg', alt: 'An iced coffee outside the shop' },
+        { art: 'art-pancakes', photo: 'assets/img/photo-drinks.jpg', alt: 'Two iced matcha to take away' }
       ],
       alwaysOn: true,
       blurb:
@@ -233,15 +233,15 @@ window.CHLOE = (function () {
       sections: [
         {
           title: 'Coffee',
-          img: 'assets/img/photo-drinks.jpg',
+          img: 'assets/img/photo-coffee.jpg',
           note: 'House espresso roasted on Tyneside. Oat, soya and coconut milk at no extra charge.',
           items: [
             { name: 'Espresso / Macchiato', price: '2.60' },
-            { name: 'Flat White', price: '3.40', star: true },
+            { name: 'Flat White', img: 'assets/img/photo-coffee.jpg', price: '3.40', star: true },
             { name: 'Latte / Cappuccino', price: '3.60' },
             { name: 'Mocha', price: '3.90' },
-            { name: 'Iced Latte / Iced Filter', img: 'assets/img/photo-matcha.jpg', price: '3.80' },
-            { name: 'Biscoff or Salted Caramel Latte', price: '4.20' }
+            { name: 'Iced Latte / Iced Filter', img: 'assets/img/photo-coffee.jpg', price: '3.80' },
+            { name: 'Biscoff or Salted Caramel Latte', img: 'assets/img/photo-coffee.jpg', price: '4.20' }
           ]
         },
         {

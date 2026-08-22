@@ -241,7 +241,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .site-header.is-stuck { border-bottom-color: var(--line-soft); background: rgba(13,11,11,.94); }
 .site-header__in { display: flex; align-items: center; gap: 1rem; min-height: var(--header-h); }
 
-.brand { display: flex; align-items: baseline; gap: .65rem; flex: none; }
+.brand { display: flex; align-items: center; gap: .6rem; flex: none; }
+.brand__flower { width: 1.65rem; height: 1.65rem; color: var(--blush); flex: none; }
 .brand__script {
   font-family: var(--script); font-size: 1.95rem; line-height: 1;
   color: var(--text); padding-block: .16em;
@@ -299,14 +300,14 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .hero__inner { max-width: 46rem; margin-inline: auto; }
 .hero__script {
   font-family: var(--script); font-size: clamp(3.4rem, 13vw, 6.2rem);
-  line-height: .95; color: var(--text); padding-block: .1em; margin: 0 0 .15em;
+  line-height: .95; color: var(--blush); padding-block: .1em; margin: 0 0 .15em;
 }
 .hero__sub {
   font-size: clamp(.66rem, 2.6vw, .8rem); letter-spacing: .3em; text-transform: uppercase;
   color: var(--blush); font-weight: 600; margin: 0 0 1.4rem;
 }
 .hero .lede { font-size: clamp(1.02rem, 2.6vw, 1.2rem); margin-inline: auto; }
-.hero .btn-row { margin-top: 1.9rem; }
+.hero .btn-row { margin-top: 2.25rem; }
 .hero__note { margin-top: 1.15rem; font-size: .84rem; color: var(--faint); }
 .hero__note strong { color: var(--text); font-weight: 600; }
 
@@ -618,7 +619,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .msection__note { font-size: .8rem; color: var(--faint); margin: -.6rem 0 1.2rem; font-style: italic; }
 
 .mitems { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
-.mitem { display: grid; grid-template-columns: 4.25rem 1fr; gap: .9rem; align-items: start; }
+.mitem { display: grid; grid-template-columns: 5.25rem 1fr; gap: 1rem; align-items: center; }
 .mitem__thumb {
   aspect-ratio: 1; border-radius: 10px;
   border: 1px solid var(--line-soft);
@@ -670,7 +671,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 /* ------------------------------------------------- 20. Phones, specifically */
 @media (max-width: 560px) {
-  .mitem { grid-template-columns: 3.5rem 1fr; gap: .75rem; }
+  .mitem { grid-template-columns: 4.25rem 1fr; gap: .85rem; }
   /* Two dishes across still reads well and halves the scrolling. */
   .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem .7rem; }
   .grid--4 .shot { aspect-ratio: 1 / 1; }

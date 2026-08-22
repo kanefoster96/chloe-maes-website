@@ -22,6 +22,10 @@ customer in Sydney sees the same answer as someone standing on the doorstep.
 | Evening menu | 5pm – 8:30pm, Thursday to Saturday |
 | Coffee, cake & drinks | Open to close, every day |
 
+**The menus sort themselves.** Whatever is being served leads the list, then
+the counter menu, then whatever starts later today, and anything that has
+already finished for the day falls to the end.
+
 **No countdown, just a heads-up.** Most of the time the site simply says what is
 being cooked and until when:
 
@@ -99,6 +103,10 @@ change.
 | `photo-dog.jpg` | The retriever with the iced drink |
 | `photo-drinks.jpg` | Two iced matcha on lilac |
 | `photo-matcha.jpg` | Iced matcha, second crop |
+| `photo-benedict.jpg` | Eggs Benedict with avocado and bacon |
+| `photo-burger.jpg` | The loaded burger with brie and a pig in blanket |
+| `photo-chickenburger.jpg` | The buttermilk chicken burger, flower wall behind |
+| `photo-coffee.jpg` | An iced coffee outside the shopfront |
 | `photo-map.png` | The map with the pin |
 
 **Adding more.** Drop a JPEG into `assets/img/` and point at it from
