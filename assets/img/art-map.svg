@@ -1,22 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="34%" r="78%">
-      <stop offset="0%" stop-color="#241a1d"/>
-      <stop offset="55%" stop-color="#171214"/>
-      <stop offset="100%" stop-color="#0d0a0b"/>
+    <radialGradient id="bg" cx="50%" cy="32%" r="80%">
+      <stop offset="0%" stop-color="#fffdfb"/>
+      <stop offset="60%" stop-color="#f8f1ec"/>
+      <stop offset="100%" stop-color="#f0e5dd"/>
     </radialGradient>
-    <radialGradient id="glow" cx="50%" cy="30%" r="55%">
-      <stop offset="0%" stop-color="#c98793" stop-opacity=".30"/>
-      <stop offset="100%" stop-color="#c98793" stop-opacity="0"/>
+    <radialGradient id="glow" cx="26%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#edc3cb" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#edc3cb" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="leaf" cx="82%" cy="84%" r="55%">
+      <stop offset="0%" stop-color="#8fa887" stop-opacity=".40"/>
+      <stop offset="100%" stop-color="#8fa887" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f3cad2" stop-opacity=".22"/>
-      <stop offset="100%" stop-color="#f3cad2" stop-opacity=".04"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity=".2"/>
     </linearGradient>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+      <feComponentTransfer><feFuncA type="linear" slope="0.045"/></feComponentTransfer>
     </filter>
     <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="16"/>
@@ -24,9 +28,10 @@
   </defs>
   <rect width="1000" height="1000" fill="url(#bg)"/>
   <rect width="1000" height="1000" fill="url(#glow)"/>
-  <g stroke="#f3cad2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="1000" height="1000" fill="url(#leaf)"/>
+  <g stroke="#b05467" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <!-- sea -->
-    <path d="M660 0c-40 120-30 250 20 360 46 100 60 220 30 340 -20 82-16 190 20 300h270V0z" fill="#141c22" fill-opacity=".55" stroke="none"/>
+    <path d="M660 0c-40 120-30 250 20 360 46 100 60 220 30 340 -20 82-16 190 20 300h270V0z" fill="#e8eef1" fill-opacity=".55" stroke="none"/>
     <g stroke-opacity=".22" stroke-width="4">
       <path d="M700 180c40 20 60 60 40 100M760 420c40 20 60 60 40 100M720 700c40 20 60 60 40 100"/>
     </g>
@@ -40,7 +45,7 @@
       <path d="M0 480h700M300 0v1000M0 760h660"/>
     </g>
     <!-- blocks -->
-    <g stroke-opacity=".12" stroke-width="3" fill="#f3cad2" fill-opacity=".025">
+    <g stroke-opacity=".12" stroke-width="3" fill="#b05467" fill-opacity=".025">
       <rect x="150" y="240" width="120" height="200"/>
       <rect x="340" y="240" width="150" height="200"/>
       <rect x="150" y="520" width="120" height="200"/>
@@ -48,12 +53,11 @@
     </g>
     <!-- the pin -->
     <g stroke="none">
-      <ellipse cx="520" cy="520" rx="90" ry="30" fill="#f3cad2" opacity=".12" filter="url(#soft)"/>
+      <ellipse cx="520" cy="520" rx="90" ry="30" fill="#b05467" opacity=".12" filter="url(#soft)"/>
     </g>
     <path d="M520 400c-46 0-84 38-84 84 0 58 84 136 84 136s84-78 84-136c0-46-38-84-84-84z"
-          fill="#f3cad2" fill-opacity=".9" stroke="none"/>
-    <circle cx="520" cy="484" r="30" fill="#171214" stroke="none"/>
+          fill="#b05467" fill-opacity=".9" stroke="none"/>
+    <circle cx="520" cy="484" r="30" fill="#fffdfb" stroke="none"/>
   </g>
-  <rect width="1000" height="1000" filter="url(#grain)" opacity=".85"/>
-  <rect width="1000" height="1000" fill="none" stroke="#f3cad2" stroke-opacity=".06" stroke-width="2"/>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
 </svg>

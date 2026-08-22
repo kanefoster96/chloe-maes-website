@@ -1,22 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="34%" r="78%">
-      <stop offset="0%" stop-color="#241a1d"/>
-      <stop offset="55%" stop-color="#171214"/>
-      <stop offset="100%" stop-color="#0d0a0b"/>
+    <radialGradient id="bg" cx="50%" cy="32%" r="80%">
+      <stop offset="0%" stop-color="#fffdfb"/>
+      <stop offset="60%" stop-color="#f8f1ec"/>
+      <stop offset="100%" stop-color="#f0e5dd"/>
     </radialGradient>
-    <radialGradient id="glow" cx="50%" cy="30%" r="55%">
-      <stop offset="0%" stop-color="#c98793" stop-opacity=".30"/>
-      <stop offset="100%" stop-color="#c98793" stop-opacity="0"/>
+    <radialGradient id="glow" cx="26%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#edc3cb" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#edc3cb" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="leaf" cx="82%" cy="84%" r="55%">
+      <stop offset="0%" stop-color="#8fa887" stop-opacity=".40"/>
+      <stop offset="100%" stop-color="#8fa887" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f3cad2" stop-opacity=".22"/>
-      <stop offset="100%" stop-color="#f3cad2" stop-opacity=".04"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity=".2"/>
     </linearGradient>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+      <feComponentTransfer><feFuncA type="linear" slope="0.045"/></feComponentTransfer>
     </filter>
     <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="16"/>
@@ -24,10 +28,11 @@
   </defs>
   <rect width="1000" height="1000" fill="url(#bg)"/>
   <rect width="1000" height="1000" fill="url(#glow)"/>
-  <g stroke="#f3cad2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="1000" height="1000" fill="url(#leaf)"/>
+  <g stroke="#b05467" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <ellipse cx="500" cy="850" rx="300" ry="52" stroke-opacity=".18" stroke-width="3"/>
     <!-- bun crown -->
-    <path d="M230 470c0-134 120-222 270-222s270 88 270 222z" fill="#1f1719" stroke-opacity=".8" stroke-width="7"/>
+    <path d="M230 470c0-134 120-222 270-222s270 88 270 222z" fill="#fdf8f4" stroke-opacity=".8" stroke-width="7"/>
     <g stroke-opacity=".55" stroke-width="5">
       <path d="M400 350h1M470 318h1M560 340h1M620 392h1M350 412h1M520 400h1M660 340h1"/>
     </g>
@@ -37,14 +42,13 @@
     <!-- egg -->
     <path d="M250 552h500" stroke-opacity=".55" stroke-width="6"/>
     <path d="M280 552c-14 26 8 52 44 46 40-6 62 12 106 8 46-4 70-22 118-16 44 6 78-4 110-16 22-8 42-14 60-22" stroke-opacity=".7" stroke-width="7"/>
-    <circle cx="452" cy="574" r="34" fill="#c98793" fill-opacity=".45" stroke-opacity=".7" stroke-width="5"/>
+    <circle cx="452" cy="574" r="34" fill="#edc3cb" fill-opacity=".45" stroke-opacity=".7" stroke-width="5"/>
     <!-- patty -->
-    <rect x="238" y="622" width="524" height="76" rx="38" fill="#1b1416" stroke-opacity=".8" stroke-width="7"/>
+    <rect x="238" y="622" width="524" height="76" rx="38" fill="#ffffff" stroke-opacity=".8" stroke-width="7"/>
     <!-- cheese drip -->
     <path d="M250 620c40 34 68 6 104 30 34 22 60-6 96 18 34 22 62-4 98 16 34 20 66-8 100 8" stroke-opacity=".65" stroke-width="7"/>
     <!-- bun heel -->
-    <path d="M254 712h492c26 0 40 22 34 48-8 34-64 66-280 66s-272-32-280-66c-6-26 8-48 34-48z" fill="#1f1719" stroke-opacity=".8" stroke-width="7"/>
+    <path d="M254 712h492c26 0 40 22 34 48-8 34-64 66-280 66s-272-32-280-66c-6-26 8-48 34-48z" fill="#fdf8f4" stroke-opacity=".8" stroke-width="7"/>
   </g>
-  <rect width="1000" height="1000" filter="url(#grain)" opacity=".85"/>
-  <rect width="1000" height="1000" fill="none" stroke="#f3cad2" stroke-opacity=".06" stroke-width="2"/>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
 </svg>

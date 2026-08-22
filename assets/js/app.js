@@ -71,55 +71,72 @@
   /* --------------------------------------------------- 3. Reveal on scroll */
   function reveals() {
     const items = $$('.rise');
-    if (!items.length) return;
-    if (!('IntersectionObserver' in window)) {
-      items.forEach((i) => i.classList.add('is-in'));
-      return;
-    }
+    if (!items.length || !('IntersectionObserver' in window)) return;
+
+    /* Nothing is hidden until we know we can reveal it again. */
+    document.documentElement.classList.add('js-reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-in');
         io.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
     items.forEach((i) => io.observe(i));
+
+    /* Belt and braces: anything still hidden after the page settles is shown,
+       so a missed observer callback can never swallow a section. */
+    window.addEventListener('load', () => {
+      setTimeout(() => items.forEach((i) => {
+        const box = i.getBoundingClientRect();
+        if (box.top < window.innerHeight * 1.5) i.classList.add('is-in');
+      }), 400);
+    });
   }
 
-  /* ------------------------------------------------------- 4. Star ratings */
+  /* ----------------------------------------------------------- 4. Marquees */
+  /* Each belt holds the same run of items twice, so translating the track by
+     half its width loops seamlessly. */
+  function marquee(track, build, items) {
+    if (!track) return;
+    for (let copy = 0; copy < 2; copy++) {
+      const group = el('div', 'marquee__group');
+      if (copy === 1) group.setAttribute('aria-hidden', 'true');
+      items.forEach((item) => group.append(build(item)));
+      track.append(group);
+    }
+    /* Slow the belt down when there is a lot on it, so it reads at a walk. */
+    const belt = track.closest('.marquee');
+    if (belt) belt.style.setProperty('--speed', Math.max(30, items.length * 7) + 's');
+  }
+
   function starRow(count) {
     const wrap = el('span', 'stars');
-    wrap.setAttribute('aria-hidden', 'true');
+    wrap.setAttribute('role', 'img');
+    wrap.setAttribute('aria-label', `${count} out of 5 stars`);
     for (let i = 0; i < count; i++) {
-      wrap.insertAdjacentHTML('beforeend', '<svg><use href="#i-star"/></svg>');
+      wrap.insertAdjacentHTML('beforeend', '<svg aria-hidden="true"><use href="#i-star"/></svg>');
     }
     return wrap;
   }
 
-  function ratings() {
-    const host = $('#ratings');
-    if (!host) return;
-    DATA.RATINGS.forEach((r) => {
-      const box = el('div', 'rating');
-      const score = el('div', 'rating__score');
-      score.append(r.score, ' ');
-      const outOf = el('span', null, `/ ${r.of}`);
-      score.append(outOf);
-      box.append(score, starRow(5), el('div', 'rating__src', r.source));
-      host.append(box);
-    });
+  function featureStrip() {
+    marquee($('#pill-track'), (f) => {
+      const pill = el('span', 'pill' + (f.green ? ' pill--green' : ''));
+      pill.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#i-${f.icon}"/></svg>`);
+      pill.append(f.label);
+      return pill;
+    }, DATA.FEATURES);
   }
 
-  function reviews() {
-    const host = $('#reviews-grid');
-    if (!host) return;
-    DATA.REVIEWS.forEach((r) => {
-      const card = el('article', 'review rise');
-      card.append(starRow(r.stars));
-      card.append(el('p', 'review__quote', `“${r.quote}”`));
-      card.append(el('p', 'review__by', r.author));
-      host.append(card);
-    });
+  function reviewBelt() {
+    marquee($('#review-track'), (r) => {
+      const card = el('article', 'rcard');
+      card.append(starRow(5));
+      card.append(el('p', 'rcard__quote', `“${r.quote}”`));
+      card.append(el('p', 'rcard__by', r.author));
+      return card;
+    }, DATA.REVIEWS);
   }
 
   /* -------------------------------------------------------- 5. Opening day */
@@ -137,13 +154,19 @@
     closed: 'dot--closed'
   };
 
+  /* Headline first, detail in a tail that narrow phones drop rather than wrap. */
   function shortStatus(state) {
-    if (!state.isOpen) return `Closed &middot; ${state.detail}`;
+    const tail = (text) => `<span class="statusbar__tail"> &middot; ${text}</span>`;
+
+    if (!state.isOpen) return `<strong>Closed</strong>${tail(state.detail)}`;
     if (state.status === 'changeover-soon') {
-      return `<strong>${state.headline}</strong> &middot; ${state.changeTo ? state.changeTo.name + ' from ' + LIVE.pretty(state.changeAt) : 'kitchen closes at ' + LIVE.pretty(state.changeAt)}`;
+      return `<strong>${state.headline}</strong>` + tail(state.changeTo
+        ? `${state.changeTo.name} from ${LIVE.pretty(state.changeAt)}`
+        : `kitchen closes at ${LIVE.pretty(state.changeAt)}`);
     }
-    if (state.status === 'between') return `<strong>Open</strong> &middot; ${state.headline}`;
-    return `<strong>Open now</strong> &middot; serving ${state.current.name.toLowerCase()} until ${LIVE.pretty(state.changeAt)}`;
+    if (state.status === 'between') return `<strong>Open</strong>${tail(state.headline.toLowerCase())}`;
+    return `<strong>Open now</strong>` +
+      tail(`serving ${state.current.name.toLowerCase()} until ${LIVE.pretty(state.changeAt)}`);
   }
 
   /* Three things worth ordering off whichever menu is relevant right now. */
@@ -232,34 +255,23 @@
     const svc = $('#foot-service');
     if (hours) hours.textContent = state.todayHours.closed ? 'Closed today' : `${state.dayName}: ${state.todayHoursLabel}`;
     if (svc) svc.textContent = state.isOpen ? state.headline : state.detail;
-    const stamp = $('#stamp-hours');
-    if (stamp) stamp.textContent = `Today ${state.todayHoursLabel}`;
+    const note = $('#hero-note');
+    if (note) {
+      note.innerHTML = state.todayHours.closed
+        ? 'Closed today &middot; <strong>0191 252 3442</strong>'
+        : `Open seven days &middot; today <strong>${state.todayHoursLabel}</strong> &middot; 0191 252 3442`;
+    }
     const year = $('#year');
     if (year) year.textContent = new Date().getFullYear();
-  }
-
-  /* -------------------------------------------------------- 7. Demo ribbon */
-  function demoNote() {
-    const note = $('#demo-note');
-    if (!note) return;
-    try {
-      if (sessionStorage.getItem('cm-demo-note') === 'hidden') { note.hidden = true; note.style.display = 'none'; }
-    } catch (e) { /* private browsing — never mind */ }
-    const btn = $('button', note);
-    if (btn) btn.addEventListener('click', () => {
-      note.style.display = 'none';
-      try { sessionStorage.setItem('cm-demo-note', 'hidden'); } catch (e) {}
-    });
   }
 
   /* ------------------------------------------------------------- 8. Start */
   function init() {
     hydrateShots();
     header();
-    ratings();
-    reviews();
+    featureStrip();
+    reviewBelt();
     reveals();
-    demoNote();
 
     LIVE.subscribe((state) => {
       renderStatusbar(state);

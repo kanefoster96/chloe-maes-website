@@ -1,22 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="34%" r="78%">
-      <stop offset="0%" stop-color="#241a1d"/>
-      <stop offset="55%" stop-color="#171214"/>
-      <stop offset="100%" stop-color="#0d0a0b"/>
+    <radialGradient id="bg" cx="50%" cy="32%" r="80%">
+      <stop offset="0%" stop-color="#fffdfb"/>
+      <stop offset="60%" stop-color="#f8f1ec"/>
+      <stop offset="100%" stop-color="#f0e5dd"/>
     </radialGradient>
-    <radialGradient id="glow" cx="50%" cy="30%" r="55%">
-      <stop offset="0%" stop-color="#c98793" stop-opacity=".30"/>
-      <stop offset="100%" stop-color="#c98793" stop-opacity="0"/>
+    <radialGradient id="glow" cx="26%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#edc3cb" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#edc3cb" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="leaf" cx="82%" cy="84%" r="55%">
+      <stop offset="0%" stop-color="#8fa887" stop-opacity=".40"/>
+      <stop offset="100%" stop-color="#8fa887" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f3cad2" stop-opacity=".22"/>
-      <stop offset="100%" stop-color="#f3cad2" stop-opacity=".04"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity=".2"/>
     </linearGradient>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+      <feComponentTransfer><feFuncA type="linear" slope="0.045"/></feComponentTransfer>
     </filter>
     <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="16"/>
@@ -24,15 +28,16 @@
   </defs>
   <rect width="1000" height="1000" fill="url(#bg)"/>
   <rect width="1000" height="1000" fill="url(#glow)"/>
-  <g stroke="#f3cad2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="1000" height="1000" fill="url(#leaf)"/>
+  <g stroke="#b05467" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <!-- pendant lights -->
     <g stroke-opacity=".45" stroke-width="4">
       <path d="M250 0v210M500 0v150M750 0v240"/>
     </g>
-    <path d="M186 210h128l-24 62H210z" fill="#1d1618" stroke-opacity=".7" stroke-width="5"/>
-    <path d="M436 150h128l-24 62H460z" fill="#1d1618" stroke-opacity=".7" stroke-width="5"/>
-    <path d="M686 240h128l-24 62H710z" fill="#1d1618" stroke-opacity=".7" stroke-width="5"/>
-    <g stroke="none" fill="#f3cad2" opacity=".13" filter="url(#soft)">
+    <path d="M186 210h128l-24 62H210z" fill="#fffdfb" stroke-opacity=".7" stroke-width="5"/>
+    <path d="M436 150h128l-24 62H460z" fill="#fffdfb" stroke-opacity=".7" stroke-width="5"/>
+    <path d="M686 240h128l-24 62H710z" fill="#fffdfb" stroke-opacity=".7" stroke-width="5"/>
+    <g stroke="none" fill="#b05467" opacity=".22" filter="url(#soft)">
       <ellipse cx="250" cy="330" rx="110" ry="90"/>
       <ellipse cx="500" cy="270" rx="110" ry="90"/>
       <ellipse cx="750" cy="360" rx="110" ry="90"/>
@@ -41,7 +46,7 @@
     <path d="M80 430h300" stroke-opacity=".3" stroke-width="5"/>
     <path d="M140 430c-6-40 10-66 32-72-4 34-14 56-32 72zM170 430c22-26 48-30 66-18-22 20-44 26-66 18z" stroke-opacity=".45" stroke-width="4"/>
     <!-- banquette -->
-    <path d="M60 700h420v40H60z" fill="#1c1517" stroke-opacity=".4" stroke-width="4"/>
+    <path d="M60 700h420v40H60z" fill="#ffffff" stroke-opacity=".4" stroke-width="4"/>
     <path d="M80 700V560c0-26 18-42 46-42h268c28 0 46 16 46 42v140" stroke-opacity=".45" stroke-width="5"/>
     <g stroke-opacity=".2" stroke-width="3"><path d="M180 520v180M280 520v180M380 520v180"/></g>
     <!-- table + cups -->
@@ -56,6 +61,5 @@
       <path d="M0 820h1000M0 890h1000M0 960h1000"/>
     </g>
   </g>
-  <rect width="1000" height="1000" filter="url(#grain)" opacity=".85"/>
-  <rect width="1000" height="1000" fill="none" stroke="#f3cad2" stroke-opacity=".06" stroke-width="2"/>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
 </svg>

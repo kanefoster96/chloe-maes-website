@@ -1,22 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="34%" r="78%">
-      <stop offset="0%" stop-color="#241a1d"/>
-      <stop offset="55%" stop-color="#171214"/>
-      <stop offset="100%" stop-color="#0d0a0b"/>
+    <radialGradient id="bg" cx="50%" cy="32%" r="80%">
+      <stop offset="0%" stop-color="#fffdfb"/>
+      <stop offset="60%" stop-color="#f8f1ec"/>
+      <stop offset="100%" stop-color="#f0e5dd"/>
     </radialGradient>
-    <radialGradient id="glow" cx="50%" cy="30%" r="55%">
-      <stop offset="0%" stop-color="#c98793" stop-opacity=".30"/>
-      <stop offset="100%" stop-color="#c98793" stop-opacity="0"/>
+    <radialGradient id="glow" cx="26%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#edc3cb" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#edc3cb" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="leaf" cx="82%" cy="84%" r="55%">
+      <stop offset="0%" stop-color="#8fa887" stop-opacity=".40"/>
+      <stop offset="100%" stop-color="#8fa887" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f3cad2" stop-opacity=".22"/>
-      <stop offset="100%" stop-color="#f3cad2" stop-opacity=".04"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity=".2"/>
     </linearGradient>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+      <feComponentTransfer><feFuncA type="linear" slope="0.045"/></feComponentTransfer>
     </filter>
     <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="16"/>
@@ -24,20 +28,21 @@
   </defs>
   <rect width="1000" height="1000" fill="url(#bg)"/>
   <rect width="1000" height="1000" fill="url(#glow)"/>
-  <g stroke="#f3cad2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="1000" height="1000" fill="url(#leaf)"/>
+  <g stroke="#b05467" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <ellipse cx="500" cy="540" rx="360" ry="330" stroke-opacity=".18" stroke-width="3"/>
     <ellipse cx="500" cy="540" rx="292" ry="266" stroke-opacity=".12" stroke-width="2"/>
     <!-- muffin bases -->
-    <ellipse cx="368" cy="600" rx="150" ry="112" fill="#1c1517" stroke-opacity=".5" stroke-width="6"/>
-    <ellipse cx="636" cy="560" rx="150" ry="112" fill="#1c1517" stroke-opacity=".5" stroke-width="6"/>
+    <ellipse cx="368" cy="600" rx="150" ry="112" fill="#ffffff" stroke-opacity=".5" stroke-width="6"/>
+    <ellipse cx="636" cy="560" rx="150" ry="112" fill="#ffffff" stroke-opacity=".5" stroke-width="6"/>
     <!-- ham ruffles -->
     <path d="M228 566c30-26 56 10 90-10s54 14 90-6 52 12 86-8" stroke-opacity=".55" stroke-width="6"/>
     <path d="M496 526c30-26 56 10 90-10s54 14 90-6 52 12 86-8" stroke-opacity=".55" stroke-width="6"/>
     <!-- poached eggs -->
-    <ellipse cx="368" cy="536" rx="132" ry="104" fill="#241b1e" stroke-opacity=".85" stroke-width="7"/>
-    <ellipse cx="636" cy="496" rx="132" ry="104" fill="#241b1e" stroke-opacity=".85" stroke-width="7"/>
-    <circle cx="368" cy="534" r="52" fill="#c98793" fill-opacity=".5" stroke-opacity=".8" stroke-width="6"/>
-    <circle cx="636" cy="494" r="52" fill="#c98793" fill-opacity=".5" stroke-opacity=".8" stroke-width="6"/>
+    <ellipse cx="368" cy="536" rx="132" ry="104" fill="#ffffff" stroke-opacity=".85" stroke-width="7"/>
+    <ellipse cx="636" cy="496" rx="132" ry="104" fill="#ffffff" stroke-opacity=".85" stroke-width="7"/>
+    <circle cx="368" cy="534" r="52" fill="#edc3cb" fill-opacity=".5" stroke-opacity=".8" stroke-width="6"/>
+    <circle cx="636" cy="494" r="52" fill="#edc3cb" fill-opacity=".5" stroke-opacity=".8" stroke-width="6"/>
     <!-- hollandaise runs -->
     <path d="M246 552c-8 44 6 74 30 84M490 566c-6 40 8 66 30 76M760 512c8 42-6 70-28 80" stroke-opacity=".4" stroke-width="6"/>
     <!-- chives -->
@@ -47,6 +52,5 @@
     <!-- dressed leaves -->
     <path d="M180 700c40-40 96-46 130-16M820 668c-40-40-96-46-130-16" stroke-opacity=".3" stroke-width="6"/>
   </g>
-  <rect width="1000" height="1000" filter="url(#grain)" opacity=".85"/>
-  <rect width="1000" height="1000" fill="none" stroke="#f3cad2" stroke-opacity=".06" stroke-width="2"/>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".7"/>
 </svg>

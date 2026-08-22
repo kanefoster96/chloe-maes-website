@@ -76,30 +76,30 @@ through 6 for Saturday:
 Change opening hours in the `HOURS` array. Change the phone number, address or
 social links in `INFO`. Nothing else needs touching.
 
-## Adding real photographs
+## Adding the photographs
 
-Every image on the site is currently hand-drawn line art, because no photographs
-were available when this was built. Each slot already points at the photo that
-should replace it — drop a JPEG at the path and it fades in over the artwork
-automatically. Nothing to wire up.
+Every image slot currently shows hand-drawn line art and already points at the
+photograph that should replace it. Drop the file in at the path below and it
+fades in over the artwork automatically — nothing to wire up, no markup to
+change.
 
-| Put a photo here | And it appears |
-| --- | --- |
-| `assets/img/photo-shopfront.jpg` | Home page hero |
-| `assets/img/photo-pancakes.jpg` | Pancake stack card |
-| `assets/img/photo-burger.jpg` | Breakfast burger card |
-| `assets/img/photo-eggs.jpg` | Broccoli steak omelette card |
-| `assets/img/photo-korean.jpg` | Korean chicken tenders card |
-| `assets/img/photo-interior.jpg` | Inside the cafe |
-| `assets/img/photo-coffee.jpg` | Coffee |
-| `assets/img/photo-bay.jpg` | Cullercoats bay |
-| `assets/img/photo-map.jpg` | Map card |
-| `assets/img/photo-breakfast.jpg` | Breakfast menu banner |
-| `assets/img/photo-main.jpg` | Main menu banner |
-| `assets/img/photo-evening.jpg` | Evening menu banner |
-| `assets/img/photo-drinks.jpg` | Drinks menu banner |
+| Save the file as | Where it appears | Suggested photo |
+| --- | --- | --- |
+| `assets/img/photo-room.jpg` | Hero band + story column | The room: flower wall, marble tables, blush chairs |
+| `assets/img/photo-pancakes.jpg` | Live panel + first dish card | The loaded pancake stack |
+| `assets/img/photo-flatbreads.jpg` | Second dish card + story | Chorizo and fried egg flatbreads |
+| `assets/img/photo-fullbreakfast.jpg` | Third dish card | The full breakfast with hash browns |
+| `assets/img/photo-bowls.jpg` | Fourth dish card | The halloumi and chicken bowls |
+| `assets/img/photo-dog.jpg` | Story column | The golden retriever with the iced drink |
+| `assets/img/photo-map.png` | Find us | Map screenshot with the pin |
+| `assets/img/photo-breakfast.jpg` | Breakfast menu banner | Anything landscape from the breakfast menu |
+| `assets/img/photo-main.jpg` | Main menu banner | A lunch plate, landscape |
+| `assets/img/photo-evening.jpg` | Evening menu banner | The room after dark, landscape |
+| `assets/img/photo-drinks.jpg` | Drinks menu banner | Coffee or the cake counter, landscape |
 
-Landscape images want to be about 1600px wide; the tall cards suit 1200×1500.
+The banners are cropped wide (about 21:8), so give them landscape photographs
+around 1600px across. The dish cards are square on phones and 4:5 on desktop,
+so a 1200×1500 portrait crop suits them best.
 `assets/img/og.png` is the image that shows when the site is shared on social
 media or in a message — worth replacing with a real photograph of the shopfront.
 
@@ -108,7 +108,7 @@ media or in a message — worth replacing with a real photograph of the shopfron
 - Replace the placeholder dishes and prices in `data.js` with the real menu.
 - Swap the paraphrased review quotes in `REVIEWS` for verbatim ones, or link
   straight through to the Google listing.
-- Remove the `demo-note` block from the top of `index.html` and `menu.html`.
+- Remove the demo sentence from the footer (`id="demo-line"`, in both pages).
 - Update the `https://chloemaes.co.uk/` URLs in the `<link rel="canonical">`,
   Open Graph tags, `sitemap.xml`, `robots.txt` and the JSON-LD block at the
   bottom of `index.html` to the real domain.
@@ -116,8 +116,18 @@ media or in a message — worth replacing with a real photograph of the shopfron
 
 ## Notes
 
+- **Colours** come from the room itself: warm off-white walls, near-black for
+  the counter, pendants and banquette, blush pink for the velvet chairs and the
+  sign, and a deep green picked out of the flower wall. Dark sections are used
+  sparingly — the live panel, the reviews, the footer — so they read as cosy
+  features against a light, airy page.
 - Type is Fraunces, Inter and Parisienne, loaded from Google Fonts, with system
   fallbacks if they fail.
+- The feature strip and the review wall are continuous marquees. They pause on
+  hover or keyboard focus, and become plain horizontal scrollers for anyone with
+  reduced motion turned on.
+- On phones a fixed bar sits at the bottom of the screen with the live menu and
+  a tap-to-call booking button, so both are always within thumb reach.
 - Structured data (`CafeOrCoffeeShop`) is included so Google can read the
   address, phone and opening hours directly.
 - The menu page prints cleanly — the "Print this menu" button lays all four

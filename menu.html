@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Live Menu &mdash; Chloe Mae&rsquo;s, Cullercoats</title>
 <meta name="description" content="What Chloe Mae's is serving right now. Breakfast 8am-12pm, main menu 12pm-4:30pm, evening menu 5pm-8:30pm Thursday to Saturday, plus coffee and cake all day.">
 <link rel="canonical" href="https://chloemaes.co.uk/menu.html">
@@ -10,7 +10,7 @@
 <meta property="og:title" content="The Live Menu &mdash; Chloe Mae&rsquo;s">
 <meta property="og:description" content="Breakfast, lunch, evenings and everything from the counter. The menu changes with the clock.">
 <meta property="og:image" content="assets/img/og.png">
-<meta name="theme-color" content="#0c0a0b">
+<meta name="theme-color" content="#faf6f2">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,12 +40,6 @@
     <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></symbol>
   </defs>
 </svg>
-  <div class="demo-note" id="demo-note">
-    <div class="wrap demo-note__in">
-      <p><strong>Concept demo</strong> &mdash; dishes and prices below are placeholders, ready to be swapped for Chloe Mae&rsquo;s real menu. The service times are the real ones.</p>
-      <button type="button" aria-label="Hide this notice">&times;</button>
-    </div>
-  </div>
   <div class="statusbar" id="statusbar">
     <div class="wrap statusbar__in">
       <p class="statusbar__msg" id="status-msg">
@@ -53,10 +47,7 @@
         <span id="status-text">Checking today&rsquo;s service&hellip;</span>
       </p>
       <span class="statusbar__spacer"></span>
-      <span class="statusbar__links">
-        <a href="tel:+441912523442">0191 252 3442</a>
-        <a href="https://maps.app.goo.gl/MLW48tuzdzKQMBhAA" target="_blank" rel="noopener">2 St George&rsquo;s Rd, Cullercoats</a>
-      </span>
+      <a class="statusbar__call" href="tel:+441912523442">0191 252 3442</a>
     </div>
   </div>
   <header class="site-header" id="site-header">
@@ -68,9 +59,7 @@
       <nav class="nav" aria-label="Primary">
         <a href="menu.html" aria-current="page">Live menu</a>
         <a href="index.html#story">Our place</a>
-        <a href="index.html#reviews">Reviews</a>
         <a href="index.html#visit">Find us</a>
-        <a href="index.html#faq">FAQs</a>
       </nav>
       <a class="btn btn--sm header-cta" href="tel:+441912523442">
         <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Book a table
@@ -82,9 +71,8 @@
         <nav aria-label="Mobile">
           <a href="menu.html">Live menu</a>
           <a href="index.html#story">Our place</a>
-          <a href="index.html#reviews">Reviews</a>
           <a href="index.html#visit">Find us</a>
-          <a href="index.html#faq">FAQs</a>
+          <a href="index.html#faq">Questions</a>
           <a class="btn btn--block" href="tel:+441912523442">
             <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Call to book
           </a>
@@ -98,11 +86,11 @@
       <div class="wrap menu-hero__grid">
         <div>
           <p class="eyebrow">The menu, right now</p>
-          <h1 style="font-size:clamp(2.3rem,5.5vw,3.6rem)">What&rsquo;s on today</h1>
+          <h1 style="font-size:clamp(2.1rem,6vw,3.3rem)">What&rsquo;s on today</h1>
           <p class="lede">Four menus, one kitchen, and a clock that decides which is which. This page follows along on its own &mdash; and tells you a full hour before anything changes over.</p>
           <div class="btn-row" style="margin-top:1.5rem">
-            <a class="btn btn--sm" href="tel:+441912523442"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Book or order</a>
-            <button class="btn btn--sm btn--ghost" type="button" id="print-menu"><svg class="ic" aria-hidden="true"><use href="#i-print"/></svg> Print this menu</button>
+            <a class="btn" href="tel:+441912523442"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Book or order</a>
+            <button class="btn btn--ghost" type="button" id="print-menu"><svg class="ic" aria-hidden="true"><use href="#i-print"/></svg> Print this menu</button>
           </div>
         </div>
 
@@ -192,18 +180,22 @@
             <li id="foot-hours">Open 8am &ndash; 5pm</li>
             <li id="foot-service">&nbsp;</li>
             <li><a href="menu.html">See the live menu</a></li>
-            <li><a href="index.html#visit">Getting here &amp; parking</a></li>
-            <li><a href="index.html#faq">Dogs, bookings &amp; access</a></li>
+            <li><a href="index.html#faq">Dogs, bookings &amp; parking</a></li>
           </ul>
         </div>
       </div>
       <div class="colophon">
         <span>&copy; <span id="year">2026</span> Chloe Mae&rsquo;s, Cullercoats.</span>
         <span class="statusbar__spacer"></span>
-        <span>Menu times shown in UK time and updated automatically.</span>
+        <span id="demo-line">Concept demo &mdash; dishes and prices are placeholders. Menu times update automatically.</span>
       </div>
     </div>
   </footer>
+
+  <div class="tabbar">
+    <a class="btn btn--ghost" href="menu.html"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg> Live menu</a>
+    <a class="btn" href="tel:+441912523442"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Call to book</a>
+  </div>
 
   <script src="assets/js/data.js"></script>
   <script src="assets/js/live.js"></script>

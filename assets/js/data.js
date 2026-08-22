@@ -266,6 +266,19 @@ window.CHLOE = (function () {
     GFA: { short: 'GFa', label: 'Gluten free available' }
   };
 
+  /* -- The strip that drifts past under the hero --------------------------- */
+  const FEATURES = [
+    { icon: 'i-dog',   label: 'Dog friendly, all day' },
+    { icon: 'i-leaf',  label: 'Vegan & veggie plates', green: true },
+    { icon: 'i-bag',   label: 'Takeaway & delivery' },
+    { icon: 'i-metro', label: '4 min from Cullercoats Metro' },
+    { icon: 'i-star',  label: 'Famous pancake stacks' },
+    { icon: 'i-pram',  label: 'Highchairs & room for prams' },
+    { icon: 'i-clock', label: 'Open seven days from 8am' },
+    { icon: 'i-leaf',  label: 'Flower wall & marble tables', green: true },
+    { icon: 'i-phone', label: 'Walk-ins welcome' }
+  ];
+
   /* -- What people say ----------------------------------------------------
      Sentiment and phrasing drawn from public reviews on Google, Tripadvisor
      and local food blogs. Swap for verbatim quotes before going live.
@@ -279,11 +292,6 @@ window.CHLOE = (function () {
     { quote: 'Best breakfast in Cullercoats. We walked the pier first and earned it.', author: 'Google review', stars: 5 }
   ];
 
-  const RATINGS = [
-    { source: 'Google', score: '4.6', of: '5' },
-    { source: 'Tripadvisor', score: '4.4', of: '5' },
-    { source: 'Uber Eats', score: '4.5', of: '5' }
-  ];
 
-  return { INFO, HOURS, SERVICES, TAGS, REVIEWS, RATINGS };
+  return { INFO, HOURS, SERVICES, TAGS, FEATURES, REVIEWS };
 })();
