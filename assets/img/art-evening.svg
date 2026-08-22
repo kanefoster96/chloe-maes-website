@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="34%" r="78%">
+      <stop offset="0%" stop-color="#241a1d"/>
+      <stop offset="55%" stop-color="#171214"/>
+      <stop offset="100%" stop-color="#0d0a0b"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#c98793" stop-opacity=".30"/>
+      <stop offset="100%" stop-color="#c98793" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3cad2" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#f3cad2" stop-opacity=".04"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <rect width="1000" height="1000" fill="url(#glow)"/>
+  <g stroke="#f3cad2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- table line -->
+    <path d="M40 690h920" stroke-opacity=".35" stroke-width="5"/>
+    <!-- candle, centre -->
+    <path d="M470 690V470h60v220z" fill="#1c1517" stroke-opacity=".6" stroke-width="6"/>
+    <path d="M500 470v-34" stroke-opacity=".5" stroke-width="5"/>
+    <path d="M500 436c-22-26-14-56 0-76 14 20 22 50 0 76z" fill="#f3cad2" fill-opacity=".55" stroke-opacity=".85" stroke-width="5"/>
+    <ellipse cx="500" cy="400" rx="130" ry="120" fill="#f3cad2" opacity=".13" stroke="none" filter="url(#soft)"/>
+    <!-- wine glasses -->
+    <g stroke-opacity=".7" stroke-width="6">
+      <path d="M250 380h140c0 78-38 118-70 122-32-4-70-44-70-122z" fill="#1e1719"/>
+      <path d="M320 502v150M262 652h116"/>
+      <path d="M258 424c30 16 74 16 124 0" stroke-opacity=".4"/>
+    </g>
+    <g stroke-opacity=".7" stroke-width="6">
+      <path d="M610 380h140c0 78-38 118-70 122-32-4-70-44-70-122z" fill="#1e1719"/>
+      <path d="M680 502v150M622 652h116"/>
+      <path d="M618 424c30 16 74 16 124 0" stroke-opacity=".4"/>
+    </g>
+    <!-- cutlery -->
+    <g stroke-opacity=".28" stroke-width="6">
+      <path d="M120 430v170M92 430v66c0 16 12 26 28 26M148 430v66c0 16-12 26-28 26M120 600v90"/>
+      <path d="M880 430c26 0 40 40 34 96-3 26-14 40-34 40v124"/>
+    </g>
+    <!-- small plate -->
+    <ellipse cx="500" cy="716" rx="150" ry="34" stroke-opacity=".25" stroke-width="5"/>
+    <!-- a sprig for luck -->
+    <g stroke-opacity=".35" stroke-width="5">
+      <path d="M820 690c-40-22-58-56-52-100 34 16 52 50 52 100z"/>
+    </g>
+  </g>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".85"/>
+  <rect width="1000" height="1000" fill="none" stroke="#f3cad2" stroke-opacity=".06" stroke-width="2"/>
+</svg>

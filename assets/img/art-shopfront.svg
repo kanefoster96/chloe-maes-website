@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="34%" r="78%">
+      <stop offset="0%" stop-color="#241a1d"/>
+      <stop offset="55%" stop-color="#171214"/>
+      <stop offset="100%" stop-color="#0d0a0b"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#c98793" stop-opacity=".30"/>
+      <stop offset="100%" stop-color="#c98793" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3cad2" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#f3cad2" stop-opacity=".04"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <rect width="1000" height="1000" fill="url(#glow)"/>
+  <g stroke="#f3cad2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- brickwork -->
+    <g stroke-opacity=".07" stroke-width="1.5">
+      <path d="M120 120h760M120 175h760M120 230h760M120 285h760"/>
+      <path d="M240 120v165M400 120v165M560 120v165M720 120v165"/>
+    </g>
+    <!-- awning bar -->
+    <path d="M90 330h820" stroke-opacity=".45" stroke-width="6"/>
+    <path d="M150 330l-28-70M850 330l28-70" stroke-opacity=".3" stroke-width="5"/>
+    <!-- fascia -->
+    <rect x="90" y="330" width="820" height="250" rx="10" fill="#120e10" stroke-opacity=".28" stroke-width="3"/>
+    <!-- the signature, suggested rather than spelled -->
+    <g stroke-opacity=".9" stroke-width="10">
+      <path d="M300 500c-16-52-52-70-80-52-30 20-26 76 14 92 44 18 86-22 104-72 14-38 30-56 42-52 14 4 10 34-4 62-16 32-22 58-10 68"/>
+      <path d="M366 546c34-4 60-26 74-58 10-24 24-38 34-34 12 4 8 30-4 54-10 22-8 36 6 40 20 6 44-16 62-52 14-28 28-42 38-38 12 4 8 28-2 50-12 24-8 40 8 44 26 6 58-22 82-70"/>
+      <path d="M676 462c22 14 44 8 60-16 10-16 8-28-2-30-14-2-24 16-22 40 2 30 22 46 52 42"/>
+    </g>
+    <!-- underline flourish -->
+    <path d="M280 528c120 22 320 26 460 2" stroke-opacity=".5" stroke-width="4"/>
+    <!-- street number line -->
+    <g stroke-opacity=".3" stroke-width="4">
+      <path d="M370 560h260"/>
+    </g>
+    <!-- window -->
+    <rect x="150" y="620" width="330" height="300" rx="8" fill="url(#sheen)" stroke-opacity=".3" stroke-width="3"/>
+    <path d="M150 700h330M315 620v300" stroke-opacity=".16" stroke-width="2"/>
+    <!-- door -->
+    <rect x="560" y="620" width="200" height="300" rx="8" stroke-opacity=".3" stroke-width="3"/>
+    <circle cx="735" cy="775" r="8" stroke-opacity=".5" stroke-width="4"/>
+    <!-- warm light spilling out -->
+    <ellipse cx="315" cy="900" rx="220" ry="60" fill="#f3cad2" opacity=".07" stroke="none" filter="url(#soft)"/>
+    <ellipse cx="660" cy="905" rx="140" ry="46" fill="#f3cad2" opacity=".06" stroke="none" filter="url(#soft)"/>
+    <path d="M60 930h880" stroke-opacity=".2" stroke-width="3"/>
+  </g>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity=".85"/>
+  <rect width="1000" height="1000" fill="none" stroke="#f3cad2" stroke-opacity=".06" stroke-width="2"/>
+</svg>
