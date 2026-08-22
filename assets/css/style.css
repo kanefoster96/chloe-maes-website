@@ -286,14 +286,17 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 .drawer { display: none; border-top: 1px solid var(--line-soft); background: var(--ink); }
 .drawer.is-open { display: block; }
-.drawer nav { display: grid; padding-block: .5rem 1.4rem; }
+.drawer nav { display: grid; padding-block: .5rem 0; }
 .drawer nav a:not(.btn), .drawer nav .nav__soon {
   display: block;
   padding: 1rem .25rem; font-size: 1.1rem; font-family: var(--display);
   color: var(--text); border-bottom: 1px solid var(--line-soft);
 }
 .drawer nav .nav__soon { color: var(--faint); cursor: default; }
-.drawer__cta { display: grid; gap: .6rem; margin-top: 1.4rem; }
+.drawer__cta { display: grid; gap: .6rem; margin-top: 1.5rem; }
+/* Padding, not margin — a bottom margin here collapses out through the wrap
+   and the last button ends up flush with the drawer's edge. */
+.drawer > .wrap { padding-bottom: 1.75rem; }
 @media (min-width: 901px) { .drawer { display: none !important; } }
 
 /* ------------------------------------------------------------------ 7. Hero */

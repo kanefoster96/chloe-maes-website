@@ -105,11 +105,10 @@
   book.href = 'tel:' + DATA.INFO.phoneDial;
   book.append(emoji('🤙'));
 
-  const takeaway = el('a', 'btn btn--ghost', 'Order takeaway ');
+  const takeaway = el('a', 'btn btn--ghost', 'Order takeaway');
   takeaway.href = 'https://www.ubereats.com/gb/store/chloe-maes/T2t8We8_V22uT3XlZImPUw';
   takeaway.target = '_blank';
   takeaway.rel = 'noopener';
-  takeaway.append(emoji('🥡'));
 
   row.append(book, takeaway);
   body.append(row);
