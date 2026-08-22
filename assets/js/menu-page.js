@@ -10,6 +10,11 @@
 
   const $  = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+  const emojiTag = (ch) => {
+    const span = el('span', 'emoji', ch);
+    span.setAttribute('aria-hidden', 'true');
+    return span;
+  };
   const el = (tag, cls, text) => {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -91,7 +96,9 @@
     panel.hidden = true;
 
     const head = el('div', 'svc-head');
-    head.append(el('h2', null, service.name));
+    const title = el('h2', null, service.name);
+    if (service.emoji) title.append(' ', emojiTag(service.emoji));
+    head.append(title);
     const when = el('span', 'svc-head__when');
     when.id = 'when-' + service.id;
     when.append(service.kicker);

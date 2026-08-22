@@ -9,6 +9,11 @@
 
   const $  = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+  const emoji = (ch) => {
+    const span = el('span', 'emoji', ch);
+    span.setAttribute('aria-hidden', 'true');
+    return span;
+  };
   const el = (tag, cls, text) => {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -266,15 +271,6 @@
       tail(`serving ${state.current.name.toLowerCase()} until ${LIVE.pretty(state.changeAt)}`);
   }
 
-  /* Three things worth ordering off whichever menu is relevant right now. */
-  function pickThree(service) {
-    if (!service) return [];
-    const all = service.sections.flatMap((s) => s.items);
-    const stars = all.filter((i) => i.star);
-    const rest = all.filter((i) => !i.star);
-    return stars.concat(rest).slice(0, 3);
-  }
-
   function renderStatusbar(state) {
     const dot = $('#status-dot');
     const text = $('#status-text');
@@ -293,7 +289,10 @@
     if (dot) dot.className = 'dot ' + (DOT_CLASS[state.status] || 'dot--closed');
     const clock = $('#live-clock');
     if (clock) clock.textContent = `Cullercoats, ${state.clock}`;
-    $('#live-headline').textContent = state.headline;
+    const headline = $('#live-headline');
+    headline.textContent = state.headline;
+    const cooking = state.current || (state.isOpen ? state.alwaysOn[0] : null);
+    if (cooking && cooking.emoji) headline.append(' ', emoji(cooking.emoji));
     $('#live-detail').textContent = state.detail;
 
     /* What is coming next, mentioned only inside the last half hour. */
@@ -309,23 +308,7 @@
       }
     }
 
-    /* Suggestions from whichever menu matters (home page only) */
     const showFor = state.current || state.changeTo || state.alwaysOn[0];
-    const picksBox = $('#live-picks');
-    const picks = picksBox ? pickThree(showFor) : [];
-    if (picksBox && picks.length) {
-      picksBox.hidden = false;
-      $('#picks-title').textContent = 'Some of our favourites';
-      const list = $('#picks-list');
-      list.textContent = '';
-      picks.forEach((item) => {
-        const li = el('li');
-        li.append(el('span', 'pk-name', item.name), el('span', 'pk-dot'), el('span', 'pk-price', '£' + item.price));
-        list.append(li);
-      });
-    } else if (picksBox) {
-      picksBox.hidden = true;
-    }
 
     const cta = $('#live-cta');
     if (cta && showFor) {

@@ -52,6 +52,7 @@ window.CHLOE = (function () {
   const SERVICES = [
     {
       id: 'breakfast',
+      emoji: '🥞',
       name: 'Breakfast',
       kicker: 'Served 8am – 12pm, every day',
       from: '08:00',
@@ -105,6 +106,7 @@ window.CHLOE = (function () {
 
     {
       id: 'main',
+      emoji: '🍔',
       name: 'Main Menu',
       kicker: 'Served 12pm – 4:30pm, every day',
       from: '12:00',
@@ -168,6 +170,7 @@ window.CHLOE = (function () {
 
     {
       id: 'evening',
+      emoji: '🕯️',
       name: 'Evening Menu',
       kicker: 'Thursday to Saturday, 5pm – 8:30pm',
       from: '17:00',
@@ -218,6 +221,7 @@ window.CHLOE = (function () {
 
     {
       id: 'drinks',
+      emoji: '☕',
       name: 'Coffee, Cake & Drinks',
       kicker: 'From open until close, all day',
       from: '08:00',
