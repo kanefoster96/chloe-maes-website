@@ -287,13 +287,13 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .drawer { display: none; border-top: 1px solid var(--line-soft); background: var(--ink); }
 .drawer.is-open { display: block; }
 .drawer nav { display: grid; padding-block: .5rem 1.4rem; }
-.drawer nav a, .drawer nav .nav__soon {
+.drawer nav a:not(.btn), .drawer nav .nav__soon {
   display: block;
   padding: 1rem .25rem; font-size: 1.1rem; font-family: var(--display);
   color: var(--text); border-bottom: 1px solid var(--line-soft);
 }
 .drawer nav .nav__soon { color: var(--faint); cursor: default; }
-.drawer .btn { margin-top: 1.2rem; }
+.drawer__cta { display: grid; gap: .6rem; margin-top: 1.4rem; }
 @media (min-width: 901px) { .drawer { display: none !important; } }
 
 /* ------------------------------------------------------------------ 7. Hero */
@@ -623,7 +623,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .msection__note { font-size: .8rem; color: var(--faint); margin: -.6rem 0 1.2rem; font-style: italic; }
 
 .mitems { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
-.mitem { display: grid; grid-template-columns: 5.25rem 1fr; gap: 1rem; align-items: center; }
+.mitem { display: grid; grid-template-columns: 5.25rem 1fr; gap: 1rem; align-items: center; color: inherit; }
 .mitem__thumb {
   aspect-ratio: 1; border-radius: 10px;
   border: 1px solid var(--line-soft);
@@ -717,3 +717,46 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 /* Pictures at the top of each menu */
 @media print { .nowline, .mitem__thumb { display: none !important; } }
 @media print { .mitem { grid-template-columns: 1fr; } }
+
+/* ====================================================================== */
+/*  22. One dish, one page                                                */
+/* ====================================================================== */
+
+.backlink {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .85rem; color: var(--muted); margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+.backlink svg { width: 1rem; height: 1rem; transform: rotate(180deg); }
+.backlink:hover { color: var(--blush); }
+
+.dish-page { padding-block: clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem); }
+.dish-page__grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center;
+}
+@media (max-width: 780px) { .dish-page__grid { grid-template-columns: 1fr; } }
+
+.dish-page__shot { aspect-ratio: 1 / 1; border-radius: var(--r-lg); }
+.dish-page__body h1 { font-size: clamp(2rem, 5vw, 3.1rem); margin-bottom: .3em; }
+.dish-page__price {
+  font-family: var(--display); font-size: 1.5rem; color: var(--blush);
+  font-variant-numeric: tabular-nums; margin: 0 0 1rem;
+}
+.dish-page__price small { color: var(--faint); font-size: .6em; }
+
+.dish-page__tags { list-style: none; display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.1rem 0 0; padding: 0; }
+.dish-page__tags li {
+  font-size: .75rem; padding: .3rem .7rem; border-radius: var(--r-pill);
+  background: var(--panel-3); color: var(--blush-dim);
+}
+
+.dish-page__when { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .35rem; font-size: .87rem; color: var(--muted); }
+.dish-page__when li::before { content: '·'; color: var(--blush); margin-right: .5rem; }
+
+.dish-page .nowline { margin: 1.4rem 0 0; }
+.dish-page .btn-row { margin-top: 1.75rem; }
+
+/* Menu rows are links now */
+.mitem:hover .mitem__name { color: var(--blush); }
+.mitem:hover .mitem__thumb { opacity: .88; }
+.mitem__thumb { transition: opacity .25s var(--ease); }

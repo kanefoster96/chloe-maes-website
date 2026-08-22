@@ -45,13 +45,17 @@
   }
 
   function itemNode(item, src) {
-    const li = el('li', 'mitem');
+    const li = el('li');
+    /* The whole row is the link to the dish's own page. */
+    const row = el('a', 'mitem');
+    row.href = 'dish.html?d=' + DATA.slug(item.name);
+    li.append(row);
 
     if (src) {
       const thumb = el('div', 'mitem__thumb shot');
       thumb.dataset.photo = src;
       thumb.dataset.art = 'art-pancakes';
-      li.append(thumb);   /* hydrateShots paints it — artwork only if the photo fails */
+      row.append(thumb);   /* hydrateShots paints it — artwork only if the photo fails */
     }
 
     const body = el('div', 'mitem__body');
@@ -71,7 +75,7 @@
     top.append(name, el('span', 'mitem__lead'), price);
     body.append(top);
     if (item.desc) body.append(el('p', 'mitem__desc', item.desc));
-    li.append(body);
+    row.append(body);
     return li;
   }
 

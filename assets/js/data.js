@@ -333,5 +333,30 @@ window.CHLOE = (function () {
   ];
 
 
-  return { INFO, HOURS, SERVICES, TAGS, FEATURES, REVIEWS };
+  /* -- Dish lookup ---------------------------------------------------------
+     Every dish gets its own address, built from its name: dish.html?d=biscoff-dream.
+     A dish that appears on more than one menu is one page listing both.
+     -------------------------------------------------------------------- */
+  const slug = (name) => name
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+  function findDish(wanted) {
+    let found = null;
+    const on = [];
+    SERVICES.forEach((service) => {
+      service.sections.forEach((section) => {
+        section.items.forEach((item, i) => {
+          if (slug(item.name) !== wanted) return;
+          if (!found) found = { item, service, section, index: i };
+          on.push({ service, section });
+        });
+      });
+    });
+    return found ? Object.assign(found, { on }) : null;
+  }
+
+  return { INFO, HOURS, SERVICES, TAGS, FEATURES, REVIEWS, slug, findDish };
 })();

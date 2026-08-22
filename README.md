@@ -51,11 +51,13 @@ delivery, allergens, and eight FAQs.
 ```
 index.html            Home page
 menu.html             The live menu
+dish.html             One dish — dish.html?d=biscoff-dream
 assets/css/style.css  One stylesheet
 assets/js/data.js     ← everything you will want to edit lives here
 assets/js/live.js     Works out what is being served right now
 assets/js/app.js      Shared page behaviour
 assets/js/menu-page.js  Builds the menu tabs and panels
+assets/js/dish.js     Renders a single dish page
 assets/img/           Artwork, favicon, social share image
 ```
 
@@ -127,6 +129,23 @@ from the centre, so leave a little room around the subject. Photographs are
 resized to 1400px and saved at quality 82 before being committed.
 `assets/img/og.png` is the image that shows when the site is shared on social
 media or in a message — worth replacing with a real photograph of the shopfront.
+
+## A page per dish
+
+Every item on the menu has its own address, built from its name:
+`dish.html?d=biscoff-dream`. Tapping a row on the menu opens it. The page shows
+the picture, the price, the description, the dietary marks, which menus it is
+on and when they are served — and says so if it is being cooked right now.
+
+There is one `dish.html`, not seventy files. It reads the dish out of
+`data.js`, so adding, renaming or repricing a dish changes its page with it and
+nothing needs regenerating. A dish on two menus is one page listing both. A
+link to a dish that no longer exists gets a short "we could not find that one"
+page rather than a broken one.
+
+If you would rather have real static files later (`biscoff-dream.html` and so
+on, for search engines), that is a generator over the same data — the slugs and
+lookup in `data.js` already do the hard part.
 
 ## Turning the nav items into pages
 

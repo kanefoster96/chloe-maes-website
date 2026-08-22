@@ -26,6 +26,11 @@
      Drop a real photo at the data-photo path and it fades in over the top. */
   function hydrateShots() {
     $$('.shot').forEach((shot) => {
+      /* Pages that build their own slots call this too, so a shot that has
+         already been dealt with must not pick up a second image. */
+      if (shot.dataset.hydrated) return;
+      shot.dataset.hydrated = 'yes';
+
       const art = shot.dataset.art;
       const photo = shot.dataset.photo;
       const paintArt = () => {
