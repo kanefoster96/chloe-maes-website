@@ -371,6 +371,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   object-fit: cover; z-index: 2; opacity: 0; transition: opacity .6s var(--ease);
 }
 .shot img.is-loaded { opacity: 1; }
+.shot.has-photo { background-image: none; }
 .shot--tall { aspect-ratio: 4 / 5; }
 .shot--wide { aspect-ratio: 16 / 10; }
 .shot--sq   { aspect-ratio: 1 / 1; }
@@ -432,7 +433,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 
 .dish { display: flex; flex-direction: column; gap: .9rem; }
 .dish .shot { transition: border-color .3s var(--ease); }
-.dish:hover .shot { border-color: var(--line-blush); }
+.dish:hover .shot { border-color: rgba(255, 255, 255, .3); }
 .dish__name { font-family: var(--display); font-size: 1.1rem; color: var(--text); margin: 0 0 .25rem; }
 .dish__desc { font-size: .87rem; color: var(--muted); margin: 0; }
 .dish__meta { margin-top: .5rem; font-size: .78rem; color: var(--faint); }

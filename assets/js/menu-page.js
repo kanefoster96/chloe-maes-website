@@ -48,8 +48,7 @@
       const thumb = el('div', 'mitem__thumb shot');
       thumb.dataset.photo = src;
       thumb.dataset.art = section.art || 'art-pancakes';
-      thumb.style.backgroundImage = `url("assets/img/${thumb.dataset.art}.svg")`;
-      li.append(thumb);
+      li.append(thumb);   /* hydrateShots paints it — artwork only if the photo fails */
     }
 
     const body = el('div', 'mitem__body');

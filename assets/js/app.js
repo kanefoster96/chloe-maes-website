@@ -22,11 +22,18 @@
   function hydrateShots() {
     $$('.shot').forEach((shot) => {
       const art = shot.dataset.art;
-      if (art) shot.style.backgroundImage = `url("assets/img/${art}.svg")`;
-
       const photo = shot.dataset.photo;
-      if (!photo) return;
+      const paintArt = () => {
+        if (art) shot.style.backgroundImage = `url("assets/img/${art}.svg")`;
+      };
 
+      /* No photograph for this slot: the drawing is the picture. */
+      if (!photo) { paintArt(); return; }
+
+      /* There is one: load it, and only fall back to the drawing if it fails.
+         Painting the artwork underneath would show its colour around the
+         photograph's edges while it loads, and again at any size where the
+         rounded corner and the image edge disagree by a fraction of a pixel. */
       const probe = new Image();
       probe.onload = () => {
         const img = el('img');
@@ -35,8 +42,11 @@
         img.loading = 'lazy';
         img.decoding = 'async';
         shot.insertBefore(img, shot.firstChild);
+        shot.style.backgroundImage = 'none';
+        shot.classList.add('has-photo');
         requestAnimationFrame(() => img.classList.add('is-loaded'));
       };
+      probe.onerror = paintArt;
       probe.src = photo;
     });
   }
