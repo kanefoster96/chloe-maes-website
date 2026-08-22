@@ -142,9 +142,10 @@ media or in a message — worth replacing with a real photograph of the shopfron
 
 - **Colours**: a near-black page with blush pink accents, taken from the sign
   above the door and the velvet chairs. Three flat greys and nothing else —
-  the page, a barely-off-black band, and a lighter fill for cards and panels,
-  each separated by a hairline border rather than a shadow or a gradient.
-  There are no gradients and no drop shadows anywhere in the stylesheet.
+  the page, a barely-off-black band, and a lighter fill for cards and panels.
+  Surfaces are separated by that fill alone — there are no gradients, no drop
+  shadows and no outlines on cards, containers or photographs anywhere in the
+  stylesheet.
   Notices are deliberately quiet: soft green for what is being served now,
   soft amber for the heads-up about the next menu. Nothing on the site is red;
   a menu changing over is not an error. The photographs supply the colour.
