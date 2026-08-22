@@ -240,7 +240,11 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .site-header__in { display: flex; align-items: center; gap: 1rem; min-height: var(--header-h); }
 
 .brand { display: flex; align-items: center; gap: .6rem; flex: none; }
-.brand__flower { width: 1.65rem; height: 1.65rem; color: var(--blush); flex: none; }
+.brand__flower {
+  width: 2.1rem; height: 2.1rem; color: var(--blush); flex: none;
+  transition: color .2s var(--ease);
+}
+.brand:hover .brand__flower { color: var(--blush-soft); }
 .brand__script {
   font-family: var(--script); font-size: 1.95rem; line-height: 1;
   color: var(--text); padding-block: .16em;
