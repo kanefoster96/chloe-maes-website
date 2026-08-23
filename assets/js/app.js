@@ -120,16 +120,17 @@
   /* Each belt holds the same run of items twice, so translating the track by
      half its width loops seamlessly. */
   /* A belt holds the same run of items twice, so translating the track by half
-     its width loops seamlessly, and the run is repeated until it is at least as
-     wide as the screen — otherwise a gap scrolls past on every pass.
+     its width loops seamlessly. The run has to be at least as wide as the
+     screen or a gap scrolls past on every pass.
 
-     `staticFrom` is a width at and above which the belt stops moving and simply
-     centres one run. A short list scrolling on a wide screen has to repeat to
-     fill it, which reads as the same items printed three times; holding still
-     and spacing them out says the same thing more calmly. */
+     `spread` gets there by widening the gaps until one run alone fills the
+     width — the items space themselves to whatever screen they land on, and
+     only those items are ever on screen, so nothing looks repeated. Without
+     it the run is simply repeated, which suits a longer list like the reviews. */
   function marquee(track, build, items, opts) {
     if (!track || !items.length) return;
-    const staticFrom = (opts && opts.staticFrom) || 0;
+    const spread = !!(opts && opts.spread);
+    const MIN_GAP = 16;
     const belt = track.closest('.marquee');
 
     const render = () => {
@@ -139,11 +140,17 @@
       items.forEach((item) => group.append(build(item)));
       track.append(group);
 
-      const held = staticFrom && window.innerWidth >= staticFrom;
-      if (belt) belt.classList.toggle('is-static', !!held);
-      if (held) return;                   // one run, centred, going nowhere
-
       const container = (track.parentElement && track.parentElement.offsetWidth) || window.innerWidth;
+
+      if (spread) {
+        group.style.gap = '0px';
+        group.style.paddingRight = '0px';
+        const content = [...group.children].reduce((sum, c) => sum + c.offsetWidth, 0);
+        const gap = Math.max(MIN_GAP, (container - content) / items.length);
+        group.style.gap = gap + 'px';
+        group.style.paddingRight = gap + 'px';
+      }
+
       let guard = 24;                     // never loop forever on a zero-width group
       while (group.offsetWidth && group.offsetWidth < container && guard--) {
         items.forEach((item) => group.append(build(item)));
@@ -161,7 +168,7 @@
 
     render();
 
-    /* Which side of the breakpoint we are on can change, so rebuild on resize. */
+    /* The spacing is worked out from the width, so it is redone on resize. */
     let pending;
     window.addEventListener('resize', () => {
       clearTimeout(pending);
@@ -185,7 +192,7 @@
       pill.insertAdjacentHTML('beforeend', `<svg aria-hidden="true"><use href="#${f.icon}"/></svg>`);
       pill.append(f.label);
       return pill;
-    }, DATA.FEATURES, { staticFrom: 720 });
+    }, DATA.FEATURES, { spread: true });
   }
 
   /* ------------------------------------------------- 4b. The hero pictures */

@@ -345,14 +345,20 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
   .marquee__track { animation: none; }
 }
 
-/* A banner of the three things worth knowing, sat under the header. It drifts
-   on a phone, where the three will not fit, and holds still on anything wider. */
-.marquee--pills { background: var(--panel-2); padding-block: .8rem; }
-.marquee.is-static { -webkit-mask-image: none; mask-image: none; }
-.marquee.is-static .marquee__track { width: 100%; animation: none; }
-.marquee.is-static .marquee__group {
-  width: 100%; justify-content: center;
-  gap: clamp(1.5rem, 5vw, 4.5rem); padding-right: 0;
+/* A banner of the three things worth knowing, sat under the header. The items
+   space themselves to the width they land on, so one run fills the screen and
+   the belt never shows the same pill twice. No edge fade here — the band has
+   its own colour, and masking it would fade the band itself, not just the
+   pills sliding over it. */
+.marquee--pills {
+  background: var(--panel-2); padding-block: .8rem;
+  -webkit-mask-image: none; mask-image: none;
+}
+/* On anything wider than a phone it becomes a pink banner. */
+@media (min-width: 720px) {
+  .marquee--pills { background: var(--blush); }
+  .marquee--pills .pill { background: transparent; color: #14100f; font-weight: 500; }
+  .marquee--pills .pill svg { color: #14100f; opacity: .75; }
 }
 @media (max-width: 420px) { .marquee--pills .pill { font-size: .8rem; padding: .52rem .9rem; } }
 

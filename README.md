@@ -189,10 +189,11 @@ to again, whichever suits.
   on the first of them, pauses when the tab is not visible, skips any file that
   fails to load, and holds still for anyone with reduced motion turned on.
 - A banner under the header carries the three things people ring up to ask —
-  very dog friendly, vegan and veggie, takeaway. On a phone the three will not
-  fit across, so it drifts; from 720px it holds still and spaces them out.
-  Edit them in `FEATURES` in `data.js`; the breakpoint is `staticFrom` where
-  `featureStrip` calls `marquee`.
+  very dog friendly, vegan and veggie, takeaway. It drifts at every width, and
+  the items space themselves to the screen so exactly one run fills it: the
+  gap works out at roughly 290px on a wide desktop and the 16px minimum on a
+  phone, which means the same three never appear twice at once. Pink band from
+  720px, dark below. Edit them in `FEATURES` in `data.js`.
 - Belts repeat their run until it is wider than the screen before looping, so a
   short list does not scroll a gap past on every pass, and they run at roughly
   the same speed whatever is on them. They pause on hover or keyboard focus,
