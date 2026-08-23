@@ -351,13 +351,14 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
    its own colour, and masking it would fade the band itself, not just the
    pills sliding over it. */
 .marquee--pills {
-  background: var(--panel-2); padding-block: .8rem;
+  background: var(--panel-2); padding-block: .45rem;
   -webkit-mask-image: none; mask-image: none;
 }
 /* On anything wider than a phone it becomes a pink banner. */
 @media (min-width: 720px) {
-  .marquee--pills { background: var(--blush); }
-  .marquee--pills .pill { background: transparent; color: #14100f; font-weight: 500; }
+  .marquee--pills { background: var(--blush); padding-block: .3rem; }
+  /* Transparent on the band, so the chip's own padding only adds height. */
+  .marquee--pills .pill { background: transparent; color: #14100f; font-weight: 500; padding-block: .3rem; }
   .marquee--pills .pill svg { color: #14100f; opacity: .75; }
 }
 @media (max-width: 420px) { .marquee--pills .pill { font-size: .8rem; padding: .52rem .9rem; } }
